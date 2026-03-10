@@ -3,84 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Variante B: Clean &amp; Strukturiert | Rapid Set ASPHALT REPAIR MIX</title>
+<meta name="description" content="Rapid Set ASPHALT REPAIR MIX – die schnelle, einfache und dauerhafte Asphalt-Reparatur. KORODUR Corporate Technical.">
+<title>Variante B: Corporate Technical | Rapid Set ASPHALT REPAIR MIX</title>
 <link rel="stylesheet" href="tokens.css">
 <style>
-/* ===== VARIANTE B: SWISS PRECISION / INTERNATIONAL TYPOGRAPHIC STYLE ===== */
-/* Flat, grid-lined, monospace data, restrained color, generous whitespace */
+/* ===== VARIANTE B: CORPORATE TECHNICAL ===== */
+/* Benchmark: Knauf, TRUMPF, Hilti — Structure, Data, Efficiency */
 
 :root {
-  --max-w: 1100px;
-  --mono: "Courier New", Courier, monospace;
+  --max-w: 1200px;
   --border: 1px solid var(--mid-gray);
-  --section-pad-d: 100px;
-  --section-pad-m: 60px;
+  --section-pad-d: 96px;
+  --section-pad-m: 56px;
+  --card-radius: 4px;
+  --card-shadow: 0 1px 3px rgba(0,45,89,0.08);
+  --card-shadow-hover: 0 4px 12px rgba(0,45,89,0.12);
 }
 
 /* ===== GLOBAL TYPOGRAPHY ===== */
 h1 {
   font-weight: 900;
-  font-size: clamp(2rem, 4.5vw, 3rem);
-  text-transform: uppercase;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 h2 {
-  font-weight: 900;
-  font-size: clamp(1.3rem, 2.8vw, 1.8rem);
-  text-transform: uppercase;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 3vw, 2rem);
   line-height: 1.2;
-  margin-bottom: 12px;
-  position: relative;
-  padding-bottom: 20px;
-  display: inline-block;
+  margin-bottom: 16px;
 }
-h2::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 4px;
-  background: var(--secondary);
-}
+h2::after { display: none; }
 h3 {
   font-weight: 700;
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
   margin-bottom: 8px;
 }
+body {
+  line-height: 1.65;
+}
 
-/* Section numbering */
+/* Section label above H2 */
 .section-number {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  color: #8a9aaa;
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--secondary);
   text-transform: uppercase;
   margin-bottom: 8px;
   display: block;
 }
 
-/* Override tokens for left-alignment */
+/* Section intro */
 .section-intro {
   text-align: left;
   max-width: 720px;
+  font-size: 1.05rem;
+  line-height: 1.65;
 }
 
-/* Horizontal divider between sections */
+/* Specs / data styling — Gabarito 800, NO monospace */
+.spec-value {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--primary);
+}
+
+/* ===== SECTION RHYTHM: White → Gray → White → Gray → White → Navy ===== */
 section {
   padding: var(--section-pad-d) 0;
-  background: var(--white);
-  border-bottom: var(--border);
-}
-section:last-of-type {
   border-bottom: none;
 }
+section.bg-white { background: var(--white); }
+section.bg-gray { background: var(--light-gray); }
+section.bg-dark { background: var(--primary) !important; }
 
-/* Muted images */
-img:not(.logo img):not(.berater-img) {
-  filter: saturate(0.7) brightness(1.05);
+/* Remove image desaturation */
+img { filter: none; }
+
+/* ===== PROGRESS BAR ===== */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--secondary);
+  z-index: 1000;
 }
 
 /* ===== HEADER ===== */
@@ -96,120 +107,119 @@ header .container { display: flex; align-items: center; justify-content: space-b
 header nav { display: flex; align-items: center; }
 header nav a {
   color: var(--text);
+  font-family: var(--font);
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin-left: 32px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  transition: color 0.2s;
 }
 header nav a:hover { color: var(--secondary); text-decoration: none; }
 .logo { display: flex; align-items: center; }
-.logo img { height: 56px; width: auto; filter: none; }
+.logo img { height: 56px; width: auto; }
 .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: var(--text); padding: 4px; }
-
-/* Progress bar */
-.progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--secondary);
-  z-index: 900;
-  transition: width .1s linear;
-}
 
 /* ===== BUTTONS ===== */
 .btn {
-  border-radius: 2px;
-  font-size: 0.85rem;
+  border-radius: var(--card-radius);
+  font-size: 1rem;
   font-weight: 700;
-  padding: 12px 28px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  transition: all 0.2s ease;
+  padding: 14px 32px;
+  transition: all 0.25s ease;
+  text-transform: none;
+  letter-spacing: 0;
 }
 .btn-primary {
-  background: transparent;
-  color: var(--primary);
-  border: 1.5px solid var(--primary);
+  background: var(--primary);
+  color: var(--white);
+  border: 2px solid var(--primary);
 }
 .btn-primary:hover {
-  background: var(--primary);
+  background: #001a35;
+  border-color: #001a35;
   color: var(--white);
   text-decoration: none;
 }
 .btn-ghost {
   background: transparent;
   color: var(--primary);
-  border: 1.5px solid transparent;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  padding-left: 0;
-  padding-right: 0;
+  border: 2px solid var(--primary);
+  text-decoration: none;
+  padding: 14px 32px;
 }
 .btn-ghost:hover {
-  color: var(--secondary);
+  background: var(--primary);
+  color: var(--white);
+  text-decoration: none;
 }
 
-/* ===== HERO: Pure Typographic ===== */
+/* ===== HERO: Split Layout ===== */
 #hero {
-  padding: 120px 0 100px;
-  background: var(--white);
-  border-top: 4px solid var(--secondary);
-  border-bottom: var(--border);
+  padding: 80px 0 96px;
+  background: var(--light-gray) !important;
+  border-top: none;
 }
 .hero-split {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 48px;
+  align-items: center;
+}
+.hero-text h1 { margin-bottom: 16px; }
+.hero-sub {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 32px;
+  line-height: 1.65;
+  max-width: 560px;
+  color: var(--text);
+}
+.hero-img {
   display: block;
 }
-.hero-text h1 { margin-bottom: 20px; }
-.hero-sub {
-  font-size: 1.05rem;
-  font-weight: 400;
-  margin-bottom: 48px;
-  line-height: 1.7;
-  max-width: 640px;
+.hero-img img {
+  width: 100%;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
 }
-.hero-img { display: none; }
+
+/* Bento Key Facts */
 .key-figures {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin-bottom: 48px;
-  border: var(--border);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
 }
 .key-figure {
-  text-align: left;
-  padding: 20px 24px;
   background: var(--white);
-  border-right: var(--border);
-  border-radius: 0;
+  border-radius: var(--card-radius);
+  padding: 20px 20px;
+  box-shadow: var(--card-shadow);
+  border: var(--border);
+  text-align: left;
 }
-.key-figure:last-child { border-right: none; }
 .key-figure .number {
-  font-family: var(--mono);
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-family: var(--font);
+  font-size: 1.3rem;
+  font-weight: 800;
   color: var(--primary);
   display: block;
   line-height: 1.2;
 }
 .key-figure .label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #8a9aaa;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #5a6a7a;
   margin-top: 4px;
   display: block;
 }
+
 .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
 /* ===== MINI TRUST BAR ===== */
 .mini-trust {
   background: var(--white);
   color: var(--text);
-  padding: 18px 0;
+  padding: 20px 0;
   border-bottom: var(--border);
 }
 .mini-trust .container {
@@ -219,55 +229,70 @@ header nav a:hover { color: var(--secondary); text-decoration: none; }
   gap: 12px 48px;
 }
 .mini-trust-item {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-weight: 400;
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   white-space: nowrap;
   color: var(--text);
 }
 
+/* ===== CARDS (Global) ===== */
+.problem-card,
+.ref-card,
+a.video-card,
+.berater-card {
+  background: var(--white);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  border: var(--border);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.problem-card:hover,
+.ref-card:hover,
+a.video-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
 /* ===== PROBLEM SECTION ===== */
-#problem { background: var(--white); }
 .problem-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  gap: 24px;
   margin: 40px 0;
-  border: var(--border);
 }
 .problem-card {
-  background: var(--white);
-  border-radius: 0;
   padding: 32px 28px;
-  border-right: var(--border);
-  border-top: none;
+  position: relative;
 }
-.problem-card:last-child { border-right: none; }
 .problem-card .card-icon {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-bottom: 16px;
   display: block;
-  opacity: 0.5;
+  color: var(--primary);
+  opacity: 1;
 }
 .problem-card h3 { margin-bottom: 10px; }
-.problem-card p { font-size: 0.9rem; margin-bottom: 0; }
+.problem-card p { font-size: 0.95rem; margin-bottom: 0; line-height: 1.65; }
+
 .section-bridge {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 400;
   margin: 0;
-  padding: 20px 0;
-  background: transparent;
+  padding: 24px 28px;
+  background: var(--light-gray);
   color: var(--text);
-  border-radius: 0;
-  border-top: var(--border);
-  font-style: italic;
+  border-radius: var(--card-radius);
+  border: var(--border);
+  font-style: normal;
+  line-height: 1.65;
 }
 
-/* ===== STEPS: Left-aligned list, no timeline circles ===== */
-#loesung { background: var(--white); }
+/* ===== STEPS / TIMELINE ===== */
 .timeline {
   position: relative;
   margin: 48px 0;
@@ -279,7 +304,7 @@ header nav a:hover { color: var(--secondary); text-decoration: none; }
   left: 40px;
   top: 0;
   bottom: 0;
-  width: 1px;
+  width: 2px;
   background: var(--mid-gray);
 }
 .timeline-step {
@@ -293,61 +318,58 @@ header nav a:hover { color: var(--secondary); text-decoration: none; }
   position: absolute;
   left: -80px;
   top: 0;
-  width: auto;
-  height: auto;
-  border-radius: 0;
-  background: transparent;
-  color: var(--mid-gray);
-  font-family: var(--mono);
-  font-size: 1.8rem;
-  font-weight: 700;
-  display: block;
-  text-align: right;
   width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .timeline-step h3 { margin-bottom: 6px; }
-.timeline-step p { font-size: 0.9rem; margin-bottom: 0; color: #4a5a6a; }
+.timeline-step p { font-size: 0.95rem; margin-bottom: 0; color: #4a5a6a; line-height: 1.65; }
+
+/* Benefits Bar — Bento Grid */
 .benefits-bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  gap: 12px;
   margin: 48px 0 0;
-  border: var(--border);
 }
 .benefit-item {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-weight: 400;
-  font-size: 0.8rem;
-  font-family: var(--mono);
-  padding: 12px 16px;
-  border-right: var(--border);
-  border-bottom: var(--border);
+  gap: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-family: var(--font);
+  padding: 16px 20px;
+  background: var(--white);
+  border-radius: var(--card-radius);
+  border: var(--border);
+  box-shadow: var(--card-shadow);
 }
-.benefit-item:nth-child(3n) { border-right: none; }
-.benefit-item:nth-child(n+4) { border-bottom: none; }
-.benefit-item .b-icon { color: var(--primary); font-size: 0.9rem; }
+.benefit-item .b-icon { color: var(--secondary); font-size: 1rem; font-weight: 900; }
 
 /* ===== VIDEO ===== */
-#video { background: var(--white); }
 .video-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 24px;
   margin-top: 40px;
 }
 a.video-card {
   display: block;
-  background: var(--white);
-  border-radius: 2px;
   overflow: hidden;
-  border: var(--border);
   text-decoration: none;
   color: var(--text);
-  transition: border-color 0.2s;
 }
-a.video-card:hover { border-color: var(--primary); text-decoration: none; }
+a.video-card:hover { text-decoration: none; }
 .video-thumb { position: relative; overflow: hidden; }
 .video-thumb img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
 .play-btn {
@@ -357,214 +379,213 @@ a.video-card:hover { border-color: var(--primary); text-decoration: none; }
   transform: translate(-50%, -50%);
   width: 56px;
   height: 56px;
-  background: rgba(0,45,89,.8);
+  background: rgba(0,45,89,.85);
   color: var(--white);
-  border-radius: 2px;
+  border-radius: var(--card-radius);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
   padding-left: 3px;
+  transition: background 0.2s;
 }
 a.video-card:hover .play-btn { background: var(--primary); }
 .video-card-body { padding: 20px 24px; }
 .video-card-body h3 { margin-bottom: 6px; }
-.video-card-body p { font-size: 0.85rem; margin-bottom: 0; color: #5a6a7a; }
+.video-card-body p { font-size: 0.9rem; margin-bottom: 0; color: #5a6a7a; }
 .video-lang-badge {
   display: inline-block;
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  font-weight: 400;
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  background: transparent;
-  color: #8a9aaa;
-  border: 1px solid var(--mid-gray);
-  padding: 2px 8px;
-  border-radius: 2px;
+  letter-spacing: 0.06em;
+  background: var(--light-gray);
+  color: var(--primary);
+  padding: 3px 10px;
+  border-radius: var(--card-radius);
   margin-bottom: 8px;
 }
 
-/* ===== COMPARISON ===== */
-#vergleich { background: var(--white); }
+/* ===== COMPARISON — Real HTML Table with Zebra ===== */
 .comparison-summary {
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 500;
   margin-bottom: 40px;
-  padding: 16px 0;
-  background: transparent;
-  border-left: 4px solid var(--primary);
-  padding-left: 20px;
-  border-radius: 0;
-  font-style: italic;
+  padding: 20px 24px;
+  background: var(--white);
+  border-left: 4px solid var(--secondary);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  font-style: normal;
+  line-height: 1.65;
 }
 .comparison-cols {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border: var(--border);
+  gap: 24px;
 }
 .comp-col {
   background: var(--white);
-  border-radius: 0;
-  border-right: var(--border);
+  border-radius: var(--card-radius);
+  border: var(--border);
+  box-shadow: var(--card-shadow);
   overflow: hidden;
 }
-.comp-col:last-child { border-right: none; }
 .comp-col-header {
-  padding: 14px 20px;
+  padding: 16px 20px;
   font-weight: 800;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-align: left;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   border-bottom: var(--border);
 }
-.comp-col:nth-child(1) .comp-col-header { background: var(--white); color: var(--primary); border-bottom: 2px solid var(--primary); }
-.comp-col:nth-child(2) .comp-col-header { background: var(--white); color: #8a9aaa; }
-.comp-col:nth-child(3) .comp-col-header { background: var(--white); color: #8a9aaa; }
+.comp-col:nth-child(1) .comp-col-header {
+  background: var(--primary);
+  color: var(--white);
+  border-bottom: 2px solid var(--primary);
+}
+.comp-col:nth-child(2) .comp-col-header { background: var(--light-gray); color: var(--text); }
+.comp-col:nth-child(3) .comp-col-header { background: var(--light-gray); color: var(--text); }
 .comp-col-body { padding: 0; }
 .comp-row {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
   border-bottom: var(--border);
-  font-size: 0.82rem;
+  font-size: 0.88rem;
 }
 .comp-row:last-child { border-bottom: none; }
-.comp-row .label { font-weight: 400; color: #8a9aaa; font-size: 0.75rem; }
-.comp-row .value { font-family: var(--mono); font-weight: 400; font-size: 0.78rem; text-align: right; }
-.comp-col:nth-child(1) .comp-row .value { color: var(--primary); font-weight: 700; }
+.comp-row:nth-child(even) { background: var(--light-gray); }
+.comp-row .label { font-weight: 500; color: #5a6a7a; font-size: 0.82rem; }
+.comp-row .value { font-family: var(--font); font-weight: 700; font-size: 0.88rem; text-align: right; color: var(--text); }
+.comp-col:nth-child(1) .comp-row .value { color: var(--primary); font-weight: 800; }
 
 /* ===== REFERENCES ===== */
-#referenzen { background: var(--white); }
-.ref-filters { display: flex; gap: 0; margin-bottom: 40px; flex-wrap: wrap; border-bottom: var(--border); }
+.ref-filters {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  background: var(--light-gray);
+  border-radius: var(--card-radius);
+  padding: 4px;
+}
 .ref-filter-btn {
   font-family: var(--font);
   font-weight: 700;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   padding: 10px 24px;
   border: none;
-  border-bottom: 2px solid transparent;
-  border-radius: 0;
+  border-radius: var(--card-radius);
   background: transparent;
   cursor: pointer;
-  color: #8a9aaa;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  color: #5a6a7a;
   transition: all 0.2s;
 }
 .ref-filter-btn.active,
 .ref-filter-btn:hover {
   color: var(--primary);
-  border-bottom-color: var(--primary);
-  background: transparent;
-}
-.ref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-.ref-card {
   background: var(--white);
-  border-radius: 2px;
-  border: var(--border);
-  overflow: hidden;
-  transition: border-color 0.2s;
+  box-shadow: var(--card-shadow);
 }
-.ref-card:hover { border-color: var(--primary); }
+.ref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.ref-card {
+  overflow: hidden;
+}
+.ref-card:hover { text-decoration: none; }
 .ref-card-img { width: 100%; height: 200px; object-fit: cover; }
 .ref-card-body { padding: 24px; }
 .ref-card-badge {
   display: inline-block;
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  font-weight: 400;
-  background: transparent;
-  color: #8a9aaa;
-  border: 1px solid var(--mid-gray);
-  padding: 2px 10px;
-  border-radius: 2px;
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--light-gray);
+  color: var(--text);
+  padding: 3px 10px;
+  border-radius: var(--card-radius);
   margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  margin-right: 4px;
 }
 .ref-card-highlight {
   display: inline-block;
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  font-weight: 400;
-  background: transparent;
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  padding: 2px 10px;
-  border-radius: 2px;
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(0,158,227,0.08);
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+  padding: 3px 10px;
+  border-radius: var(--card-radius);
   margin-bottom: 8px;
-  margin-left: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  margin-left: 0;
 }
-.ref-card-meta { font-size: 0.75rem; color: #8a9aaa; margin-bottom: 8px; font-family: var(--mono); }
+.ref-card-meta { font-size: 0.82rem; color: #5a6a7a; margin-bottom: 8px; font-family: var(--font); font-weight: 500; }
 .ref-card-body h3 { margin-bottom: 6px; }
-.ref-card-body p { font-size: 0.85rem; margin-bottom: 0; }
+.ref-card-body p { font-size: 0.9rem; margin-bottom: 0; line-height: 1.65; }
+
 blockquote.testimonial {
-  border-left: 1px solid var(--mid-gray);
-  padding: 0 0 0 24px;
+  border-left: 3px solid var(--secondary);
+  padding: 24px 28px;
   margin: 0 0 40px;
-  background: transparent;
-  border-radius: 0;
-  font-size: 1rem;
+  background: var(--light-gray);
+  border-radius: var(--card-radius);
+  font-size: 1.05rem;
   font-style: italic;
-  color: #4a5a6a;
+  color: var(--text);
+  line-height: 1.65;
 }
 blockquote.testimonial cite {
   display: block;
   margin-top: 12px;
   font-style: normal;
   font-weight: 700;
-  font-size: 0.8rem;
-  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-family: var(--font);
   color: var(--primary);
 }
 
 /* ===== ZIELGRUPPEN: Tabs ===== */
-#zielgruppen { background: var(--white); }
 .tabs-nav {
   display: flex;
-  gap: 0;
-  border-bottom: var(--border);
+  gap: 4px;
+  background: var(--white);
+  border-radius: var(--card-radius);
+  padding: 4px;
   margin-bottom: 0;
+  border: var(--border);
 }
 .tab-btn {
   flex: 1;
   padding: 14px 8px;
   font-family: var(--font);
   font-weight: 700;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: 0.85rem;
   background: transparent;
   border: none;
-  border-bottom: 2px solid transparent;
   cursor: pointer;
-  color: #8a9aaa;
-  border-radius: 0;
-  transition: color 0.2s, border-color 0.2s;
+  color: #5a6a7a;
+  border-radius: var(--card-radius);
+  transition: all 0.2s;
 }
 .tab-btn.active {
-  background: transparent;
-  color: var(--primary);
-  border-bottom-color: var(--primary);
+  background: var(--primary);
+  color: var(--white);
 }
 .tab-panel {
   display: none;
-  padding: 32px 0;
-  background: transparent;
-  border-radius: 0;
+  padding: 32px 28px;
+  background: var(--white);
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
+  border: var(--border);
+  border-top: none;
 }
 .tab-panel.active { display: block; }
 .tab-panel h3 { color: var(--primary); margin-bottom: 12px; }
 .tab-panel ul { margin: 12px 0 16px 20px; }
-.tab-panel li { margin-bottom: 6px; font-size: 0.9rem; }
+.tab-panel li { margin-bottom: 8px; font-size: 0.95rem; line-height: 1.65; }
 
 /* ===== TECH DATA ===== */
-#technik { background: var(--white); }
 .technik-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -575,110 +596,121 @@ blockquote.testimonial cite {
 .tech-table {
   width: 100%;
   border-collapse: collapse;
+  border-radius: var(--card-radius);
+  overflow: hidden;
   border: var(--border);
-  border-radius: 0;
+  box-shadow: var(--card-shadow);
 }
 .tech-table th {
-  background: var(--white);
-  color: var(--primary);
-  padding: 10px 16px;
+  background: var(--primary);
+  color: var(--white);
+  padding: 14px 20px;
   text-align: left;
   font-weight: 700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border-bottom: 2px solid var(--primary);
+  font-size: 0.85rem;
+  border-bottom: none;
 }
 .tech-table td {
-  padding: 8px 16px;
+  padding: 12px 20px;
   border-bottom: var(--border);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
-.tech-table td:first-child { font-weight: 700; text-align: left; }
-.tech-table td:last-child { font-family: var(--mono); font-size: 0.8rem; text-align: right; }
+.tech-table td:first-child { font-weight: 600; text-align: left; }
+.tech-table td:last-child { font-family: var(--font); font-weight: 800; font-size: 0.9rem; text-align: right; color: var(--primary); }
 .tech-table tr:last-child td { border-bottom: none; }
-.tech-table tr:nth-child(even) td { background: transparent; }
+.tech-table tr:nth-child(even) td { background: var(--light-gray); }
+.tech-table tr:nth-child(odd) td { background: var(--white); }
+
+/* Merkmale — Bento Grid */
 .merkmale-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  gap: 12px;
   margin: 40px 0;
-  border: var(--border);
 }
 .merkmal-item {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
-  padding: 12px 16px;
-  border-right: var(--border);
-  border-bottom: var(--border);
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 16px 20px;
+  background: var(--white);
+  border-radius: var(--card-radius);
+  border: var(--border);
+  box-shadow: var(--card-shadow);
 }
-.merkmal-item:nth-child(3n) { border-right: none; }
-.merkmal-item:nth-child(n+4) { border-bottom: none; }
-.merkmal-item .m-icon { color: var(--primary); font-weight: 900; font-size: 0.85rem; }
+.merkmal-item .m-icon {
+  color: var(--secondary);
+  font-weight: 900;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
 .sustainability-box {
-  background: transparent;
-  padding: 16px 0;
-  border-radius: 0;
-  border-top: var(--border);
+  background: var(--light-gray);
+  padding: 20px 24px;
+  border-radius: var(--card-radius);
   margin: 0;
-  font-size: 0.85rem;
-  color: #5a6a7a;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.65;
+  border: var(--border);
 }
+
 .technik-image-col { position: sticky; top: 100px; }
 
 /* ===== INLINE CONTACT FORM ===== */
 .contact-form-section {
-  margin-top: 60px;
-  padding-top: 60px;
+  margin-top: 64px;
+  padding-top: 64px;
   border-top: var(--border);
 }
 .contact-form { max-width: 600px; margin: 0; }
-.form-row { margin-bottom: 16px; }
+.form-row { margin-bottom: 20px; }
 .form-row label {
   display: block;
   font-weight: 700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-size: 0.85rem;
   margin-bottom: 6px;
-  color: #8a9aaa;
+  color: var(--text);
 }
 .form-row input,
 .form-row textarea,
 .form-row select {
   width: 100%;
   font-family: var(--font);
-  font-size: 0.9rem;
-  padding: 10px 14px;
+  font-size: 0.95rem;
+  padding: 12px 16px;
   border: var(--border);
-  border-radius: 2px;
+  border-radius: var(--card-radius);
   background: var(--white);
   color: var(--text);
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .form-row input:focus,
 .form-row textarea:focus,
-.form-row select:focus { outline: none; border-color: var(--primary); }
+.form-row select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0,45,89,0.08);
+}
 .form-row textarea { resize: vertical; min-height: 100px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
 /* ===== FAQ ===== */
-#faq { background: var(--white); }
 .faq-item {
   border: none;
   border-bottom: var(--border);
-  border-radius: 0;
   margin-bottom: 0;
   overflow: hidden;
 }
 .faq-question {
   width: 100%;
-  padding: 18px 0;
+  padding: 20px 0;
   font-family: var(--font);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -690,95 +722,94 @@ blockquote.testimonial cite {
   gap: 12px;
   transition: color 0.2s;
 }
-.faq-question:hover { background: transparent; color: var(--primary); }
-.faq-question.active { background: transparent; color: var(--primary); }
-.faq-question::after { content: "+"; font-family: var(--mono); font-size: 1.2rem; font-weight: 400; flex-shrink: 0; }
+.faq-question:hover { color: var(--secondary); }
+.faq-question.active { color: var(--primary); }
+.faq-question::after {
+  content: "+";
+  font-family: var(--font);
+  font-size: 1.4rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  color: var(--secondary);
+}
 .faq-question.active::after { content: "\2212"; }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-.faq-answer-inner { padding: 0 0 18px; line-height: 1.7; font-size: 0.9rem; color: #5a6a7a; }
+.faq-answer-inner { padding: 0 0 20px; line-height: 1.65; font-size: 0.95rem; color: #4a5a6a; }
 
 /* ===== BERATER ===== */
 #berater {
-  background: var(--primary);
   border-bottom: none;
 }
+#berater .section-number { color: rgba(255,255,255,.4); }
 #berater h2 { color: var(--white); }
-#berater h2::after { background: var(--secondary); }
 .berater-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px 0 24px; }
 .berater-grid-row2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 66.666%; margin: 0 auto 24px; }
 .berater-card {
-  background: var(--white);
-  border-radius: 3px;
-  border: none;
+  border-radius: var(--card-radius);
   padding: 28px 20px;
   text-align: center;
   color: var(--text);
-  transition: none;
+  box-shadow: none;
+  border: none;
 }
-.berater-card:hover { transform: none; }
+.berater-card:hover { transform: translateY(-2px); box-shadow: var(--card-shadow-hover); }
 .berater-img {
   width: 80px;
   height: 80px;
-  border-radius: 3px;
+  border-radius: 50%;
   object-fit: cover;
-  border: none;
+  border: 3px solid var(--light-gray);
   margin: 0 auto 12px;
   display: block;
   background: var(--light-gray);
-  filter: saturate(0.7) brightness(1.05);
 }
-.berater-name { font-weight: 800; font-size: 0.95rem; margin-bottom: 2px; }
-.berater-title { font-size: 0.72rem; color: #8a9aaa; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.04em; }
+.berater-name { font-weight: 800; font-size: 1rem; margin-bottom: 2px; }
+.berater-title { font-size: 0.8rem; color: #5a6a7a; margin-bottom: 10px; }
 .berater-plz {
   display: inline-block;
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  font-weight: 400;
-  background: transparent;
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--light-gray);
   color: var(--text);
-  border: 1px solid var(--mid-gray);
-  padding: 2px 10px;
-  border-radius: 2px;
+  padding: 3px 12px;
+  border-radius: var(--card-radius);
   margin-bottom: 12px;
 }
-.berater-contact { font-size: 0.85rem; margin-bottom: 10px; }
+.berater-contact { font-size: 0.9rem; margin-bottom: 10px; }
 .berater-contact a { color: var(--primary); font-weight: 700; }
 .berater-btn {
   display: inline-block;
   font-family: var(--font);
   font-weight: 700;
-  font-size: 0.78rem;
-  padding: 8px 20px;
-  border-radius: 2px;
-  background: transparent;
-  color: var(--primary);
-  border: 1.5px solid var(--primary);
+  font-size: 0.85rem;
+  padding: 10px 24px;
+  border-radius: var(--card-radius);
+  background: var(--primary);
+  color: var(--white);
+  border: 2px solid var(--primary);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.25s;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
-.berater-btn:hover { background: var(--primary); color: var(--white); text-decoration: none; }
-.berater-links { text-align: left; margin-top: 24px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.berater-btn:hover { background: #001a35; border-color: #001a35; color: var(--white); text-decoration: none; }
+.berater-links { text-align: center; margin-top: 24px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
 .berater-links a {
   color: rgba(255,255,255,.5);
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
-.berater-links a:hover { color: var(--white); }
+.berater-links a:hover { color: var(--white); text-decoration: none; }
 
-/* ===== FOOTER: Minimal, barely there ===== */
+/* ===== FOOTER ===== */
 footer {
   background: var(--primary);
   color: var(--white);
-  padding: 16px 0;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 20px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 footer a { color: rgba(255,255,255,.5); }
-footer a:hover { color: var(--white); }
+footer a:hover { color: var(--white); text-decoration: none; }
 .footer-compact {
   display: flex;
   justify-content: space-between;
@@ -787,73 +818,123 @@ footer a:hover { color: var(--white); }
 }
 .footer-brand { display: none; }
 .footer-left p {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin: 0;
   line-height: 1.5;
-  font-family: var(--mono);
+  font-family: var(--font);
   color: rgba(255,255,255,.4);
 }
 .footer-right {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   flex-wrap: wrap;
-  font-size: 0.7rem;
-  font-family: var(--mono);
-}
-
-/* ===== VISIBLE GRID LINES (decorative) ===== */
-.container {
-  position: relative;
+  font-size: 0.8rem;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   section { padding: var(--section-pad-m) 0; }
   .hero-split { display: block; }
-  .hero-img { display: none; }
-  .key-figures { grid-template-columns: 1fr 1fr; }
-  .key-figure { border-bottom: var(--border); }
-  .key-figure:nth-child(odd) { border-right: var(--border); }
-  .key-figure:nth-child(even) { border-right: none; }
-  .key-figure:nth-child(n+3) { border-bottom: none; }
+  .hero-img { display: block; margin-bottom: 32px; }
+  .hero-img img { border-radius: var(--card-radius); }
+  .key-figures { grid-template-columns: 1fr; }
   .problem-cards { grid-template-columns: 1fr; }
-  .problem-card { border-right: none; border-bottom: var(--border); }
-  .problem-card:last-child { border-bottom: none; }
   .video-grid { grid-template-columns: 1fr; }
-  .comparison-cols { grid-template-columns: 1fr; }
-  .comp-col { border-right: none; border-bottom: var(--border); }
-  .comp-col:last-child { border-bottom: none; }
+  .comparison-table { font-size: 0.8rem; }
+  .comparison-table th, .comparison-table td { padding: 8px 12px; }
   .ref-grid { grid-template-columns: 1fr; }
+  .ref-filters { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
   .technik-layout { grid-template-columns: 1fr; }
-  .merkmale-list { grid-template-columns: 1fr 1fr; }
-  .merkmal-item:nth-child(2n) { border-right: none; }
-  .merkmal-item:nth-child(odd) { border-right: var(--border); }
-  .merkmal-item { border-bottom: var(--border); }
-  .merkmal-item:nth-last-child(-n+2) { border-bottom: none; }
-  .benefits-bar { grid-template-columns: 1fr 1fr; }
-  .benefit-item:nth-child(2n) { border-right: none; }
-  .benefit-item:nth-child(odd) { border-right: var(--border); }
-  .benefit-item { border-bottom: var(--border); }
-  .benefit-item:nth-last-child(-n+2) { border-bottom: none; }
+  .merkmale-list { grid-template-columns: 1fr; }
+  .benefits-bar { grid-template-columns: 1fr; }
   .berater-grid, .berater-grid-row2 { grid-template-columns: 1fr; max-width: 100%; }
   .berater-card { display: flex; align-items: center; text-align: left; gap: 16px; padding: 16px; }
   .berater-img { width: 64px; height: 64px; margin: 0; flex-shrink: 0; }
   .berater-card-info { flex: 1; }
   .footer-compact { flex-direction: column; gap: 12px; align-items: flex-start; }
-  .tabs-nav { flex-direction: column; gap: 0; }
-  .tab-btn { border-radius: 0; text-align: left; border-bottom: var(--border); border-left: 2px solid transparent; }
-  .tab-btn.active { border-bottom-color: var(--mid-gray); border-left-color: var(--primary); }
+  .tabs-nav { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+  .tab-btn { flex: none; white-space: nowrap; }
   .form-grid { grid-template-columns: 1fr; }
   .hero-ctas .btn { width: 100%; }
   header nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 12px 24px; border-bottom: var(--border); flex-direction: column; z-index: 900; }
   header nav.open { display: flex; }
-  header nav a { margin: 6px 0; margin-left: 0; }
+  header nav a { margin: 8px 0; margin-left: 0; }
   .mobile-menu-btn { display: block; }
-  #hero { padding: 60px 0; }
+  #hero { padding: 48px 0 56px; }
+}
+
+/* ===== SKIP LINK ===== */
+.skip-link { position: absolute; top: -100px; left: 16px; background: var(--primary); color: white; padding: 8px 16px; z-index: 9999; font-weight: 700; border-radius: var(--card-radius); }
+.skip-link:focus { top: 8px; }
+
+/* ===== COMPARISON TABLE ===== */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  border: var(--border);
+  box-shadow: var(--card-shadow);
+}
+.comparison-table th {
+  background: var(--primary);
+  color: var(--white);
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-bottom: none;
+}
+.comparison-table th:first-child {
+  background: var(--primary);
+}
+.comparison-table th:nth-child(2),
+.comparison-table th:nth-child(3) {
+  background: var(--light-gray);
+  color: var(--text);
+  font-weight: 800;
+}
+.comparison-table td {
+  padding: 10px 20px;
+  border-bottom: var(--border);
+  font-size: 0.88rem;
+}
+.comparison-table td:first-child {
+  font-weight: 500;
+  color: #5a6a7a;
+  font-size: 0.82rem;
+}
+.comparison-table td:nth-child(2),
+.comparison-table td:nth-child(3),
+.comparison-table td:nth-child(4) {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+.comparison-table td:nth-child(2) {
+  color: var(--primary);
+  font-weight: 800;
+}
+.comparison-table tr:last-child td { border-bottom: none; }
+.comparison-table tr:nth-child(even) td { background: var(--light-gray); }
+.comparison-table tr:nth-child(odd) td { background: var(--white); }
+
+/* ===== FORM SUCCESS ===== */
+.form-success {
+  padding: 24px 28px;
+  background: var(--light-gray);
+  border-left: 4px solid var(--secondary);
+  border-radius: var(--card-radius);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.65;
 }
 </style>
 </head>
 <body>
+<a href="#hero" class="skip-link">Zum Inhalt springen</a>
 
 <!-- PROGRESS BAR -->
 <div class="progress-bar" id="progress-bar"></div>
@@ -872,22 +953,22 @@ footer a:hover { color: var(--white); }
 </div>
 </header>
 
-<!-- HERO: Pure Typographic -->
-<section id="hero">
+<main>
+<!-- HERO: Split Layout -->
+<section id="hero" class="bg-gray">
 <div class="container">
 <div class="hero-split">
 <div class="hero-text">
 <h1>Einmal reparieren. Dauerhaft halten.</h1>
 <p class="hero-sub">Rapid Set ASPHALT REPAIR MIX &ndash; die schnelle, einfache und dauerhafte Alternative zu Kaltmischgut. Erh&auml;ltlich &uuml;ber den Baustoffhandel.</p>
 <div class="key-figures">
-<div class="key-figure"><span class="number">30 Min.</span><span class="label">Belastbar</span></div>
-<div class="key-figure"><span class="number">30&ndash;600 mm</span><span class="label">Einbaust&auml;rke</span></div>
-<div class="key-figure"><span class="number">38 N/mm&sup2;</span><span class="label">Druckfestigkeit</span></div>
-<div class="key-figure"><span class="number">100+</span><span class="label">Referenzprojekte</span></div>
+<div class="key-figure"><span class="number">30 Min.</span><span class="label">Befahrbar</span></div>
+<div class="key-figure"><span class="number">&ndash;40 &deg;C bis +80 &deg;C</span><span class="label">Temperaturbereich</span></div>
+<div class="key-figure"><span class="number">Nur Wasser</span><span class="label">Anmischen</span></div>
 </div>
 <div class="hero-ctas">
-<a href="#berater" class="btn btn-primary">Jetzt beraten lassen</a>
-<a href="https://www.korodur.de/wp-content/uploads/Asphalt-Repair-Mix_de.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Datenblatt (PDF)</a>
+<a href="https://www.korodur.de/wp-content/uploads/Asphalt-Repair-Mix_de.pdf" class="btn btn-primary" target="_blank" rel="noopener">Datenblatt herunterladen</a>
+<a href="#loesung" class="btn btn-ghost">Produkt entdecken</a>
 </div>
 </div>
 <div class="hero-img">
@@ -908,7 +989,7 @@ footer a:hover { color: var(--white); }
 </div>
 
 <!-- PROBLEM -->
-<section id="problem">
+<section id="problem" class="bg-white">
 <div class="container">
 <span class="section-number">01 / Problem</span>
 <h2>Warum Kaltmischgut nicht reicht</h2>
@@ -931,11 +1012,14 @@ footer a:hover { color: var(--white); }
 </div>
 </div>
 <div class="section-bridge">Rapid Set Asphalt Repair Mix ist kein Asphalt. Es ist ein mineralischer Reparaturm&ouml;rtel, der aussieht wie Asphalt &ndash; sich aber einfacher verarbeiten l&auml;sst und dauerhaft h&auml;lt.</div>
+<div style="margin-top: 32px;">
+<a href="#vergleich" class="btn btn-ghost">Vergleichstabelle ansehen</a>
+</div>
 </div>
 </section>
 
 <!-- LOESUNG -->
-<section id="loesung">
+<section id="loesung" class="bg-gray">
 <div class="container">
 <span class="section-number">02 / L&ouml;sung</span>
 <h2>Sack auf. Wasser dazu. Fertig.</h2>
@@ -974,7 +1058,7 @@ footer a:hover { color: var(--white); }
 </section>
 
 <!-- VIDEO -->
-<section id="video">
+<section id="video" class="bg-white">
 <div class="container">
 <span class="section-number">03 / Praxis</span>
 <h2>So sieht das in der Praxis aus</h2>
@@ -1006,63 +1090,33 @@ footer a:hover { color: var(--white); }
 </section>
 
 <!-- VERGLEICH -->
-<section id="vergleich">
+<section id="vergleich" class="bg-gray">
 <div class="container">
 <span class="section-number">04 / Vergleich</span>
 <h2>ARM vs. Kaltmischgut vs. Hei&szlig;asphalt</h2>
 <div class="comparison-summary">Asphalt Repair Mix ist nicht die g&uuml;nstigste L&ouml;sung. Es ist die wirtschaftlichste &ndash; weil Sie nur einmal reparieren.</div>
-<div class="comparison-cols">
-<div class="comp-col">
-<div class="comp-col-header">Asphalt Repair Mix</div>
-<div class="comp-col-body">
-<div class="comp-row"><span class="label">Belastbar nach</span><span class="value">30 Min.</span></div>
-<div class="comp-row"><span class="label">Voll belastbar</span><span class="value">ca. 1 Std.</span></div>
-<div class="comp-row"><span class="label">Haltbarkeit</span><span class="value">Dauerhaft</span></div>
-<div class="comp-row"><span class="label">Spezialger&auml;te</span><span class="value">Nein</span></div>
-<div class="comp-row"><span class="label">Haftbr&uuml;cke</span><span class="value">Nein</span></div>
-<div class="comp-row"><span class="label">Lieferform</span><span class="value">Sackweise</span></div>
-<div class="comp-row"><span class="label">Einbaust&auml;rke</span><span class="value">30&ndash;600 mm</span></div>
-<div class="comp-row"><span class="label">Frostbest&auml;ndig</span><span class="value">Ja</span></div>
-<div class="comp-row"><span class="label">CO&#8322;</span><span class="value">30 % weniger</span></div>
-<div class="comp-row"><span class="label">Gesamtkosten</span><span class="value">Mittel</span></div>
-</div>
-</div>
-<div class="comp-col">
-<div class="comp-col-header">Kaltmischgut</div>
-<div class="comp-col-body">
-<div class="comp-row"><span class="label">Belastbar nach</span><span class="value">Sofort (instabil)</span></div>
-<div class="comp-row"><span class="label">Voll belastbar</span><span class="value">Sofort (eingeschr.)</span></div>
-<div class="comp-row"><span class="label">Haltbarkeit</span><span class="value">Wochen&ndash;Monate</span></div>
-<div class="comp-row"><span class="label">Spezialger&auml;te</span><span class="value">Nein</span></div>
-<div class="comp-row"><span class="label">Haftbr&uuml;cke</span><span class="value">Teilweise</span></div>
-<div class="comp-row"><span class="label">Lieferform</span><span class="value">Sackweise</span></div>
-<div class="comp-row"><span class="label">Einbaust&auml;rke</span><span class="value">20&ndash;50 mm</span></div>
-<div class="comp-row"><span class="label">Frostbest&auml;ndig</span><span class="value">Eingeschr&auml;nkt</span></div>
-<div class="comp-row"><span class="label">CO&#8322;</span><span class="value">k. A.</span></div>
-<div class="comp-row"><span class="label">Gesamtkosten</span><span class="value">Hoch (Wiederholung)</span></div>
-</div>
-</div>
-<div class="comp-col">
-<div class="comp-col-header">Hei&szlig;asphalt</div>
-<div class="comp-col-body">
-<div class="comp-row"><span class="label">Belastbar nach</span><span class="value">30&ndash;60 Min.</span></div>
-<div class="comp-row"><span class="label">Voll belastbar</span><span class="value">1&ndash;2 Std.</span></div>
-<div class="comp-row"><span class="label">Haltbarkeit</span><span class="value">Dauerhaft</span></div>
-<div class="comp-row"><span class="label">Spezialger&auml;te</span><span class="value">Ja (Fr&auml;se, Walze)</span></div>
-<div class="comp-row"><span class="label">Haftbr&uuml;cke</span><span class="value">Nein</span></div>
-<div class="comp-row"><span class="label">Lieferform</span><span class="value">Tonnenweise</span></div>
-<div class="comp-row"><span class="label">Einbaust&auml;rke</span><span class="value">30&ndash;100+ mm</span></div>
-<div class="comp-row"><span class="label">Frostbest&auml;ndig</span><span class="value">Ja</span></div>
-<div class="comp-row"><span class="label">CO&#8322;</span><span class="value">Hoch</span></div>
-<div class="comp-row"><span class="label">Gesamtkosten</span><span class="value">Hoch (Einmal)</span></div>
-</div>
-</div>
-</div>
+<table class="comparison-table">
+<thead>
+<tr><th></th><th>Asphalt Repair Mix</th><th>Kaltmischgut</th><th>Hei&szlig;asphalt</th></tr>
+</thead>
+<tbody>
+<tr><td>Belastbar nach</td><td>30 Min.</td><td>Sofort (instabil)</td><td>30&ndash;60 Min.</td></tr>
+<tr><td>Voll belastbar</td><td>ca. 1 Std.</td><td>Sofort (eingeschr.)</td><td>1&ndash;2 Std.</td></tr>
+<tr><td>Haltbarkeit</td><td>Dauerhaft</td><td>Wochen&ndash;Monate</td><td>Dauerhaft</td></tr>
+<tr><td>Spezialger&auml;te</td><td>Nein</td><td>Nein</td><td>Ja (Fr&auml;se, Walze)</td></tr>
+<tr><td>Haftbr&uuml;cke</td><td>Nein</td><td>Teilweise</td><td>Nein</td></tr>
+<tr><td>Lieferform</td><td>Sackweise</td><td>Sackweise</td><td>Tonnenweise</td></tr>
+<tr><td>Einbaust&auml;rke</td><td>30&ndash;600 mm</td><td>20&ndash;50 mm</td><td>30&ndash;100+ mm</td></tr>
+<tr><td>Frostbest&auml;ndig</td><td>Ja</td><td>Eingeschr&auml;nkt</td><td>Ja</td></tr>
+<tr><td>CO&#8322;</td><td>30 % weniger</td><td>k. A.</td><td>Hoch</td></tr>
+<tr><td>Gesamtkosten</td><td>Mittel</td><td>Hoch (Wiederholung)</td><td>Hoch (Einmal)</td></tr>
+</tbody>
+</table>
 </div>
 </section>
 
 <!-- REFERENZEN -->
-<section id="referenzen">
+<section id="referenzen" class="bg-white">
 <div class="container">
 <span class="section-number">05 / Referenzen</span>
 <h2>Bew&auml;hrt in der Praxis</h2>
@@ -1120,11 +1174,14 @@ footer a:hover { color: var(--white); }
 </div>
 </div>
 </div>
+<div style="margin-top: 40px; text-align: center;">
+<a href="#berater" class="btn btn-ghost">&Auml;hnliches Projekt? Sprechen Sie uns an.</a>
+</div>
 </div>
 </section>
 
 <!-- ZIELGRUPPEN -->
-<section id="zielgruppen">
+<section id="zielgruppen" class="bg-gray">
 <div class="container">
 <span class="section-number">06 / Zielgruppen</span>
 <h2>F&uuml;r jede Fl&auml;che. F&uuml;r jeden Einsatz.</h2>
@@ -1175,7 +1232,7 @@ footer a:hover { color: var(--white); }
 </section>
 
 <!-- TECHNISCHE DATEN -->
-<section id="technik">
+<section id="technik" class="bg-white">
 <div class="container">
 <span class="section-number">07 / Technische Daten</span>
 <h2>Die Fakten auf einen Blick</h2>
@@ -1200,9 +1257,9 @@ footer a:hover { color: var(--white); }
 </table>
 </div>
 <div class="technik-image-col">
-<div style="border-radius:2px;overflow:hidden;border:1px solid var(--mid-gray);">
+<div style="border-radius:4px;overflow:hidden;border:1px solid var(--mid-gray);box-shadow:0 1px 3px rgba(0,45,89,0.08);">
 <img src="assets/Asphalt Repair Mix_30 Minuten.png" alt="Rapid Set ASPHALT REPAIR MIX 25 kg Sack" style="width:100%;padding:16px;background:var(--white);" loading="lazy">
-<p style="font-family:var(--mono);font-size:.72rem;color:#8a9aaa;padding:10px 16px;background:var(--white);margin:0;text-align:left;border-top:1px solid var(--mid-gray);">25 kg Sack &ndash; belastbar nach 30 Min.</p>
+<p style="font-size:.82rem;color:#5a6a7a;padding:12px 16px;background:var(--light-gray);margin:0;text-align:left;border-top:1px solid var(--mid-gray);font-weight:600;">25 kg Sack &ndash; belastbar nach 30 Min.</p>
 </div>
 </div>
 </div>
@@ -1223,7 +1280,7 @@ footer a:hover { color: var(--white); }
 <span class="section-number">08 / Kontakt</span>
 <h2>Beratung anfragen</h2>
 <p class="section-intro">Technische Fragen, Mengenberechnung oder Gro&szlig;projekt? Unsere Fachberater melden sich innerhalb von 24 Stunden.</p>
-<form class="contact-form" onsubmit="return false;">
+<form class="contact-form" id="contact-form">
 <div class="form-grid">
 <div class="form-row"><label for="name">Name *</label><input type="text" id="name" required></div>
 <div class="form-row"><label for="firma">Firma</label><input type="text" id="firma"></div>
@@ -1252,7 +1309,7 @@ footer a:hover { color: var(--white); }
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" class="bg-gray">
 <div class="container">
 <span class="section-number">09 / FAQ</span>
 <h2>H&auml;ufige Fragen</h2>
@@ -1282,7 +1339,7 @@ footer a:hover { color: var(--white); }
 <!-- BERATER -->
 <section id="berater" class="bg-dark">
 <div class="container">
-<span class="section-number" style="color:rgba(255,255,255,.4);">10 / Beratung</span>
+<span class="section-number">10 / Beratung</span>
 <h2 style="text-align:center;">Ihr Fachberater in Ihrer Region</h2>
 <p class="section-intro" style="text-align:center;max-width:640px;margin:0 auto 8px;color:rgba(255,255,255,.85);">Produktfragen, Mengenberechnung, Verarbeitungsempfehlungen &ndash; kostenlos und unverbindlich.</p>
 <div class="berater-grid">
@@ -1345,6 +1402,7 @@ footer a:hover { color: var(--white); }
 </div>
 </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -1416,6 +1474,17 @@ document.querySelectorAll('.ref-filter-btn').forEach(function(btn){
       }
     });
   });
+});
+
+/* Contact Form */
+var contactForm = document.getElementById('contact-form');
+if(contactForm) contactForm.addEventListener('submit', function(e){
+  e.preventDefault();
+  if(!contactForm.checkValidity()){ contactForm.reportValidity(); return; }
+  var success = document.createElement('div');
+  success.className = 'form-success';
+  success.textContent = 'Vielen Dank! Wir melden uns bei Ihnen.';
+  contactForm.parentNode.replaceChild(success, contactForm);
 });
 
 /* FAQ */
