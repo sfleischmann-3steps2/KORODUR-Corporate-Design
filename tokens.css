@@ -20,13 +20,10 @@
   /* Schrift */
   --font: "Gabarito", Arial, sans-serif;
 
-  /* Layout */
+  /* Layout — overridden per variant */
   --max-w:          1200px;
   --section-pad-d:  80px;
   --section-pad-m:  48px;
-  --radius:         8px;
-  --card-radius:    12px;
-  --shadow:         0 2px 12px rgba(0, 45, 89, .08);
 }
 
 /* --- CSS Reset --- */
@@ -60,21 +57,16 @@ p { margin-bottom: 16px; }
 .section-intro { font-size: 1.1rem; max-width: 960px; margin-bottom: 24px; }
 .micro-copy { font-size: .85rem; color: #5a6a7a; margin-top: 8px; }
 
-/* --- Buttons --- */
+/* --- Buttons (base only, visual style per variant) --- */
 .btn {
   display: inline-block;
   font-family: var(--font);
   font-weight: 700;
   font-size: 1rem;
   padding: 16px 32px;
-  border-radius: var(--radius);
   cursor: pointer;
   border: 2px solid transparent;
-  transition: background .2s, color .2s, border-color .2s, transform .1s;
+  transition: all .25s ease;
   text-align: center;
 }
-.btn:hover { text-decoration: none; transform: translateY(-1px); }
-.btn-primary { background: var(--cta); color: var(--white); border-color: var(--cta); }
-.btn-primary:hover { background: #007bb5; border-color: #007bb5; }
-.btn-ghost { background: transparent; color: var(--cta); border-color: var(--cta); }
-.btn-ghost:hover { background: var(--cta); color: var(--white); }
+.btn:hover { text-decoration: none; }
