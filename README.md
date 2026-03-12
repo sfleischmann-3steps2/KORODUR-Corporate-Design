@@ -1,4 +1,4 @@
-# Corridor Corporate Design – Designfindung
+# KORODUR Corporate Design – Designfindung
 
 3 gestalterisch unterschiedliche Landing-Page-Varianten mit identischem Inhalt (ARM Landing Page) als Entscheidungsgrundlage fuer das KORODUR Corporate Design.
 
