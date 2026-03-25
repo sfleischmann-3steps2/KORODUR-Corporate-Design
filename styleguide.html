@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KORODUR Corporate Design – Living Styleguide</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* ===== STYLEGUIDE LAYOUT ===== */
+
+:root {
+  --sg-sidebar-w: 260px;
+  --sg-section-pad: 80px;
+}
+
+body { display: flex; min-height: 100vh; }
+
+/* ===== SIDEBAR NAV ===== */
+.sg-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sg-sidebar-w);
+  height: 100vh;
+  background: var(--primary);
+  color: var(--white);
+  overflow-y: auto;
+  z-index: 100;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+}
+.sg-nav-logo {
+  padding: 0 24px 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  margin-bottom: 16px;
+}
+.sg-nav-logo img { height: 40px; width: auto; filter: brightness(0) invert(1); }
+.sg-nav-title {
+  font-size: .7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--secondary);
+  padding: 0 24px;
+  margin-bottom: 12px;
+}
+.sg-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  color: rgba(255,255,255,0.65);
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s, background .2s;
+  border-left: 3px solid transparent;
+}
+.sg-nav a:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+  text-decoration: none;
+}
+.sg-nav a.active {
+  color: var(--white);
+  border-left-color: var(--secondary);
+  background: rgba(255,255,255,0.08);
+}
+.sg-nav a .sg-num {
+  font-size: .7rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.35);
+  min-width: 20px;
+}
+.sg-nav a.active .sg-num { color: var(--secondary); }
+
+.sg-nav-footer {
+  margin-top: auto;
+  padding: 24px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-size: .75rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.5;
+}
+
+/* ===== MAIN CONTENT ===== */
+.sg-main {
+  margin-left: var(--sg-sidebar-w);
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===== HERO ===== */
+.sg-hero {
+  background: var(--primary);
+  color: var(--white);
+  padding: 100px 0 80px;
+}
+.sg-hero h1 {
+  font-weight: 900;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.sg-hero .sg-version {
+  display: inline-block;
+  background: var(--secondary);
+  color: var(--white);
+  font-size: .75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding: 4px 12px;
+  margin-bottom: 24px;
+}
+.sg-hero p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.75);
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+/* ===== SECTIONS ===== */
+.sg-section { padding: var(--sg-section-pad) 0; border-bottom: 1px solid var(--light-gray); }
+.sg-section:last-child { border-bottom: none; }
+
+.sg-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.sg-section-num {
+  font-size: .8rem;
+  font-weight: 400;
+  color: var(--secondary);
+  letter-spacing: .05em;
+}
+.sg-section h2 {
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.sg-section .sg-intro {
+  font-size: 1.05rem;
+  color: #5a6a7a;
+  max-width: 720px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+/* ===== COMING SOON ===== */
+.sg-coming-soon {
+  background: var(--light-gray);
+  border: 2px dashed var(--mid-gray);
+  padding: 48px 40px;
+  text-align: center;
+}
+.sg-coming-soon-label {
+  font-weight: 800;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  color: var(--mid-gray);
+  margin-bottom: 12px;
+}
+.sg-coming-soon p {
+  color: #8a939e;
+  font-size: .95rem;
+  margin-bottom: 0;
+}
+
+/* ===== LOGO SECTION ===== */
+.sg-logo-display {
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  padding: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.sg-logo-display img { height: 80px; width: auto; }
+
+.sg-logo-sizes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.sg-logo-size-item {
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.sg-logo-size-item img { width: auto; }
+.sg-logo-size-item .sg-label {
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #5a6a7a;
+}
+
+.sg-logo-protection {
+  display: inline-block;
+  position: relative;
+  padding: 40px;
+  border: 2px dashed var(--secondary);
+  margin-bottom: 40px;
+}
+.sg-logo-protection img { height: 60px; }
+.sg-logo-protection::after {
+  content: "Schutzraum = O";
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: .7rem;
+  font-weight: 700;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.sg-do-dont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+.sg-do, .sg-dont {
+  padding: 32px;
+  text-align: center;
+}
+.sg-do {
+  background: var(--white);
+  border: 2px solid #2a9d4e;
+}
+.sg-dont {
+  background: var(--white);
+  border: 2px solid #c0392b;
+}
+.sg-do-label, .sg-dont-label {
+  font-size: .75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 16px;
+}
+.sg-do-label { color: #2a9d4e; }
+.sg-dont-label { color: #c0392b; }
+.sg-do img, .sg-dont img { height: 48px; margin: 0 auto; }
+.sg-dont-logo-on-color {
+  background: var(--primary);
+  display: inline-block;
+  padding: 16px 24px;
+}
+.sg-dont-logo-on-color img { filter: brightness(0) invert(1); }
+
+/* ===== FARBEN SECTION ===== */
+.sg-swatches {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.sg-swatch { border: 1px solid var(--light-gray); overflow: hidden; }
+.sg-swatch-color {
+  height: 140px;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+.sg-swatch-color span {
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.sg-swatch-info {
+  padding: 16px;
+  background: var(--white);
+}
+.sg-swatch-info dt {
+  font-size: .7rem;
+  font-weight: 400;
+  color: #8a939e;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 2px;
+}
+.sg-swatch-info dd {
+  font-size: .85rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* ===== FARBVERTEILUNG ===== */
+.sg-color-weight {
+  display: flex;
+  height: 64px;
+  border: 1px solid var(--light-gray);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.sg-color-weight > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.sg-color-usage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.sg-color-usage-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.sg-color-usage-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.sg-color-usage-item p { margin-bottom: 0; font-size: .9rem; }
+.sg-color-usage-item strong { display: block; margin-bottom: 4px; font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; }
+
+/* ===== TYPOGRAFIE SECTION ===== */
+.sg-type-specimen {
+  margin-bottom: 40px;
+}
+.sg-type-row {
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+.sg-type-meta {
+  min-width: 180px;
+  flex-shrink: 0;
+}
+.sg-type-meta .sg-weight-name {
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  margin-bottom: 4px;
+}
+.sg-type-meta .sg-weight-value {
+  font-size: .75rem;
+  color: #8a939e;
+}
+.sg-type-sample {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.sg-type-hierarchy {
+  margin-bottom: 40px;
+}
+.sg-type-h-row {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--light-gray);
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+}
+.sg-type-h-meta {
+  min-width: 180px;
+  flex-shrink: 0;
+}
+.sg-type-h-meta .sg-h-label {
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 4px;
+}
+.sg-type-h-meta .sg-h-specs {
+  font-size: .7rem;
+  color: #8a939e;
+  line-height: 1.6;
+}
+
+.sg-rule-box {
+  background: var(--light-gray);
+  border-left: 4px solid var(--secondary);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.sg-rule-box strong {
+  display: block;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+.sg-rule-box p { margin-bottom: 0; font-size: .95rem; }
+
+.sg-type-fallback {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+.sg-type-fallback-item {
+  padding: 24px;
+  border: 1px solid var(--light-gray);
+}
+.sg-type-fallback-item .sg-label {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--secondary);
+  margin-bottom: 12px;
+}
+.sg-type-fallback-item p { font-size: 1.1rem; margin-bottom: 0; }
+
+/* ===== TON & SPRACHE ===== */
+.sg-tone-rules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.sg-tone-rule {
+  padding: 24px;
+  border: 1px solid var(--light-gray);
+}
+.sg-tone-rule .sg-label {
+  font-size: .75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 12px;
+}
+.sg-tone-rule.do { border-left: 3px solid #2a9d4e; }
+.sg-tone-rule.do .sg-label { color: #2a9d4e; }
+.sg-tone-rule.dont { border-left: 3px solid #c0392b; }
+.sg-tone-rule.dont .sg-label { color: #c0392b; }
+.sg-tone-rule p { font-size: .9rem; margin-bottom: 0; }
+
+/* ===== ANWENDUNGSBEISPIELE ===== */
+.sg-examples {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.sg-example-card {
+  border: 1px solid var(--light-gray);
+  padding: 32px;
+  text-align: center;
+  transition: border-color .2s;
+}
+.sg-example-card:hover { border-color: var(--secondary); }
+.sg-example-card h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.sg-example-card p { font-size: .85rem; color: #5a6a7a; margin-bottom: 16px; }
+.sg-example-card a {
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 960px) {
+  :root { --sg-sidebar-w: 0px; }
+  .sg-nav {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    transition: left .3s;
+  }
+  .sg-nav.open { left: 0; }
+  .sg-main { margin-left: 0; }
+  .sg-mobile-toggle {
+    display: flex !important;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 200;
+    width: 44px;
+    height: 44px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+  .sg-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 90;
+  }
+  .sg-nav.open ~ .sg-nav-overlay { display: block; }
+  .sg-swatches { grid-template-columns: repeat(2, 1fr); }
+  .sg-logo-sizes { grid-template-columns: 1fr; }
+  .sg-do-dont { grid-template-columns: 1fr; }
+  .sg-type-row { flex-direction: column; gap: 8px; }
+  .sg-type-h-row { flex-direction: column; gap: 8px; }
+  .sg-type-fallback { grid-template-columns: 1fr; }
+  .sg-tone-rules { grid-template-columns: 1fr; }
+  .sg-examples { grid-template-columns: 1fr; }
+  .sg-color-usage { grid-template-columns: 1fr; }
+}
+
+.sg-mobile-toggle { display: none; }
+</style>
+</head>
+<body>
+
+<!-- Mobile Toggle -->
+<button class="sg-mobile-toggle" onclick="document.querySelector('.sg-nav').classList.toggle('open')" aria-label="Navigation">&#9776;</button>
+
+<!-- ===== SIDEBAR ===== -->
+<nav class="sg-nav" id="sg-nav">
+  <div class="sg-nav-logo">
+    <img src="assets/korodur-logo.png" alt="KORODUR">
+  </div>
+  <div class="sg-nav-title">Styleguide</div>
+  <a href="#logo"><span class="sg-num">01</span> Logo</a>
+  <a href="#farben"><span class="sg-num">02</span> Farben</a>
+  <a href="#typografie"><span class="sg-num">03</span> Typografie</a>
+  <a href="#farbverteilung"><span class="sg-num">04</span> Farbverteilung</a>
+  <a href="#buttons"><span class="sg-num">05</span> Buttons</a>
+  <a href="#spacing"><span class="sg-num">06</span> Spacing & Grid</a>
+  <a href="#icons"><span class="sg-num">07</span> Icons</a>
+  <a href="#bildsprache"><span class="sg-num">08</span> Bildsprache</a>
+  <a href="#karten"><span class="sg-num">09</span> Karten & Container</a>
+  <a href="#formulare"><span class="sg-num">10</span> Formulare & Inputs</a>
+  <a href="#navigation"><span class="sg-num">11</span> Navigation & Header</a>
+  <a href="#footer"><span class="sg-num">12</span> Footer</a>
+  <a href="#breakpoints"><span class="sg-num">13</span> Responsive</a>
+  <a href="#ton"><span class="sg-num">14</span> Ton & Sprache</a>
+  <a href="#beispiele"><span class="sg-num">15</span> Anwendungsbeispiele</a>
+  <div class="sg-nav-footer">
+    KORODUR Corporate Design<br>
+    Living Styleguide v1.0<br>
+    Stand: März 2026
+  </div>
+</nav>
+
+<div class="sg-nav-overlay" onclick="document.querySelector('.sg-nav').classList.remove('open')"></div>
+
+<!-- ===== MAIN ===== -->
+<main class="sg-main">
+
+  <!-- HERO -->
+  <section class="sg-hero">
+    <div class="container">
+      <span class="sg-version">Version 1.0 &middot; März 2026</span>
+      <h1>CORPORATE DESIGN<br>STYLEGUIDE</h1>
+      <p>Das verbindliche Gestaltungshandbuch für alle digitalen und analogen Anwendungen der Marke KORODUR. Dieses Dokument wächst mit jeder Designentscheidung.</p>
+    </div>
+  </section>
+
+  <!-- ===== 01 LOGO ===== -->
+  <section class="sg-section" id="logo">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">01</span>
+        <h2>LOGO</h2>
+      </div>
+      <p class="sg-intro">Es gibt nur eine farbige Variante des KORODUR-Logos. Das Logo wird nie im Negativ gesetzt und steht immer auf weißem Hintergrund.</p>
+
+      <!-- Logo Display -->
+      <div class="sg-logo-display">
+        <img src="assets/korodur-logo.png" alt="KORODUR Logo">
+      </div>
+
+      <!-- Sizes -->
+      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">GRÖSSEN</h3>
+      <div class="sg-logo-sizes">
+        <div class="sg-logo-size-item">
+          <img src="assets/korodur-logo.png" alt="Logo gross" style="height:80px;">
+          <span class="sg-label">Gross</span>
+        </div>
+        <div class="sg-logo-size-item">
+          <img src="assets/korodur-logo.png" alt="Logo mittel" style="height:48px;">
+          <span class="sg-label">Mittel</span>
+        </div>
+        <div class="sg-logo-size-item">
+          <img src="assets/korodur-logo.png" alt="Logo minimum" style="height:28px;">
+          <span class="sg-label">Mindestgröße (15 mm)</span>
+        </div>
+      </div>
+
+      <!-- Schutzraum -->
+      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">SCHUTZRAUM</h3>
+      <p style="margin-bottom:20px; font-size:.95rem;">Um das Logo muss zu allen Seiten ein Schutzraum frei bleiben. Dieser entspricht der Höhe und Breite des Buchstabens "O" aus dem Logoschriftzug.</p>
+      <div class="sg-logo-protection">
+        <img src="assets/korodur-logo.png" alt="Logo mit Schutzraum">
+      </div>
+
+      <!-- Do / Don't -->
+      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">VERWENDUNG</h3>
+      <div class="sg-do-dont">
+        <div class="sg-do">
+          <div class="sg-do-label">Richtig</div>
+          <img src="assets/korodur-logo.png" alt="Logo auf Weiss">
+          <p class="micro-copy">Logo auf weißem Hintergrund</p>
+        </div>
+        <div class="sg-dont">
+          <div class="sg-dont-label">Falsch</div>
+          <div class="sg-dont-logo-on-color">
+            <img src="assets/korodur-logo.png" alt="Logo auf Farbe">
+          </div>
+          <p class="micro-copy">Logo nie auf farbigem Hintergrund oder im Bild</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 FARBEN ===== -->
+  <section class="sg-section bg-gray" id="farben">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">02</span>
+        <h2>FARBEN</h2>
+      </div>
+      <p class="sg-intro">Das KORODUR-Farbsystem basiert auf vier Farben: Navy als Markenfarbe, Cyan als Akzent und zwei Graustufen für Hintergründe und Strukturelemente.</p>
+
+      <div class="sg-swatches">
+        <!-- Navy -->
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#002d59;">
+            <span style="color:#fff;">Navy</span>
+          </div>
+          <div class="sg-swatch-info">
+            <dl>
+              <dt>HEX</dt><dd>#002d59</dd>
+              <dt>RGB</dt><dd>0 / 45 / 89</dd>
+              <dt>Pantone</dt><dd>295 C</dd>
+              <dt>CSS</dt><dd>var(--primary)</dd>
+            </dl>
+          </div>
+        </div>
+        <!-- Cyan -->
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#009ee3;">
+            <span style="color:#fff;">Cyan</span>
+          </div>
+          <div class="sg-swatch-info">
+            <dl>
+              <dt>HEX</dt><dd>#009ee3</dd>
+              <dt>RGB</dt><dd>0 / 158 / 227</dd>
+              <dt>CMYK</dt><dd>100 / 0 / 0 / 0</dd>
+              <dt>CSS</dt><dd>var(--secondary)</dd>
+            </dl>
+          </div>
+        </div>
+        <!-- Hellgrau -->
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#ececed;">
+            <span style="color:#002d59;">Hellgrau</span>
+          </div>
+          <div class="sg-swatch-info">
+            <dl>
+              <dt>HEX</dt><dd>#ececed</dd>
+              <dt>RGB</dt><dd>236 / 236 / 237</dd>
+              <dt>CMYK</dt><dd>0 / 0 / 0 / 10</dd>
+              <dt>CSS</dt><dd>var(--light-gray)</dd>
+            </dl>
+          </div>
+        </div>
+        <!-- Mittelgrau -->
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#d9dada;">
+            <span style="color:#002d59;">Mittelgrau</span>
+          </div>
+          <div class="sg-swatch-info">
+            <dl>
+              <dt>HEX</dt><dd>#d9dada</dd>
+              <dt>RGB</dt><dd>217 / 218 / 237</dd>
+              <dt>CMYK</dt><dd>0 / 0 / 0 / 20</dd>
+              <dt>CSS</dt><dd>var(--mid-gray)</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-rule-box">
+        <strong>Hinweis</strong>
+        <p>Weitere Farben (z.B. für Störer oder CTA-Buttons) können bei Bedarf ergänzt werden. Ergänzungen werden hier dokumentiert.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 TYPOGRAFIE ===== -->
+  <section class="sg-section" id="typografie">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">03</span>
+        <h2>TYPOGRAFIE</h2>
+      </div>
+      <p class="sg-intro">Die Hausschrift ist Gabarito. Verwendet werden die Schnitte Regular, Bold, ExtraBold und Black. Ersatzschrift ist Arial.</p>
+
+      <!-- Schriftschnitte -->
+      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">SCHRIFTSCHNITTE</h3>
+      <div class="sg-type-specimen">
+        <div class="sg-type-row">
+          <div class="sg-type-meta">
+            <div class="sg-weight-name">Regular</div>
+            <div class="sg-weight-value">font-weight: 400</div>
+          </div>
+          <div class="sg-type-sample" style="font-weight:400;">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</div>
+        </div>
+        <div class="sg-type-row">
+          <div class="sg-type-meta">
+            <div class="sg-weight-name">Bold</div>
+            <div class="sg-weight-value">font-weight: 700</div>
+          </div>
+          <div class="sg-type-sample" style="font-weight:700;">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</div>
+        </div>
+        <div class="sg-type-row">
+          <div class="sg-type-meta">
+            <div class="sg-weight-name">ExtraBold</div>
+            <div class="sg-weight-value">font-weight: 800</div>
+          </div>
+          <div class="sg-type-sample" style="font-weight:800;">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</div>
+        </div>
+        <div class="sg-type-row">
+          <div class="sg-type-meta">
+            <div class="sg-weight-name">Black</div>
+            <div class="sg-weight-value">font-weight: 900</div>
+          </div>
+          <div class="sg-type-sample" style="font-weight:900;">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</div>
+        </div>
+      </div>
+
+      <div class="sg-rule-box">
+        <strong>Regel</strong>
+        <p>Headlines und Sublines werden immer in Versalschrift (text-transform: uppercase) gesetzt. Schriftfarbe ist Navy. Besondere Hervorhebungen können in Cyan gesetzt werden.</p>
+      </div>
+
+      <!-- Headline-Hierarchie -->
+      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin:40px 0 20px;">HEADLINE-HIERARCHIE</h3>
+      <div class="sg-type-hierarchy">
+        <div class="sg-type-h-row">
+          <div class="sg-type-h-meta">
+            <div class="sg-h-label">H1</div>
+            <div class="sg-h-specs">Gabarito Black (900)<br>text-transform: uppercase</div>
+          </div>
+          <div style="font-weight:900; font-size:clamp(2rem,4vw,3rem); text-transform:uppercase; line-height:1.1;">DIES IST EINE HEADLINE</div>
+        </div>
+        <div class="sg-type-h-row">
+          <div class="sg-type-h-meta">
+            <div class="sg-h-label">H2</div>
+            <div class="sg-h-specs">Gabarito Black (900)<br>text-transform: uppercase</div>
+          </div>
+          <div style="font-weight:900; font-size:clamp(1.5rem,3vw,2.2rem); text-transform:uppercase; line-height:1.15;">DIES IST EINE ÜBERSCHRIFT</div>
+        </div>
+        <div class="sg-type-h-row">
+          <div class="sg-type-h-meta">
+            <div class="sg-h-label">H3</div>
+            <div class="sg-h-specs">Gabarito Bold (700)<br>text-transform: uppercase</div>
+          </div>
+          <div style="font-weight:700; font-size:clamp(1.1rem,2vw,1.4rem); text-transform:uppercase; line-height:1.2;">DIES IST EINE KLEINE HEADLINE</div>
+        </div>
+        <div class="sg-type-h-row">
+          <div class="sg-type-h-meta">
+            <div class="sg-h-label">Subline</div>
+            <div class="sg-h-specs">Gabarito ExtraBold (800)<br>text-transform: uppercase<br>letter-spacing: .02em</div>
+          </div>
+          <div style="font-weight:800; font-size:1rem; text-transform:uppercase; letter-spacing:.02em; line-height:1.3;">DIES IST EINE SUBLINE</div>
+        </div>
+        <div class="sg-type-h-row">
+          <div class="sg-type-h-meta">
+            <div class="sg-h-label">Fließtext</div>
+            <div class="sg-h-specs">Gabarito Regular (400)<br>line-height: 1.6</div>
+          </div>
+          <div style="font-weight:400; font-size:1rem; line-height:1.6; max-width:640px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</div>
+        </div>
+      </div>
+
+      <!-- Fallback -->
+      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin:40px 0 20px;">VERGLEICH: HAUSSCHRIFT &amp; ERSATZSCHRIFT</h3>
+      <div class="sg-type-fallback">
+        <div class="sg-type-fallback-item">
+          <div class="sg-label">Gabarito (Hausschrift)</div>
+          <p style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:1.2rem; text-transform:uppercase;">KORODUR PREMIUM INDUSTRIAL</p>
+        </div>
+        <div class="sg-type-fallback-item">
+          <div class="sg-label">Arial (Ersatzschrift)</div>
+          <p style="font-family:Arial,sans-serif; font-weight:700; font-size:1.2rem; text-transform:uppercase;">KORODUR PREMIUM INDUSTRIAL</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04 FARBVERTEILUNG ===== -->
+  <section class="sg-section bg-gray" id="farbverteilung">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">04</span>
+        <h2>FARBVERTEILUNG</h2>
+      </div>
+      <p class="sg-intro">Die Gewichtung der Farben bestimmt die Wiedererkennbarkeit. Weiss dominiert, Navy strukturiert, Grau trennt, Cyan akzentuiert.</p>
+
+      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">GEWICHTUNG</h3>
+      <div class="sg-color-weight">
+        <div style="flex:40; background:var(--white); color:var(--text); border-right:1px solid var(--light-gray);">Weiss 40%</div>
+        <div style="flex:25; background:var(--primary); color:var(--white);">Navy 25%</div>
+        <div style="flex:20; background:var(--light-gray); color:var(--text);">Grau 20%</div>
+        <div style="flex:10; background:var(--mid-gray); color:var(--text);">Mittelgrau 10%</div>
+        <div style="flex:5; background:var(--secondary); color:var(--white);">Cyan 5%</div>
+      </div>
+      <p class="micro-copy">Richtwerte für eine typische Seitengestaltung. Die genaue Verteilung variiert je nach Anwendung.</p>
+
+      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin:40px 0 20px;">VERWENDUNG</h3>
+      <div class="sg-color-usage">
+        <div class="sg-color-usage-item">
+          <div class="sg-color-usage-dot" style="background:var(--primary);"></div>
+          <div>
+            <strong>Navy</strong>
+            <p>Text, Headlines, Header, dunkle Sektionen, Logo-Hintergrund</p>
+          </div>
+        </div>
+        <div class="sg-color-usage-item">
+          <div class="sg-color-usage-dot" style="background:var(--secondary);"></div>
+          <div>
+            <strong>Cyan</strong>
+            <p>CTA-Buttons, Links, Hervorhebungen, Akzentlinien</p>
+          </div>
+        </div>
+        <div class="sg-color-usage-item">
+          <div class="sg-color-usage-dot" style="background:var(--light-gray);"></div>
+          <div>
+            <strong>Hellgrau</strong>
+            <p>Hintergrundflächen, Sektions-Trennung, Karten-Hintergründe</p>
+          </div>
+        </div>
+        <div class="sg-color-usage-item">
+          <div class="sg-color-usage-dot" style="background:var(--mid-gray);"></div>
+          <div>
+            <strong>Mittelgrau</strong>
+            <p>Trennlinien, Rahmen, deaktivierte Elemente</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 BUTTONS (COMING SOON) ===== -->
+  <section class="sg-section" id="buttons">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">05</span>
+        <h2>BUTTONS</h2>
+      </div>
+      <div class="sg-coming-soon">
+        <div class="sg-coming-soon-label">Coming Soon</div>
+        <p>Button-Stile werden nach der Variantenentscheidung definiert. Drei Ansätze existieren bereits in den Landing-Page-Varianten (kantig, gerundet, mit Gradient).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06 SPACING & GRID (COMING SOON) ===== -->
+  <section class="sg-section bg-gray" id="spacing">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">06</span>
+        <h2>SPACING & GRID</h2>
+      </div>
+      <div class="sg-coming-soon">
+        <div class="sg-coming-soon-label">Coming Soon</div>
+        <p>Abstandssystem, Container-Breiten und Grid-Definition. Basis-Tokens existieren bereits in tokens.css (--section-pad-d, --max-w).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 07 ICONS (COMING SOON) ===== -->
+  <section class="sg-section" id="icons">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">07</span>
+        <h2>ICONS</h2>
+      </div>
+      <div class="sg-coming-soon">
+        <div class="sg-coming-soon-label">Coming Soon</div>
+        <p>Icon-Set, Stil und Anwendungsregeln.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 08 BILDSPRACHE (COMING SOON) ===== -->
+  <section class="sg-section bg-gray" id="bildsprache">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">08</span>
+        <h2>BILDSPRACHE</h2>
+      </div>
+      <div class="sg-coming-soon">
+        <div class="sg-coming-soon-label">Coming Soon</div>
+        <p>Bildstil, Tonalität, Farbgebung, Motivwahl. Das CD Manual definiert bereits: hochwertig, natürlich, clean, technisch, hell, tonig, warm. Details werden hier ausgearbeitet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 09 KARTEN & CONTAINER (COMING SOON) ===== -->
+  <section class="sg-section" id="karten">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">09</span>
+        <h2>KARTEN & CONTAINER</h2>
+      </div>
+      <div class="sg-coming-soon">
+        <div class="sg-coming-soon-label">Coming Soon</div>
+        <p>Karten-Stile, Schatten, Rundungen, Innenabstände. Drei Ansätze existieren (minimal, Shadow+Border, Glasmorphismus).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10 FORMULARE (COMING SOON) ===== -->
+  <section class="sg-section bg-gray" id="formulare">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">10</span>
+        <h2>FORMULARE & INPUTS</h2>
+      </div>
+      <div class="sg-coming-soon">
+        <div class="sg-coming-soon-label">Coming Soon</div>
+        <p>Input-Felder, Labels, Validierung, Textarea, Select-Elemente.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 11 NAVIGATION (COMING SOON) ===== -->
+  <section class="sg-section" id="navigation">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">11</span>
+        <h2>NAVIGATION & HEADER</h2>
+      </div>
+      <div class="sg-coming-soon">
+        <div class="sg-coming-soon-label">Coming Soon</div>
+        <p>Header-Aufbau, Navigation, Scroll-Verhalten, Mobile Menu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 12 FOOTER (COMING SOON) ===== -->
+  <section class="sg-section bg-gray" id="footer">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">12</span>
+        <h2>FOOTER</h2>
+      </div>
+      <div class="sg-coming-soon">
+        <div class="sg-coming-soon-label">Coming Soon</div>
+        <p>Footer-Aufbau, Spalten, Links, Kontaktdaten.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 13 RESPONSIVE (COMING SOON) ===== -->
+  <section class="sg-section" id="breakpoints">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">13</span>
+        <h2>RESPONSIVE BREAKPOINTS</h2>
+      </div>
+      <div class="sg-coming-soon">
+        <div class="sg-coming-soon-label">Coming Soon</div>
+        <p>Breakpoints, Verhalten auf Tablet und Mobile, Touch-Targets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 14 TON & SPRACHE ===== -->
+  <section class="sg-section bg-gray" id="ton">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">14</span>
+        <h2>TON & SPRACHE</h2>
+      </div>
+      <p class="sg-intro">KORODUR kommuniziert B2B: technisch-präzise, professionell, sachlich. Die Sprache transportiert Kompetenz und Vertrauen.</p>
+
+      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">GRUNDREGELN</h3>
+      <div class="sg-tone-rules">
+        <div class="sg-tone-rule do">
+          <div class="sg-label">Richtig</div>
+          <p>Technisch-präzise Sprache, die Kompetenz vermittelt. Klare, kurze Sätze. Fachbegriffe werden selbstverständlich verwendet.</p>
+        </div>
+        <div class="sg-tone-rule dont">
+          <div class="sg-label">Falsch</div>
+          <p>Marketingfloskeln, übertriebene Superlative, emotionale Ansprache. Umgangssprache oder zu lockerer Ton.</p>
+        </div>
+      </div>
+
+      <div class="sg-rule-box">
+        <strong>Typografie in Texten</strong>
+        <p>Headlines und Sublines immer in Versalschrift. Keine Gedankenstriche (em-dash / en-dash) verwenden.</p>
+      </div>
+
+      <div class="sg-coming-soon" style="margin-top:32px;">
+        <div class="sg-coming-soon-label">Weitere Regeln Coming Soon</div>
+        <p>Anrede (Du/Sie), Produktnamen-Schreibweisen, Claim, Boilerplate.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 15 ANWENDUNGSBEISPIELE ===== -->
+  <section class="sg-section" id="beispiele">
+    <div class="container">
+      <div class="sg-section-header">
+        <span class="sg-section-num">15</span>
+        <h2>ANWENDUNGSBEISPIELE</h2>
+      </div>
+      <p class="sg-intro">Drei gestalterisch unterschiedliche Landing-Page-Varianten mit identischem Inhalt als Referenz für die Designfindung.</p>
+
+      <div class="sg-examples">
+        <div class="sg-example-card">
+          <h3>Variante A</h3>
+          <p>Bold & Editorial. Magazin-Stil, Vollbild-Hero, dramatische Typografie.</p>
+          <a href="variante-a-editorial.html">Öffnen &rarr;</a>
+        </div>
+        <div class="sg-example-card">
+          <h3>Variante B</h3>
+          <p>Clean & Strukturiert. Maximale Klarheit, Split-Hero, kompakte Typografie.</p>
+          <a href="variante-b-strukturiert.html">Öffnen &rarr;</a>
+        </div>
+        <div class="sg-example-card">
+          <h3>Variante C</h3>
+          <p>Modern & Dynamisch. Premium-Tech, Glasmorphismus, Scroll-Animationen.</p>
+          <a href="variante-c-dynamisch.html">Öffnen &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== Navigation Highlight ===== -->
+<script>
+(function() {
+  const nav = document.getElementById('sg-nav');
+  const links = nav.querySelectorAll('a[href^="#"]');
+  const sections = [];
+
+  links.forEach(function(link) {
+    var id = link.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (el) sections.push({ id: id, el: el, link: link });
+  });
+
+  function update() {
+    var scrollY = window.scrollY + 120;
+    var current = sections[0];
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].el.offsetTop <= scrollY) current = sections[i];
+    }
+    links.forEach(function(l) { l.classList.remove('active'); });
+    if (current) current.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+
+  // Close mobile nav on link click
+  links.forEach(function(link) {
+    link.addEventListener('click', function() {
+      nav.classList.remove('open');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
