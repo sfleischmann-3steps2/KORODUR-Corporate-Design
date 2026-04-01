@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KORODUR – Rapid Set ASPHALT REPAIR MIX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Gabarito', Arial, sans-serif;
+      color: #002d59;
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Globaler Container: 1320 px, kein eigenes Padding – Sections setzen es selbst */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      height: 108px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 24px rgba(0, 45, 89, 0);
+      transition: box-shadow 0.35s ease;
+    }
+
+    .nav.scrolled {
+      box-shadow: 0 4px 24px rgba(0, 45, 89, 0.08);
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px 0 10px;  /* 10px links – logo visuell in Flucht mit Section-Inhalt */
+    }
+
+    .nav-logo img {
+      height: 90px;  /* 75px × 1.2 */
+      display: block;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #009ee3;
+      color: #ffffff;
+      font-family: 'Gabarito', Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      padding: 16px 30px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .btn:hover {
+      background: #0090d0;
+      box-shadow: 0 6px 24px rgba(0, 158, 227, 0.28);
+    }
+
+    /* ─── HERO ───────────────────────────────────────────────────────────────── */
+    .hero {
+      padding-top: 72px;
+      padding-bottom: 80px;
+      background: #ffffff;
+    }
+
+    .hero .container {
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-h1 {
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1.08;
+      margin-bottom: 22px;
+    }
+
+    .hero-h1 .line1 { color: #002d59; display: block; }
+    .hero-h1 .line2 { color: #009ee3; display: block; }
+
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #002d59;
+      opacity: 0.72;
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+
+    /* Bullets ABOVE button */
+    .hero-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .hero-bullet {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #002d59;
+    }
+
+    /* Icon: gray bg circle, cyan checkmark — matching card icon style */
+    .bullet-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: #e8edf5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bullet-icon svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    /* ─── HERO RIGHT ─────────────────────────────────────────────────────────── */
+    .hero-right {
+      position: relative;
+      /* Left padding = space for overlay-1 to bleed left of image */
+      /* Bottom padding = space for overlay-2 to bleed below image */
+      /* Right = 0 so image is flush with container right edge */
+      padding: 20px 0 44px 44px;
+    }
+
+    .hero-image {
+      border-radius: 14px;
+      aspect-ratio: 1 / 1;   /* square */
+      overflow: hidden;
+      background: linear-gradient(135deg, #e8edf2 0%, #d0d8e4 100%);
+      display: block;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── OVERLAY CARDS ──────────────────────────────────────────────────────── */
+    .overlay-card {
+      position: absolute;
+      background: #ffffff;
+      border-radius: 12px;
+      z-index: 2;
+      box-shadow: 0 12px 48px rgba(0, 45, 89, 0.22);
+    }
+
+    /* Card 1 — upper left, bleeds out of image to the left */
+    .overlay-card-1 {
+      top: 70px;
+      left: -12px;   /* bleeds left outside image edge */
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .overlay-badge {
+      width: 40px;
+      height: 40px;
+      background: #009ee3;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .overlay-badge svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .overlay-card-1-text .oc-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: #002d59;
+      opacity: 0.55;
+      line-height: 1.3;
+    }
+
+    .overlay-card-1-text .oc-value {
+      font-size: 18px;
+      font-weight: 800;
+      color: #002d59;
+      line-height: 1.3;
+    }
+
+    /* Card 2 — bottom, shifted left, bleeds downward outside image */
+    .overlay-card-2 {
+      bottom: -50px;   /* ~30 % tiefer als vorher */
+      right: 80px;
+      padding: 16px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      min-width: 160px;
+    }
+
+    .oc2-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #002d59;
+      opacity: 0.6;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .oc2-metric {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .oc2-metric .metric-big {
+      font-size: 30px;
+      font-weight: 900;
+      color: #009ee3;
+      line-height: 1;
+    }
+
+    .oc2-metric .metric-small {
+      font-size: 15px;
+      font-weight: 700;
+      color: #002d59;
+      opacity: 0.65;
+      line-height: 1.4;
+    }
+
+    /* ─── OVERLAY-2 FLOAT ANIMATION ──────────────────────────────────────────── */
+    @keyframes float-card {
+      0%   { transform: translateY(0px); }
+      45%  { transform: translateY(-16px); }
+      55%  { transform: translateY(-16px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .overlay-card-2 {
+      animation: float-card 3.6s ease-in-out infinite;
+    }
+
+    /* ─── CLOCK ANIMATION ────────────────────────────────────────────────────── */
+    /* Minute hand: 2 full rotations = 720 deg, once, then stops */
+    @keyframes clock-minute-spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(720deg); }
+    }
+    /* Hour hand: 0 → 60 deg (12 o'clock → 2 o'clock), once, then stops */
+    @keyframes clock-hour-move {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(60deg); }
+    }
+
+    .clock-minute-hand {
+      transform-origin: 24px 24px;
+      animation: clock-minute-spin 4s linear 1 forwards;
+    }
+    .clock-hour-hand {
+      transform-origin: 24px 24px;
+      animation: clock-hour-move 4s ease-in-out 1 forwards;
+    }
+
+    /* ─── SOCIAL PROOF ───────────────────────────────────────────────────────── */
+    .social-proof {
+      background: #ffffff;
+      padding: 56px 0 64px;
+    }
+
+    .social-proof .container {
+      padding: 0 32px;
+    }
+
+    .sp-label {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #002d59;
+      opacity: 0.55;
+      margin-bottom: 10px;
+    }
+
+    .sp-heading {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 900;
+      color: #002d59;
+      line-height: 1.12;
+      margin-bottom: 44px;
+    }
+
+    .sp-logos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .sp-logo-item {
+      font-size: 20px;
+      font-weight: 900;
+      color: #d9dada;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── PROBLEM ────────────────────────────────────────────────────────────── */
+    .problem {
+      background: #ffffff;
+      padding: 88px 0 100px;
+    }
+
+    .problem .container {
+      padding: 0 32px;
+    }
+
+    /* ─── GLOBALE TITEL & TEXT-KLASSEN ───────────────────────────────────────── */
+    .section-h2 {
+      font-size: 36px;
+      font-weight: 900;
+      color: #002d59;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #002d59;
+      opacity: 0.68;
+    }
+
+    /* Cyan highlight in title */
+    .highlight-cyan {
+      color: #009ee3;
+    }
+
+    /* Section-spezifische Ausrichtungen */
+    .problem .section-h2  { text-align: left; }
+    .problem .section-sub { text-align: left; max-width: 700px; margin: 0 0 60px; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      box-shadow: 0 8px 40px rgba(0, 45, 89, 0.10);
+      border-radius: 14px;
+      padding: 36px 32px 84px;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 48px rgba(0, 45, 89, 0.16);
+    }
+
+    .card-icon-box {
+      width: 52px;
+      height: 52px;
+      background: #f5f5f6;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .card-icon-box svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .card-h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #002d59;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .card-p {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #002d59;
+      opacity: 0.70;
+    }
+
+    /* Highlight card (invertiert) */
+    .card.card-highlight {
+      background: #002d59;
+      box-shadow: 0 8px 40px rgba(0, 45, 89, 0.20);
+    }
+
+    .card.card-highlight:hover {
+      box-shadow: 0 12px 48px rgba(0, 45, 89, 0.30);
+    }
+
+    .card.card-highlight .card-icon-box {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .card.card-highlight .card-h3 { color: #ffffff; }
+
+    .card.card-highlight .card-p {
+      color: rgba(255, 255, 255, 0.72);
+      opacity: 1;
+    }
+
+    /* ─── SOLUTION ───────────────────────────────────────────────────────────── */
+    .solution {
+      background: #ffffff;
+      padding: 88px 0 100px;
+    }
+
+    .solution .container {
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .solution-image {
+      border-radius: 14px;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e8edf2 0%, #d0d8e4 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .solution-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .solution-right {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .solution-right .section-h2 {
+      text-align: left;
+      margin-bottom: 28px;
+    }
+
+    .solution-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .solution-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: #002d59;
+      opacity: 0.78;
+    }
+
+    .solution-bullet-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: #e8edf5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .solution-bullet-icon svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    /* ─── STEPS ──────────────────────────────────────────────────────────────── */
+    .steps {
+      background: rgba(245, 245, 246, 0.45);
+      padding: 88px 0 100px;
+    }
+
+    .steps .container {
+      padding: 0 32px;
+    }
+
+    .steps .section-h2 {
+      text-align: center;
+    }
+
+    .steps .section-sub {
+      text-align: center;
+      margin: 0 auto 56px;
+    }
+
+    .video-placeholder {
+      border-radius: 14px;
+      overflow: hidden;
+      background-image: url('https://img.youtube.com/vi/Z676CtyjVr8/maxresdefault.jpg');
+      background-size: cover;
+      background-position: center;
+      aspect-ratio: 16 / 9;
+      max-width: 900px;
+      margin: 0 auto 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* Dunkles Overlay über dem Thumbnail */
+    .video-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 20, 50, 0.50);
+      border-radius: 14px;
+      transition: background 0.25s ease;
+    }
+
+    .video-placeholder:hover::before {
+      background: rgba(0, 20, 50, 0.35);
+    }
+
+    /* Badge & Button müssen über dem Overlay liegen */
+    .video-placeholder > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Wenn Video aktiv: iframe füllt Container */
+    .video-placeholder.is-playing {
+      padding: 0;
+      background: #000;
+      cursor: default;
+    }
+
+    .video-placeholder.is-playing::before {
+      display: none;
+    }
+
+    .video-placeholder iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 14px;
+    }
+
+    .video-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #009ee3;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .play-btn {
+      width: 76px;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 2px solid rgba(255, 255, 255, 0.30);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.22s ease, transform 0.22s ease;
+    }
+
+    .video-placeholder:hover .play-btn {
+      background: rgba(0, 158, 227, 0.45);
+    }
+
+    @keyframes pulse-play {
+      0%, 100% { transform: scale(1);    }
+      50%       { transform: scale(1.10); }
+    }
+
+    .play-btn {
+      animation: pulse-play 2.4s ease-in-out infinite;
+    }
+
+    .play-btn svg {
+      width: 28px;
+      height: 28px;
+      margin-left: 4px; /* optical centering */
+    }
+
+    .video-meta {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 0.02em;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .step-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 36px 32px 64px;
+      box-shadow: 0 8px 40px rgba(0, 45, 89, 0.08);
+      transition: box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .step-card:hover {
+      box-shadow: 0 12px 48px rgba(0, 45, 89, 0.14);
+    }
+
+    .step-number {
+      font-size: 52px;
+      font-weight: 900;
+      color: #009ee3;
+      opacity: 0.15;
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .step-icon-box {
+      width: 52px;
+      height: 52px;
+      background: #f5f5f6;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .step-icon-box svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .step-h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #002d59;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .step-p {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #002d59;
+      opacity: 0.68;
+    }
+
+    /* ─── COMPARISON TABLE ───────────────────────────────────────────────────── */
+    .comparison {
+      background: #ffffff;
+      padding: 88px 0 100px;
+    }
+
+    .comparison .container {
+      padding: 0 32px;
+    }
+
+    .comparison .section-h2 {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    /* ── Header ── */
+    .comp-table thead tr th {
+      padding: 20px 28px;
+      font-size: 18px;
+      font-weight: 800;
+      text-align: left;
+      vertical-align: bottom;
+    }
+
+    .comp-table .th-criteria {
+      width: 24%;
+      background: transparent;
+    }
+
+    .comp-table .th-arm {
+      background: #002d59;
+      color: #ffffff;
+      border-radius: 14px 0 0 0;   /* nur oben-links abgerundet */
+      width: 25.3%;
+      position: relative;
+    }
+
+    .comp-table .th-other {
+      background: #f0f4f8;
+      color: #002d59;
+      width: 25.3%;
+    }
+
+    .comp-table .th-other:first-of-type { border-radius: 14px 0 0 0; }
+    .comp-table .th-other:last-child     { border-radius: 0 14px 0 0; }
+
+    .comp-recommended {
+      display: inline-block;
+      background: #009ee3;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    /* ── Rows ── */
+    .comp-table tbody tr td {
+      padding: 18px 28px;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.45;
+      border-bottom: 1px solid rgba(0, 45, 89, 0.07);
+      vertical-align: middle;
+    }
+
+    .comp-table tbody tr:last-child td { border-bottom: none; }
+
+    .comp-table .td-criteria {
+      color: #002d59;
+      opacity: 0.65;
+      font-weight: 400;
+    }
+
+    /* ARM column – dark blue through all rows */
+    .comp-table .td-arm {
+      background: #002d59;
+      color: #ffffff;
+      font-weight: 400;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+    }
+
+    .comp-table tbody tr:last-child .td-arm {
+      border-radius: 0 0 14px 14px;
+    }
+
+    .comp-table .td-other {
+      background: #ffffff;
+      color: #002d59;
+      opacity: 0.75;
+    }
+
+    /* alternating row tint on other columns */
+    .comp-table tbody tr:nth-child(even) .td-other {
+      background: #fafbfc;
+    }
+
+    /* ── Value icons ── */
+    .comp-val {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .comp-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comp-icon svg { width: 12px; height: 12px; }
+
+    .comp-icon-good    { background: rgba(0, 158, 227, 0.15); }
+    .comp-icon-neutral { background: rgba(0, 45, 89, 0.10); }
+    .comp-icon-bad     { background: rgba(220, 60, 60, 0.10); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .hero .container { gap: 40px; }
+      .hero-h1 { font-size: 40px; }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Solution: etwas weniger Gap */
+      .solution .container { gap: 48px; }
+
+      /* Comparison: Schrift etwas kleiner */
+      .comp-table thead tr th,
+      .comp-table tbody tr td { font-size: 16px; padding: 14px 18px; }
+    }
+
+    @media (max-width: 768px) {
+      /* Einheitlicher Mobile-Gutter für alle Sections */
+      .hero .container,
+      .social-proof .container,
+      .problem .container,
+      .solution .container,
+      .steps .container,
+      .comparison .container { padding: 0 20px; }
+
+      /* Nav: Logo 13px weiter links */
+      .nav .container { padding: 0 20px 0 7px; }
+
+      .nav { height: 72px; }
+      .nav-logo img { height: 52px; }
+      .btn { font-size: 15px; padding: 12px 20px; }
+
+      .hero { padding-top: 48px; padding-bottom: 56px; }
+      .hero .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-h1 { font-size: 36px; }
+      .hero-sub { max-width: 100%; }
+      .hero-right { padding: 20px 0 44px 30px; }
+
+      .social-proof { padding: 44px 0 52px; }
+      .sp-heading { font-size: 28px; }
+      .sp-logos { justify-content: center; gap: 16px 28px; }
+
+      .problem { padding: 64px 0 72px; }
+      .problem .section-h2 { font-size: 28px; }
+      .cards-grid { grid-template-columns: 1fr; }
+
+      /* ── Section 4: Solution ── */
+      .solution { padding: 64px 0 72px; }
+      .solution .container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .solution-image { aspect-ratio: 4 / 3; } /* etwas flacher auf Mobile */
+      .solution-right .section-h2 { font-size: 28px; }
+
+      /* ── Section 5: Video ── */
+      .steps { padding: 56px 0 64px; }
+      .steps .section-h2 { font-size: 28px; }
+      .video-placeholder { margin-bottom: 0; }
+      .play-btn { width: 56px; height: 56px; }
+
+      /* ── Section 6: Comparison ── */
+      .comparison { padding: 56px 0 64px; }
+      .comparison .section-h2 { font-size: 24px; margin-bottom: 32px; }
+
+      /* Section scrollt horizontal – Container-Padding bleibt korrekt */
+      .comparison {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .comparison .container { overflow: visible; }
+      .comp-table {
+        min-width: 520px;
+        width: 100%;
+      }
+      .comp-table thead tr th,
+      .comp-table tbody tr td { font-size: 15px; padding: 12px 14px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-h1 { font-size: 30px; }
+      .hero-sub, .hero-bullet, .card-p, .problem .section-sub { font-size: 16px; }
+      .sp-heading, .problem .section-h2 { font-size: 24px; }
+
+      .solution-right .section-h2 { font-size: 24px; }
+      .solution-bullet { font-size: 16px; }
+
+      .comp-table thead tr th,
+      .comp-table tbody tr td { font-size: 14px; padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 1 · NAVIGATION
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="container">
+      <a class="nav-logo" href="#">
+        <img
+          src="https://korodur.github.io/Landing-pages/assets/korodur-logo.png"
+          alt="Korodur Logo"
+        />
+      </a>
+      <a href="#anfragen" class="btn">Jetzt anfragen</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 1 · HERO
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+
+      <!-- Left Column -->
+      <div class="hero-left">
+
+        <h1 class="hero-h1">
+          <span class="line1">Einmal reparieren.</span>
+          <span class="line2">Dauerhaft halten.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Rapid Set ASPHALT REPAIR MIX – die schnelle, einfache und dauerhafte
+          Alternative zu Kaltmischgut. Kein Fräsen, keine Mindestmenge,
+          kein Warten auf Heißasphalt.
+        </p>
+
+        <!-- Bullets ABOVE CTA -->
+        <div class="hero-bullets">
+          <div class="hero-bullet">
+            <div class="bullet-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Einbaubar ab –10 °C, auch bei Nässe</span>
+          </div>
+          <div class="hero-bullet">
+            <div class="bullet-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Befahrbar nach 2 Stunden</span>
+          </div>
+          <div class="hero-bullet">
+            <div class="bullet-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Keine Mindestmenge, ab 1 Sack</span>
+          </div>
+        </div>
+
+        <a href="#anfragen" class="btn" style="align-self: flex-start;">
+          Jetzt Fachberater anfragen
+        </a>
+
+      </div>
+
+      <!-- Right Column -->
+      <div class="hero-right">
+
+        <!-- Overlay Card 1 — top left, bleeds left outside image -->
+        <div class="overlay-card overlay-card-1">
+          <div class="overlay-badge">
+            <svg viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.5 1.5L11.6 6.8H17.2L12.8 9.9L14.7 15.2L9.5 12L4.3 15.2L6.2 9.9L1.8 6.8H7.4L9.5 1.5Z" fill="#ffffff"/>
+            </svg>
+          </div>
+          <div class="overlay-card-1-text">
+            <div class="oc-label">Zertifiziert &amp; geprüft</div>
+            <div class="oc-value">Rapid Set ARM</div>
+          </div>
+        </div>
+
+        <!-- Hero Image — square, road with potholes -->
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1749976611039-a774f25fabb2?auto=format&fit=crop&w=900&h=900&q=80"
+            alt="Asphalt mit Schlaglöchern – Straßenschäden"
+          />
+        </div>
+
+        <!-- Overlay Card 2 — bottom right, bleeds downward outside image -->
+        <div class="overlay-card overlay-card-2">
+          <div class="oc2-title">Befahrbar nach</div>
+          <div class="oc2-metric">
+            <span class="metric-big">2h</span>
+            <span class="metric-small">statt 4–6h</span>
+          </div>
+          <!-- Clock icon – icon-style, single color #009ee3, animated once -->
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top:6px;">
+            <!-- Outer circle -->
+            <circle cx="24" cy="24" r="19" stroke="#009ee3" stroke-width="2"/>
+            <!-- 4 tick marks -->
+            <line x1="24" y1="7"  x2="24" y2="12" stroke="#009ee3" stroke-width="2" stroke-linecap="round"/>
+            <line x1="41" y1="24" x2="36" y2="24" stroke="#009ee3" stroke-width="2" stroke-linecap="round"/>
+            <line x1="24" y1="41" x2="24" y2="36" stroke="#009ee3" stroke-width="2" stroke-linecap="round"/>
+            <line x1="7"  y1="24" x2="12" y2="24" stroke="#009ee3" stroke-width="2" stroke-linecap="round"/>
+            <!-- Hour hand: starts at 12, animates to 2 o'clock (60°) -->
+            <g class="clock-hour-hand">
+              <line x1="24" y1="24" x2="24" y2="12" stroke="#009ee3" stroke-width="2.8" stroke-linecap="round"/>
+            </g>
+            <!-- Minute hand: starts at 12, does 2 full rotations then stops -->
+            <g class="clock-minute-hand">
+              <line x1="24" y1="24" x2="24" y2="8" stroke="#009ee3" stroke-width="2" stroke-linecap="round"/>
+            </g>
+            <!-- Center dot -->
+            <circle cx="24" cy="24" r="2.5" fill="#009ee3"/>
+          </svg>
+        </div>
+
+      </div><!-- /.hero-right -->
+
+    </div><!-- /.container -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 2 · SOCIAL PROOF
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="social-proof">
+    <div class="container">
+      <p class="sp-label">Über 1.000+ Unternehmen weltweit</p>
+      <h2 class="sp-heading">Diese Kunden vertrauen uns</h2>
+      <div class="sp-logos">
+        <span class="sp-logo-item">Zalando</span>
+        <span class="sp-logo-item">Amazon</span>
+        <span class="sp-logo-item">OBI</span>
+        <span class="sp-logo-item">Daimler</span>
+        <span class="sp-logo-item">Airbus</span>
+        <span class="sp-logo-item">Logo 6</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 3 · PROBLEM
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="problem">
+    <div class="container">
+      <!-- H2 with cyan highlight on key phrase (every 2nd section) -->
+      <h2 class="section-h2">
+        Warum Kaltmischgut <span class="highlight-cyan">nicht reicht</span>
+      </h2>
+      <p class="section-sub">
+        Frostschäden, Schlaglöcher, absackende Schachtabdeckungen – das Schadensbild
+        kennt jeder, der Asphaltflächen betreut. Die übliche Lösung: Kaltmischgut rein
+        und hoffen, dass es hält.
+      </p>
+
+      <div class="cards-grid">
+
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="card-icon-box">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="13" cy="13" r="10" stroke="#009ee3" stroke-width="2"/>
+              <path d="M13 7.5V13.5L16.5 16" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="card-h3">Schnell drin – schnell wieder draußen</h3>
+          <p class="card-p">
+            Kaltasphalt ist die beliebteste Notlösung. Und genau das ist das Problem:
+            Nach wenigen Wochen reißt die Stelle wieder auf. Mehrfach im Jahr dieselbe Reparatur.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <div class="card-icon-box">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="8" width="15" height="10" rx="1.5" stroke="#009ee3" stroke-width="2"/>
+              <path d="M17 11H21L24 14V18H17V11Z" stroke="#009ee3" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="7" cy="19.5" r="2" stroke="#009ee3" stroke-width="2"/>
+              <circle cx="20" cy="19.5" r="2" stroke="#009ee3" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3 class="card-h3">Heißasphalt? Braucht Logistik.</h3>
+          <p class="card-p">
+            Fräse bestellen, Einbaubohle organisieren, Walze mieten,
+            Mindestmenge einhalten. Für einzelne Schlaglöcher oder kleine Flächen
+            völlig unwirtschaftlich.
+          </p>
+        </div>
+
+        <!-- Card 3 · Highlight -->
+        <div class="card card-highlight">
+          <div class="card-icon-box">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="13" cy="13" r="10" stroke="#009ee3" stroke-width="2"/>
+              <path d="M8.5 13.5L11.5 16.5L17.5 10" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="card-h3">Es gibt eine bessere Option.</h3>
+          <p class="card-p">
+            Rapid Set ARM trocknet in 2 Stunden, braucht kein Gerät und hält dauerhaft –
+            auch unter Frostbedingungen und bei Nässe einbaubar.
+          </p>
+        </div>
+
+      </div><!-- /.cards-grid -->
+    </div><!-- /.container -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 4 · LÖSUNG
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="solution">
+    <div class="container">
+
+      <!-- Linke Spalte: Bild -->
+      <div class="solution-image">
+        <img
+          src="https://images.unsplash.com/photo-1603465410243-af3e840367dd?auto=format&fit=crop&w=900&h=900&q=80"
+          alt="Rapid Set ARM – Einbau auf der Baustelle"
+        />
+      </div>
+
+      <!-- Rechte Spalte: Text -->
+      <div class="solution-right">
+        <h2 class="section-h2">Sack auf. Wasser dazu. Fertig.<br>So einfach ist Asphaltreparatur.</h2>
+
+        <div class="solution-bullets">
+          <div class="solution-bullet">
+            <div class="solution-bullet-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Schadstelle ausfräsen oder aufrauen (mind. 5 cm tief)</span>
+          </div>
+          <div class="solution-bullet">
+            <div class="solution-bullet-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Sack öffnen, Inhalt einschütten, Wasser zugeben – fertig gemischt</span>
+          </div>
+          <div class="solution-bullet">
+            <div class="solution-bullet-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Verdichten, glätten – nach 2 Stunden befahrbar</span>
+          </div>
+        </div>
+
+        <a href="#anfragen" class="btn" style="align-self: flex-start;">
+          Jetzt Fachberater anfragen
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 5 · ANWENDUNGSSCHRITTE (VIDEO)
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="steps">
+    <div class="container">
+
+      <h2 class="section-h2" style="text-align:center;">So sieht das <span class="highlight-cyan">in der Praxis</span> aus</h2>
+      <p class="section-sub" style="text-align:center; margin:0 auto 56px; max-width:640px;">
+        Laufzeit ca. 2:30 Min. · Einbau-Demo auf der Baustelle
+      </p>
+
+      <!-- Video Placeholder -->
+      <div class="video-placeholder" id="video-container" onclick="startVideo()">
+        <span class="video-badge">Einbau-Demo</span>
+        <div class="play-btn">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5L23 14L8 23V5Z" fill="#ffffff"/>
+          </svg>
+        </div>
+      </div>
+    </div><!-- /.container -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 6 · VERGLEICHSTABELLE
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="comparison">
+    <div class="container">
+      <h2 class="section-h2">Rapid Set vs. Kaltmischgut vs. Heißasphalt</h2>
+
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th class="th-criteria"></th>
+            <th class="th-arm">
+              <div><span class="comp-recommended">Empfohlen</span></div>
+              Rapid Set ARM
+            </th>
+            <th class="th-other">Kaltmischgut</th>
+            <th class="th-other">Heißasphalt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-criteria">Befahrbarkeit</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                2 Stunden
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Sofort (temp.)
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                4–6 Stunden
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-criteria">Haltbarkeit</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Dauerhaft
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                3–6 Monate
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Dauerhaft
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-criteria">Geräteaufwand</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Keiner
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Keiner
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Fräse + Walze
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-criteria">Mindestmenge</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Ab 1 Sack
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Ab 1 Sack
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Mind. 1 Tonne
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-criteria">Einbau bei Nässe / Frost</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Ja
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Bedingt
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Nein
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-criteria">Kosten pro Reparatur</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Niedrig
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Mittel (kurzfr.)
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Hoch
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const nav   = document.querySelector('.nav');
+      const card1 = document.querySelector('.overlay-card-1');
+
+      function onScroll() {
+        const y = window.scrollY;
+
+        /* Nav-Schatten: ab 1 px Scroll einblenden */
+        if (y > 1) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+
+        /* Parallax entfernt */
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    /* ── YouTube Facade: öffnet Video in neuem Tab (Embedding gesperrt) ── */
+    function startVideo() {
+      window.open('https://www.youtube.com/watch?v=Z676CtyjVr8', '_blank', 'noopener');
+    }
+  </script>
+
+</body>
+</html>
