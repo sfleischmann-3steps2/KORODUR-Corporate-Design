@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KORODUR Corporate Design – Living Styleguide</title>
+<title>KORODUR Corporate Design – Living Styleguide v2</title>
 <link rel="stylesheet" href="tokens.css">
 <style>
 /* ===== STYLEGUIDE LAYOUT ===== */
-
 :root {
   --sg-sidebar-w: 260px;
   --sg-section-pad: 80px;
@@ -17,1084 +16,438 @@ body { display: flex; min-height: 100vh; }
 
 /* ===== SIDEBAR NAV ===== */
 .sg-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: var(--sg-sidebar-w);
-  height: 100vh;
-  background: var(--primary);
-  color: var(--white);
-  overflow-y: auto;
-  z-index: 100;
-  padding: 32px 0;
-  display: flex;
-  flex-direction: column;
+  position: fixed; top: 0; left: 0;
+  width: var(--sg-sidebar-w); height: 100vh;
+  background: var(--primary); color: var(--white);
+  overflow-y: auto; z-index: 100; padding: 32px 0;
+  display: flex; flex-direction: column;
 }
-.sg-nav-logo {
-  padding: 0 24px 32px;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  margin-bottom: 16px;
-}
+.sg-nav-logo { padding: 0 24px 32px; border-bottom: 1px solid rgba(255,255,255,0.15); margin-bottom: 16px; }
 .sg-nav-logo img { height: 40px; width: auto; filter: brightness(0) invert(1); }
 .sg-nav-title {
-  font-size: .7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  color: var(--secondary);
-  padding: 0 24px;
-  margin-bottom: 12px;
+  font-size: .7rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: .12em; color: var(--secondary); padding: 0 24px; margin-bottom: 12px;
 }
 .sg-nav a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 24px;
-  color: rgba(255,255,255,0.65);
-  font-size: .85rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: color .2s, background .2s;
-  border-left: 3px solid transparent;
+  display: flex; align-items: center; gap: 10px; padding: 10px 24px;
+  color: rgba(255,255,255,0.65); font-size: .85rem; font-weight: 700;
+  text-decoration: none; transition: color .2s, background .2s; border-left: 3px solid transparent;
 }
-.sg-nav a:hover {
-  color: var(--white);
-  background: rgba(255,255,255,0.06);
-  text-decoration: none;
-}
-.sg-nav a.active {
-  color: var(--white);
-  border-left-color: var(--secondary);
-  background: rgba(255,255,255,0.08);
-}
-.sg-nav a .sg-num {
-  font-size: .7rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.35);
-  min-width: 20px;
-}
+.sg-nav a:hover { color: var(--white); background: rgba(255,255,255,0.06); text-decoration: none; }
+.sg-nav a.active { color: var(--white); border-left-color: var(--secondary); background: rgba(255,255,255,0.08); }
+.sg-nav a .sg-num { font-size: .7rem; font-weight: 400; color: rgba(255,255,255,0.35); min-width: 20px; }
 .sg-nav a.active .sg-num { color: var(--secondary); }
-
-.sg-nav-footer {
-  margin-top: auto;
-  padding: 24px;
-  border-top: 1px solid rgba(255,255,255,0.15);
-  font-size: .75rem;
-  color: rgba(255,255,255,0.4);
-  line-height: 1.5;
-}
+.sg-nav-footer { margin-top: auto; padding: 24px; border-top: 1px solid rgba(255,255,255,0.15); font-size: .75rem; color: rgba(255,255,255,0.4); line-height: 1.5; }
 
 /* ===== MAIN CONTENT ===== */
-.sg-main {
-  margin-left: var(--sg-sidebar-w);
-  flex: 1;
-  min-width: 0;
-}
+.sg-main { margin-left: var(--sg-sidebar-w); flex: 1; min-width: 0; }
 
 /* ===== HERO ===== */
-.sg-hero {
-  background: var(--primary);
-  color: var(--white);
-  padding: 100px 0 80px;
-}
-.sg-hero h1 {
-  font-weight: 900;
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
-  text-transform: uppercase;
-  color: var(--white);
-  line-height: 1.05;
-  margin-bottom: 20px;
-}
-.sg-hero .sg-version {
-  display: inline-block;
-  background: var(--secondary);
-  color: var(--white);
-  font-size: .75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  padding: 4px 12px;
-  margin-bottom: 24px;
-}
-.sg-hero p {
-  font-size: 1.15rem;
-  color: rgba(255,255,255,0.75);
-  max-width: 640px;
-  line-height: 1.7;
-}
+.sg-hero { background: var(--primary); color: var(--white); padding: 100px 0 80px; }
+.sg-hero h1 { font-weight: 900; font-size: clamp(2.4rem, 5vw, 3.8rem); text-transform: uppercase; color: var(--white); line-height: 1.05; margin-bottom: 20px; }
+.sg-hero .sg-version { display: inline-block; background: var(--secondary); color: var(--white); font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; padding: 4px 12px; margin-bottom: 24px; }
+.sg-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.75); max-width: 640px; line-height: 1.7; }
 
 /* ===== SECTIONS ===== */
 .sg-section { padding: var(--sg-section-pad) 0; border-bottom: 1px solid var(--light-gray); }
 .sg-section:last-child { border-bottom: none; }
+.sg-section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 12px; }
+.sg-section-num { font-size: .8rem; font-weight: 400; color: var(--secondary); letter-spacing: .05em; }
+.sg-section h2 { font-weight: 900; font-size: clamp(1.6rem, 3vw, 2.2rem); text-transform: uppercase; letter-spacing: -0.01em; }
+.sg-section .sg-intro { font-size: 1.05rem; color: #5a6a7a; max-width: 720px; margin-bottom: 48px; line-height: 1.7; }
 
-.sg-section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  margin-bottom: 12px;
-}
-.sg-section-num {
-  font-size: .8rem;
-  font-weight: 400;
-  color: var(--secondary);
-  letter-spacing: .05em;
-}
-.sg-section h2 {
-  font-weight: 900;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-}
-.sg-section .sg-intro {
-  font-size: 1.05rem;
-  color: #5a6a7a;
-  max-width: 720px;
-  margin-bottom: 48px;
-  line-height: 1.7;
-}
+/* ===== UTILITIES ===== */
+.sg-pad { padding: 0 48px; }
 
-/* ===== COMING SOON ===== */
-.sg-coming-soon {
-  background: var(--light-gray);
-  border: 2px dashed var(--mid-gray);
-  padding: 48px 40px;
-  text-align: center;
-}
-.sg-coming-soon-label {
-  font-weight: 800;
-  font-size: .75rem;
-  text-transform: uppercase;
-  letter-spacing: .15em;
-  color: var(--mid-gray);
-  margin-bottom: 12px;
-}
-.sg-coming-soon p {
-  color: #8a939e;
-  font-size: .95rem;
-  margin-bottom: 0;
-}
+/* Color Swatches */
+.sg-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.sg-swatch { border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.sg-swatch-color { height: 100px; }
+.sg-swatch-info { padding: 16px; background: var(--white); }
+.sg-swatch-info strong { display: block; font-size: .9rem; margin-bottom: 4px; }
+.sg-swatch-info code { font-size: .8rem; color: #5a6a7a; }
 
-/* ===== LOGO SECTION ===== */
-.sg-logo-display {
-  background: var(--white);
-  border: 1px solid var(--light-gray);
-  padding: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 32px;
-}
-.sg-logo-display img { height: 80px; width: auto; }
+/* Token Table */
+.sg-token-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+.sg-token-table th { text-align: left; padding: 12px 16px; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: #5a6a7a; border-bottom: 2px solid var(--mid-gray); }
+.sg-token-table td { padding: 12px 16px; border-bottom: 1px solid var(--light-gray); font-size: .95rem; }
+.sg-token-table td code { background: var(--light-gray); padding: 2px 8px; border-radius: 4px; font-size: .85rem; }
 
-.sg-logo-sizes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 40px;
-}
-.sg-logo-size-item {
-  background: var(--white);
-  border: 1px solid var(--light-gray);
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-.sg-logo-size-item img { width: auto; }
-.sg-logo-size-item .sg-label {
-  font-size: .8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  color: #5a6a7a;
-}
+/* Typography Specimen */
+.sg-type-specimen { margin-bottom: 32px; padding: 32px; background: var(--light-gray); border-radius: var(--card-radius); }
+.sg-type-specimen .label { font-size: .75rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
 
-.sg-logo-protection {
-  display: inline-block;
-  position: relative;
-  padding: 40px;
-  border: 2px dashed var(--secondary);
-  margin-bottom: 40px;
-}
-.sg-logo-protection img { height: 60px; }
-.sg-logo-protection::after {
-  content: "Schutzraum = O";
-  position: absolute;
-  bottom: 8px;
-  right: 12px;
-  font-size: .7rem;
-  font-weight: 700;
-  color: var(--secondary);
-  text-transform: uppercase;
-  letter-spacing: .05em;
-}
+/* Component Demo */
+.sg-demo { padding: 40px; background: var(--light-gray); border-radius: var(--card-radius); margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.sg-demo-dark { background: var(--primary); }
+.sg-demo-label { font-size: .75rem; font-weight: 700; color: #5a6a7a; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+.sg-demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; margin-bottom: 32px; }
 
-.sg-do-dont {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 32px;
-}
-.sg-do, .sg-dont {
-  padding: 32px;
-  text-align: center;
-}
-.sg-do {
-  background: var(--white);
-  border: 2px solid #2a9d4e;
-}
-.sg-dont {
-  background: var(--white);
-  border: 2px solid #c0392b;
-}
-.sg-do-label, .sg-dont-label {
-  font-size: .75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  margin-bottom: 16px;
-}
-.sg-do-label { color: #2a9d4e; }
-.sg-dont-label { color: #c0392b; }
-.sg-do img, .sg-dont img { height: 48px; margin: 0 auto; }
-.sg-dont-logo-on-color {
-  background: var(--primary);
-  display: inline-block;
-  padding: 16px 24px;
-}
-.sg-dont-logo-on-color img { filter: brightness(0) invert(1); }
+/* Cards in Demo */
+.sg-card-demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px; }
 
-/* ===== FARBEN SECTION ===== */
-.sg-swatches {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-bottom: 40px;
-}
-.sg-swatch { border: 1px solid var(--light-gray); overflow: hidden; }
-.sg-swatch-color {
-  height: 140px;
-  display: flex;
-  align-items: flex-end;
-  padding: 16px;
-}
-.sg-swatch-color span {
-  font-size: .8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-}
-.sg-swatch-info {
-  padding: 16px;
-  background: var(--white);
-}
-.sg-swatch-info dt {
-  font-size: .7rem;
-  font-weight: 400;
-  color: #8a939e;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  margin-bottom: 2px;
-}
-.sg-swatch-info dd {
-  font-size: .85rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-/* ===== FARBVERTEILUNG ===== */
-.sg-color-weight {
-  display: flex;
-  height: 64px;
-  border: 1px solid var(--light-gray);
-  overflow: hidden;
-  margin-bottom: 16px;
-}
-.sg-color-weight > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-}
-
-.sg-color-usage {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 32px;
-}
-.sg-color-usage-item {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-.sg-color-usage-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 5px;
-}
-.sg-color-usage-item p { margin-bottom: 0; font-size: .9rem; }
-.sg-color-usage-item strong { display: block; margin-bottom: 4px; font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; }
-
-/* ===== TYPOGRAFIE SECTION ===== */
-.sg-type-specimen {
-  margin-bottom: 40px;
-}
-.sg-type-row {
-  display: flex;
-  align-items: baseline;
-  gap: 32px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--light-gray);
-}
-.sg-type-meta {
-  min-width: 180px;
-  flex-shrink: 0;
-}
-.sg-type-meta .sg-weight-name {
-  font-size: .85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .03em;
-  margin-bottom: 4px;
-}
-.sg-type-meta .sg-weight-value {
-  font-size: .75rem;
-  color: #8a939e;
-}
-.sg-type-sample {
-  font-size: 1.6rem;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
-.sg-type-hierarchy {
-  margin-bottom: 40px;
-}
-.sg-type-h-row {
-  padding: 24px 0;
-  border-bottom: 1px solid var(--light-gray);
-  display: flex;
-  align-items: baseline;
-  gap: 32px;
-}
-.sg-type-h-meta {
-  min-width: 180px;
-  flex-shrink: 0;
-}
-.sg-type-h-meta .sg-h-label {
-  font-size: .85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--secondary);
-  margin-bottom: 4px;
-}
-.sg-type-h-meta .sg-h-specs {
-  font-size: .7rem;
-  color: #8a939e;
-  line-height: 1.6;
-}
-
-.sg-rule-box {
-  background: var(--light-gray);
-  border-left: 4px solid var(--secondary);
-  padding: 24px 28px;
-  margin: 32px 0;
-}
-.sg-rule-box strong {
-  display: block;
-  font-size: .8rem;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--secondary);
-  margin-bottom: 8px;
-}
-.sg-rule-box p { margin-bottom: 0; font-size: .95rem; }
-
-.sg-type-fallback {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 32px;
-}
-.sg-type-fallback-item {
-  padding: 24px;
-  border: 1px solid var(--light-gray);
-}
-.sg-type-fallback-item .sg-label {
-  font-size: .75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--secondary);
-  margin-bottom: 12px;
-}
-.sg-type-fallback-item p { font-size: 1.1rem; margin-bottom: 0; }
-
-/* ===== TON & SPRACHE ===== */
-.sg-tone-rules {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 32px;
-}
-.sg-tone-rule {
-  padding: 24px;
-  border: 1px solid var(--light-gray);
-}
-.sg-tone-rule .sg-label {
-  font-size: .75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  margin-bottom: 12px;
-}
-.sg-tone-rule.do { border-left: 3px solid #2a9d4e; }
-.sg-tone-rule.do .sg-label { color: #2a9d4e; }
-.sg-tone-rule.dont { border-left: 3px solid #c0392b; }
-.sg-tone-rule.dont .sg-label { color: #c0392b; }
-.sg-tone-rule p { font-size: .9rem; margin-bottom: 0; }
-
-/* ===== ANWENDUNGSBEISPIELE ===== */
-.sg-examples {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.sg-example-card {
-  border: 1px solid var(--light-gray);
-  padding: 32px;
-  text-align: center;
-  transition: border-color .2s;
-}
-.sg-example-card:hover { border-color: var(--secondary); }
-.sg-example-card h3 {
-  font-size: 1rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.sg-example-card p { font-size: .85rem; color: #5a6a7a; margin-bottom: 16px; }
-.sg-example-card a {
-  font-size: .8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 960px) {
-  :root { --sg-sidebar-w: 0px; }
-  .sg-nav {
-    position: fixed;
-    top: 0;
-    left: -280px;
-    width: 280px;
-    transition: left .3s;
-  }
-  .sg-nav.open { left: 0; }
-  .sg-main { margin-left: 0; }
-  .sg-mobile-toggle {
-    display: flex !important;
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 200;
-    width: 44px;
-    height: 44px;
-    background: var(--primary);
-    color: var(--white);
-    border: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    cursor: pointer;
-  }
-  .sg-nav-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    z-index: 90;
-  }
-  .sg-nav.open ~ .sg-nav-overlay { display: block; }
-  .sg-swatches { grid-template-columns: repeat(2, 1fr); }
-  .sg-logo-sizes { grid-template-columns: 1fr; }
-  .sg-do-dont { grid-template-columns: 1fr; }
-  .sg-type-row { flex-direction: column; gap: 8px; }
-  .sg-type-h-row { flex-direction: column; gap: 8px; }
-  .sg-type-fallback { grid-template-columns: 1fr; }
-  .sg-tone-rules { grid-template-columns: 1fr; }
-  .sg-examples { grid-template-columns: 1fr; }
-  .sg-color-usage { grid-template-columns: 1fr; }
-}
-
-.sg-mobile-toggle { display: none; }
+/* Breakpoint Table */
+.sg-bp-bar { display: flex; gap: 2px; margin-bottom: 24px; border-radius: var(--card-radius); overflow: hidden; }
+.sg-bp-segment { padding: 16px 20px; text-align: center; }
+.sg-bp-segment strong { display: block; font-size: .85rem; }
+.sg-bp-segment span { font-size: .75rem; opacity: 0.7; }
 </style>
 </head>
 <body>
 
-<!-- Mobile Toggle -->
-<button class="sg-mobile-toggle" onclick="document.querySelector('.sg-nav').classList.toggle('open')" aria-label="Navigation">&#9776;</button>
-
 <!-- ===== SIDEBAR ===== -->
-<nav class="sg-nav" id="sg-nav">
-  <div class="sg-nav-logo">
-    <img src="assets/korodur-logo.png" alt="KORODUR">
-  </div>
-  <div class="sg-nav-title">Styleguide</div>
-  <a href="#logo"><span class="sg-num">01</span> Logo</a>
+<nav class="sg-nav">
+  <div class="sg-nav-logo"><img src="assets/korodur-logo.png" alt="KORODUR"></div>
+  <div class="sg-nav-title">Styleguide v2.0</div>
+  <a href="#logo" class="active"><span class="sg-num">01</span> Logo</a>
   <a href="#farben"><span class="sg-num">02</span> Farben</a>
   <a href="#typografie"><span class="sg-num">03</span> Typografie</a>
-  <a href="#farbverteilung"><span class="sg-num">04</span> Farbverteilung</a>
-  <a href="#buttons"><span class="sg-num">05</span> Buttons</a>
-  <a href="#spacing"><span class="sg-num">06</span> Spacing & Grid</a>
-  <a href="#icons"><span class="sg-num">07</span> Icons</a>
-  <a href="#bildsprache"><span class="sg-num">08</span> Bildsprache</a>
-  <a href="#karten"><span class="sg-num">09</span> Karten & Container</a>
-  <a href="#formulare"><span class="sg-num">10</span> Formulare & Inputs</a>
-  <a href="#navigation"><span class="sg-num">11</span> Navigation & Header</a>
-  <a href="#footer"><span class="sg-num">12</span> Footer</a>
-  <a href="#breakpoints"><span class="sg-num">13</span> Responsive</a>
-  <a href="#ton"><span class="sg-num">14</span> Ton & Sprache</a>
-  <a href="#beispiele"><span class="sg-num">15</span> Anwendungsbeispiele</a>
-  <div class="sg-nav-footer">
-    KORODUR Corporate Design<br>
-    Living Styleguide v1.0<br>
-    Stand: März 2026
-  </div>
+  <a href="#buttons"><span class="sg-num">04</span> Buttons</a>
+  <a href="#cards"><span class="sg-num">05</span> Cards</a>
+  <a href="#icons"><span class="sg-num">06</span> Icon-Boxen</a>
+  <a href="#spacing"><span class="sg-num">07</span> Spacing</a>
+  <a href="#breakpoints"><span class="sg-num">08</span> Breakpoints</a>
+  <a href="#patterns"><span class="sg-num">09</span> Patterns</a>
+  <a href="#accessibility"><span class="sg-num">10</span> Accessibility</a>
+  <a href="#tonvoice"><span class="sg-num">11</span> Ton &amp; Sprache</a>
+  <div class="sg-nav-footer">KORODUR Corporate Design<br>Living Styleguide v2.0<br>Stand: April 2026</div>
 </nav>
 
-<div class="sg-nav-overlay" onclick="document.querySelector('.sg-nav').classList.remove('open')"></div>
-
 <!-- ===== MAIN ===== -->
-<main class="sg-main">
+<div class="sg-main">
 
-  <!-- HERO -->
+  <!-- Hero -->
   <section class="sg-hero">
-    <div class="container">
-      <span class="sg-version">Version 1.0 &middot; März 2026</span>
-      <h1>CORPORATE DESIGN<br>STYLEGUIDE</h1>
-      <p>Das verbindliche Gestaltungshandbuch für alle digitalen und analogen Anwendungen der Marke KORODUR. Dieses Dokument wächst mit jeder Designentscheidung.</p>
+    <div class="sg-pad">
+      <div class="sg-version">Version 2.0 – April 2026</div>
+      <h1>KORODUR<br>Living Styleguide</h1>
+      <p>Verbindliche Design-Grundlage fuer alle KORODUR-Landingpages. Basierend auf dem externen Designer-Entwurf, vereinheitlicht und erweitert.</p>
     </div>
   </section>
 
-  <!-- ===== 01 LOGO ===== -->
-  <section class="sg-section" id="logo">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">01</span>
-        <h2>LOGO</h2>
-      </div>
-      <p class="sg-intro">Es gibt nur eine farbige Variante des KORODUR-Logos. Das Logo wird nie im Negativ gesetzt und steht immer auf weißem Hintergrund.</p>
+  <!-- 01 LOGO -->
+  <section class="sg-section sg-pad" id="logo">
+    <div class="sg-section-header"><span class="sg-section-num">01</span><h2>Logo</h2></div>
+    <p class="sg-intro">Das KORODUR-Logo wird ausschliesslich in der Farbvariante auf weissem Hintergrund verwendet. Mindestgroesse: 40px Hoehe.</p>
 
-      <!-- Logo Display -->
-      <div class="sg-logo-display">
-        <img src="assets/korodur-logo.png" alt="KORODUR Logo">
+    <div style="background:#fff; border:1px solid var(--light-gray); padding:60px; display:flex; align-items:center; justify-content:center; border-radius:var(--card-radius); margin-bottom:32px;">
+      <img src="assets/korodur-logo.png" alt="KORODUR Logo" style="height:80px;">
+    </div>
+
+    <table class="sg-token-table">
+      <thead><tr><th>Eigenschaft</th><th>Wert</th></tr></thead>
+      <tbody>
+        <tr><td>Navigation (Desktop)</td><td><code>height: 90px</code></td></tr>
+        <tr><td>Navigation (Mobile)</td><td><code>height: 52px</code></td></tr>
+        <tr><td>Styleguide Sidebar</td><td><code>height: 40px</code> + Invert-Filter</td></tr>
+        <tr><td>Schutzraum</td><td>Mindestens 50% der Logo-Hoehe</td></tr>
+        <tr><td>Hintergrund</td><td>Nur auf Weiss (<code>#ffffff</code>)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 02 FARBEN -->
+  <section class="sg-section sg-pad" id="farben">
+    <div class="sg-section-header"><span class="sg-section-num">02</span><h2>Farben</h2></div>
+    <p class="sg-intro">Zweifarbiges System: Navy als Primaerfarbe, Cyan als Akzent. Graustufen fuer Hintergruende und Subtexte.</p>
+
+    <div class="sg-swatches">
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#002d59;"></div><div class="sg-swatch-info"><strong>Navy (Primary)</strong><code>#002d59</code><br><code>Pantone 295 C</code></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#009ee3;"></div><div class="sg-swatch-info"><strong>Cyan (Secondary)</strong><code>#009ee3</code></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#ffffff; border:1px solid #ececed;"></div><div class="sg-swatch-info"><strong>White</strong><code>#ffffff</code></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#f5f5f6;"></div><div class="sg-swatch-info"><strong>Icon BG</strong><code>#f5f5f6</code></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#e8edf5;"></div><div class="sg-swatch-info"><strong>Bullet BG</strong><code>#e8edf5</code></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#ececed;"></div><div class="sg-swatch-info"><strong>Light Gray</strong><code>#ececed</code></div></div>
+      <div class="sg-swatch"><div class="sg-swatch-color" style="background:#d9dada;"></div><div class="sg-swatch-info"><strong>Mid Gray</strong><code>#d9dada</code></div></div>
+    </div>
+
+    <h3 style="margin-bottom:16px;">Farbverteilung</h3>
+    <table class="sg-token-table">
+      <thead><tr><th>Bereich</th><th>Farbe</th><th>Verwendung</th></tr></thead>
+      <tbody>
+        <tr><td>Hintergruende</td><td><code>#ffffff</code> / <code>rgba(245,245,246,0.45)</code></td><td>Abwechselnd Weiss und helles Grau</td></tr>
+        <tr><td>Dark Sections</td><td><code>#002d59</code></td><td>Technik-Sektion, CTA, Footer-Bereich</td></tr>
+        <tr><td>Text</td><td><code>#002d59</code></td><td>Alle Ueberschriften und Fliesstext</td></tr>
+        <tr><td>Subtext</td><td><code>#002d59</code> + <code>opacity: 0.55–0.72</code></td><td>Beschreibungen, Meta-Informationen</td></tr>
+        <tr><td>Akzent</td><td><code>#009ee3</code></td><td>Buttons, Links, Badges, Highlight-Worte</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 03 TYPOGRAFIE -->
+  <section class="sg-section sg-pad" id="typografie">
+    <div class="sg-section-header"><span class="sg-section-num">03</span><h2>Typografie</h2></div>
+    <p class="sg-intro">Gabarito als einzige Schriftfamilie. Arial als System-Fallback. Keine Serifenschriften.</p>
+
+    <div class="sg-type-specimen">
+      <div class="label">H1 – Hero Headline</div>
+      <div style="font-size:48px; font-weight:900; line-height:1.08; color:var(--primary);">Einmal reparieren.<br><span style="color:var(--secondary);">Dauerhaft halten.</span></div>
+    </div>
+
+    <div class="sg-type-specimen">
+      <div class="label">H2 – Section Headline</div>
+      <div style="font-size:36px; font-weight:900; line-height:1.12; color:var(--primary);">Warum Kaltmischgut <span style="color:var(--secondary);">nicht reicht</span></div>
+    </div>
+
+    <div class="sg-type-specimen">
+      <div class="label">H3 – Card Headline</div>
+      <div style="font-size:18px; font-weight:800; line-height:1.25; color:var(--primary);">Schnell drin – schnell wieder draussen</div>
+    </div>
+
+    <div class="sg-type-specimen">
+      <div class="label">Body / Section Sub</div>
+      <div style="font-size:18px; font-weight:400; line-height:1.65; color:var(--primary); opacity:0.68;">Frostschaeden, Schlagloecher, absackende Schachtabdeckungen – das Schadensbild kennt jeder.</div>
+    </div>
+
+    <table class="sg-token-table">
+      <thead><tr><th>Element</th><th>Size</th><th>Weight</th><th>Line-Height</th></tr></thead>
+      <tbody>
+        <tr><td>H1</td><td><code>48px</code> (Desktop) / <code>30px</code> (Mobile)</td><td><code>900</code></td><td><code>1.08</code></td></tr>
+        <tr><td>H2</td><td><code>36px</code> (Desktop) / <code>24px</code> (Mobile)</td><td><code>900</code></td><td><code>1.12</code></td></tr>
+        <tr><td>H3</td><td><code>18px</code></td><td><code>800</code></td><td><code>1.25</code></td></tr>
+        <tr><td>Body</td><td><code>18px</code></td><td><code>400</code></td><td><code>1.65</code></td></tr>
+        <tr><td>Button</td><td><code>18px</code> (Desktop) / <code>15px</code> (Mobile)</td><td><code>800</code></td><td><code>1</code></td></tr>
+        <tr><td>Badge</td><td><code>11–13px</code></td><td><code>700–800</code></td><td><code>1</code></td></tr>
+        <tr><td>Meta / Label</td><td><code>14–15px</code></td><td><code>400–700</code></td><td><code>1.3</code></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 04 BUTTONS -->
+  <section class="sg-section sg-pad" id="buttons">
+    <div class="sg-section-header"><span class="sg-section-num">04</span><h2>Buttons</h2></div>
+    <p class="sg-intro">Zwei Button-Varianten: Primary (Cyan, ausgefuellt) und Ghost (Navy, Outline). Border-Radius: 6px.</p>
+
+    <div class="sg-demo">
+      <a href="#" class="btn" onclick="return false;">Jetzt anfragen</a>
+      <a href="#" class="btn btn-ghost" onclick="return false;">Mehr erfahren</a>
+    </div>
+
+    <table class="sg-token-table">
+      <thead><tr><th>Eigenschaft</th><th>Primary</th><th>Ghost</th></tr></thead>
+      <tbody>
+        <tr><td>Background</td><td><code>#009ee3</code></td><td><code>transparent</code></td></tr>
+        <tr><td>Color</td><td><code>#ffffff</code></td><td><code>#002d59</code></td></tr>
+        <tr><td>Border</td><td><code>none</code></td><td><code>2px solid #002d59</code></td></tr>
+        <tr><td>Border-Radius</td><td colspan="2"><code>6px</code></td></tr>
+        <tr><td>Padding</td><td><code>16px 30px</code></td><td><code>14px 28px</code></td></tr>
+        <tr><td>Font-Weight</td><td colspan="2"><code>800</code></td></tr>
+        <tr><td>Hover</td><td><code>#0090d0</code> + Shadow</td><td>Fill Navy + White Text</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 05 CARDS -->
+  <section class="sg-section sg-pad" id="cards">
+    <div class="sg-section-header"><span class="sg-section-num">05</span><h2>Cards</h2></div>
+    <p class="sg-intro">Cards mit 14px Radius und weichem Shadow. Highlight-Variante in Navy fuer visuelle Ankerpunkte.</p>
+
+    <div class="sg-card-demo">
+      <div class="card" style="padding:36px 32px;">
+        <div class="card-icon-box">
+          <svg viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="10" stroke="#009ee3" stroke-width="2"/><path d="M13 7.5V13.5L16.5 16" stroke="#009ee3" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:18px; font-weight:800; margin-bottom:12px;">Standard Card</h3>
+        <p style="font-size:18px; opacity:0.7; margin:0;">Weisser Hintergrund, 14px Radius, weicher Shadow auf Hover.</p>
       </div>
 
-      <!-- Sizes -->
-      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">GRÖSSEN</h3>
-      <div class="sg-logo-sizes">
-        <div class="sg-logo-size-item">
-          <img src="assets/korodur-logo.png" alt="Logo gross" style="height:80px;">
-          <span class="sg-label">Gross</span>
+      <div class="card card-highlight" style="padding:36px 32px;">
+        <div class="card-icon-box">
+          <svg viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="10" stroke="#009ee3" stroke-width="2"/><path d="M8.5 13.5L11.5 16.5L17.5 10" stroke="#009ee3" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
-        <div class="sg-logo-size-item">
-          <img src="assets/korodur-logo.png" alt="Logo mittel" style="height:48px;">
-          <span class="sg-label">Mittel</span>
-        </div>
-        <div class="sg-logo-size-item">
-          <img src="assets/korodur-logo.png" alt="Logo minimum" style="height:28px;">
-          <span class="sg-label">Mindestgröße (15 mm)</span>
-        </div>
+        <h3 class="card-h3" style="font-size:18px; font-weight:800; margin-bottom:12px;">Highlight Card</h3>
+        <p class="card-p" style="font-size:18px; margin:0;">Navy-Hintergrund fuer CTA oder Loesung. Text in Weiss.</p>
       </div>
 
-      <!-- Schutzraum -->
-      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">SCHUTZRAUM</h3>
-      <p style="margin-bottom:20px; font-size:.95rem;">Um das Logo muss zu allen Seiten ein Schutzraum frei bleiben. Dieser entspricht der Höhe und Breite des Buchstabens "O" aus dem Logoschriftzug.</p>
-      <div class="sg-logo-protection">
-        <img src="assets/korodur-logo.png" alt="Logo mit Schutzraum">
+      <div class="card" style="padding:36px 32px;">
+        <div class="card-icon-box">
+          <svg viewBox="0 0 26 26" fill="none"><rect x="3" y="3" width="20" height="20" rx="3" stroke="#009ee3" stroke-width="2"/></svg>
+        </div>
+        <h3 style="font-size:18px; font-weight:800; margin-bottom:12px;">Image Card</h3>
+        <p style="font-size:18px; opacity:0.7; margin:0;">Fuer Referenzen und Berater: Bild oben, Content unten.</p>
       </div>
+    </div>
 
-      <!-- Do / Don't -->
-      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">VERWENDUNG</h3>
-      <div class="sg-do-dont">
-        <div class="sg-do">
-          <div class="sg-do-label">Richtig</div>
-          <img src="assets/korodur-logo.png" alt="Logo auf Weiss">
-          <p class="micro-copy">Logo auf weißem Hintergrund</p>
-        </div>
-        <div class="sg-dont">
-          <div class="sg-dont-label">Falsch</div>
-          <div class="sg-dont-logo-on-color">
-            <img src="assets/korodur-logo.png" alt="Logo auf Farbe">
-          </div>
-          <p class="micro-copy">Logo nie auf farbigem Hintergrund oder im Bild</p>
-        </div>
+    <table class="sg-token-table">
+      <thead><tr><th>Token</th><th>Wert</th></tr></thead>
+      <tbody>
+        <tr><td><code>--card-radius</code></td><td><code>14px</code></td></tr>
+        <tr><td><code>--card-shadow</code></td><td><code>0 8px 40px rgba(0,45,89,0.10)</code></td></tr>
+        <tr><td><code>--card-shadow-hover</code></td><td><code>0 12px 48px rgba(0,45,89,0.16)</code></td></tr>
+        <tr><td>Padding</td><td><code>36px 32px</code> (Standard) / <code>24px 28px</code> (Card Body mit Bild)</td></tr>
+        <tr><td>Highlight BG</td><td><code>#002d59</code></td></tr>
+        <tr><td>Highlight Text</td><td><code>#ffffff</code> / <code>rgba(255,255,255,0.72)</code></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 06 ICON-BOXEN -->
+  <section class="sg-section sg-pad" id="icons">
+    <div class="sg-section-header"><span class="sg-section-num">06</span><h2>Icon-Boxen</h2></div>
+    <p class="sg-intro">Quadratische Boxen mit abgerundeten Ecken. Immer Cyan-Icons auf grauem Hintergrund.</p>
+
+    <div class="sg-demo">
+      <div class="card-icon-box"><svg viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="10" stroke="#009ee3" stroke-width="2"/></svg></div>
+      <div style="width:32px; height:32px; background:#e8edf5; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+        <svg viewBox="0 0 15 15" fill="none" width="15" height="15"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
+    </div>
+
+    <table class="sg-token-table">
+      <thead><tr><th>Typ</th><th>Groesse</th><th>Radius</th><th>Background</th></tr></thead>
+      <tbody>
+        <tr><td>Card Icon</td><td><code>52 x 52px</code></td><td><code>12px</code></td><td><code>#f5f5f6</code></td></tr>
+        <tr><td>Bullet Icon</td><td><code>32 x 32px</code></td><td><code>50%</code> (Kreis)</td><td><code>#e8edf5</code></td></tr>
+        <tr><td>Tech Feature</td><td><code>44 x 44px</code></td><td><code>12px</code></td><td><code>rgba(0,158,227,0.15)</code></td></tr>
+        <tr><td>FAQ Toggle</td><td><code>32 x 32px</code></td><td><code>50%</code></td><td><code>#f5f5f6</code> → <code>#009ee3</code> (open)</td></tr>
+        <tr><td>Icon Color</td><td colspan="3"><code>#009ee3</code> (Cyan) — immer einheitlich</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 07 SPACING -->
+  <section class="sg-section sg-pad" id="spacing">
+    <div class="sg-section-header"><span class="sg-section-num">07</span><h2>Spacing</h2></div>
+    <p class="sg-intro">Konsistentes 8px-Raster. Section-Padding passt sich je Breakpoint an.</p>
+
+    <table class="sg-token-table">
+      <thead><tr><th>Token</th><th>Desktop</th><th>Mobile</th></tr></thead>
+      <tbody>
+        <tr><td>Section Padding</td><td><code>88px 0 100px</code></td><td><code>56px 0 64px</code></td></tr>
+        <tr><td>Container Padding</td><td><code>0 32px</code></td><td><code>0 20px</code></td></tr>
+        <tr><td>Card Padding</td><td><code>36px 32px</code></td><td>Gleich</td></tr>
+        <tr><td>Grid Gap (Cards)</td><td><code>24px</code></td><td>Gleich</td></tr>
+        <tr><td>Grid Gap (Hero Split)</td><td><code>64px</code></td><td><code>40px</code></td></tr>
+        <tr><td>Margin H2 → Content</td><td><code>48–56px</code></td><td><code>32px</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin:32px 0 16px;">Spacing Scale</h3>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:flex-end;">
+      <div style="text-align:center;"><div style="width:40px; height:8px; background:var(--secondary); border-radius:2px;"></div><span style="font-size:12px;">8</span></div>
+      <div style="text-align:center;"><div style="width:40px; height:12px; background:var(--secondary); border-radius:2px;"></div><span style="font-size:12px;">12</span></div>
+      <div style="text-align:center;"><div style="width:40px; height:16px; background:var(--secondary); border-radius:2px;"></div><span style="font-size:12px;">16</span></div>
+      <div style="text-align:center;"><div style="width:40px; height:20px; background:var(--secondary); border-radius:2px;"></div><span style="font-size:12px;">20</span></div>
+      <div style="text-align:center;"><div style="width:40px; height:24px; background:var(--secondary); border-radius:2px;"></div><span style="font-size:12px;">24</span></div>
+      <div style="text-align:center;"><div style="width:40px; height:32px; background:var(--secondary); border-radius:2px;"></div><span style="font-size:12px;">32</span></div>
+      <div style="text-align:center;"><div style="width:40px; height:40px; background:var(--secondary); border-radius:2px;"></div><span style="font-size:12px;">40</span></div>
+      <div style="text-align:center;"><div style="width:40px; height:48px; background:var(--secondary); border-radius:2px;"></div><span style="font-size:12px;">48</span></div>
+      <div style="text-align:center;"><div style="width:40px; height:64px; background:var(--secondary); border-radius:2px;"></div><span style="font-size:12px;">64</span></div>
+      <div style="text-align:center;"><div style="width:40px; height:80px; background:var(--secondary); border-radius:2px;"></div><span style="font-size:12px;">80</span></div>
+      <div style="text-align:center;"><div style="width:40px; height:100px; background:var(--secondary); border-radius:2px;"></div><span style="font-size:12px;">100</span></div>
     </div>
   </section>
 
-  <!-- ===== 02 FARBEN ===== -->
-  <section class="sg-section bg-gray" id="farben">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">02</span>
-        <h2>FARBEN</h2>
-      </div>
-      <p class="sg-intro">Das KORODUR-Farbsystem basiert auf vier Farben: Navy als Markenfarbe, Cyan als Akzent und zwei Graustufen für Hintergründe und Strukturelemente.</p>
+  <!-- 08 BREAKPOINTS -->
+  <section class="sg-section sg-pad" id="breakpoints">
+    <div class="sg-section-header"><span class="sg-section-num">08</span><h2>Breakpoints</h2></div>
+    <p class="sg-intro">Drei Breakpoints: 1100px (Tablet), 768px (Mobile), 480px (Small Mobile). Desktop-First-Ansatz.</p>
 
-      <div class="sg-swatches">
-        <!-- Navy -->
-        <div class="sg-swatch">
-          <div class="sg-swatch-color" style="background:#002d59;">
-            <span style="color:#fff;">Navy</span>
-          </div>
-          <div class="sg-swatch-info">
-            <dl>
-              <dt>HEX</dt><dd>#002d59</dd>
-              <dt>RGB</dt><dd>0 / 45 / 89</dd>
-              <dt>Pantone</dt><dd>295 C</dd>
-              <dt>CSS</dt><dd>var(--primary)</dd>
-            </dl>
-          </div>
-        </div>
-        <!-- Cyan -->
-        <div class="sg-swatch">
-          <div class="sg-swatch-color" style="background:#009ee3;">
-            <span style="color:#fff;">Cyan</span>
-          </div>
-          <div class="sg-swatch-info">
-            <dl>
-              <dt>HEX</dt><dd>#009ee3</dd>
-              <dt>RGB</dt><dd>0 / 158 / 227</dd>
-              <dt>CMYK</dt><dd>100 / 0 / 0 / 0</dd>
-              <dt>CSS</dt><dd>var(--secondary)</dd>
-            </dl>
-          </div>
-        </div>
-        <!-- Hellgrau -->
-        <div class="sg-swatch">
-          <div class="sg-swatch-color" style="background:#ececed;">
-            <span style="color:#002d59;">Hellgrau</span>
-          </div>
-          <div class="sg-swatch-info">
-            <dl>
-              <dt>HEX</dt><dd>#ececed</dd>
-              <dt>RGB</dt><dd>236 / 236 / 237</dd>
-              <dt>CMYK</dt><dd>0 / 0 / 0 / 10</dd>
-              <dt>CSS</dt><dd>var(--light-gray)</dd>
-            </dl>
-          </div>
-        </div>
-        <!-- Mittelgrau -->
-        <div class="sg-swatch">
-          <div class="sg-swatch-color" style="background:#d9dada;">
-            <span style="color:#002d59;">Mittelgrau</span>
-          </div>
-          <div class="sg-swatch-info">
-            <dl>
-              <dt>HEX</dt><dd>#d9dada</dd>
-              <dt>RGB</dt><dd>217 / 218 / 237</dd>
-              <dt>CMYK</dt><dd>0 / 0 / 0 / 20</dd>
-              <dt>CSS</dt><dd>var(--mid-gray)</dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-
-      <div class="sg-rule-box">
-        <strong>Hinweis</strong>
-        <p>Weitere Farben (z.B. für Störer oder CTA-Buttons) können bei Bedarf ergänzt werden. Ergänzungen werden hier dokumentiert.</p>
-      </div>
+    <div class="sg-bp-bar">
+      <div class="sg-bp-segment" style="flex:1; background:var(--primary); color:var(--white);"><strong>Desktop</strong><span>&gt; 1100px</span></div>
+      <div class="sg-bp-segment" style="flex:0.6; background:var(--secondary); color:var(--white);"><strong>Tablet</strong><span>768–1100px</span></div>
+      <div class="sg-bp-segment" style="flex:0.4; background:var(--light-gray);"><strong>Mobile</strong><span>480–768px</span></div>
+      <div class="sg-bp-segment" style="flex:0.3; background:var(--mid-gray);"><strong>Small</strong><span>&lt; 480px</span></div>
     </div>
+
+    <table class="sg-token-table">
+      <thead><tr><th>Breakpoint</th><th>Max-Width</th><th>Aenderungen</th></tr></thead>
+      <tbody>
+        <tr><td>Tablet</td><td><code>1100px</code></td><td>Cards 2-spaltig, Hero Gap reduziert, Berater 3-spaltig</td></tr>
+        <tr><td>Mobile</td><td><code>768px</code></td><td>Hero 1-spaltig, Cards 1-spaltig, Nav kleiner, Berater 2-spaltig</td></tr>
+        <tr><td>Small Mobile</td><td><code>480px</code></td><td>H1: 30px, Body: 16px, Berater 2-spaltig, Footer zentriert</td></tr>
+      </tbody>
+    </table>
   </section>
 
-  <!-- ===== 03 TYPOGRAFIE ===== -->
-  <section class="sg-section" id="typografie">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">03</span>
-        <h2>TYPOGRAFIE</h2>
-      </div>
-      <p class="sg-intro">Die Hausschrift ist Gabarito. Verwendet werden die Schnitte Regular, Bold, ExtraBold und Black. Ersatzschrift ist Arial.</p>
+  <!-- 09 PATTERNS -->
+  <section class="sg-section sg-pad" id="patterns">
+    <div class="sg-section-header"><span class="sg-section-num">09</span><h2>Patterns</h2></div>
+    <p class="sg-intro">Wiederkehrende Layout-Muster und Interaktionselemente.</p>
 
-      <!-- Schriftschnitte -->
-      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">SCHRIFTSCHNITTE</h3>
-      <div class="sg-type-specimen">
-        <div class="sg-type-row">
-          <div class="sg-type-meta">
-            <div class="sg-weight-name">Regular</div>
-            <div class="sg-weight-value">font-weight: 400</div>
-          </div>
-          <div class="sg-type-sample" style="font-weight:400;">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</div>
-        </div>
-        <div class="sg-type-row">
-          <div class="sg-type-meta">
-            <div class="sg-weight-name">Bold</div>
-            <div class="sg-weight-value">font-weight: 700</div>
-          </div>
-          <div class="sg-type-sample" style="font-weight:700;">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</div>
-        </div>
-        <div class="sg-type-row">
-          <div class="sg-type-meta">
-            <div class="sg-weight-name">ExtraBold</div>
-            <div class="sg-weight-value">font-weight: 800</div>
-          </div>
-          <div class="sg-type-sample" style="font-weight:800;">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</div>
-        </div>
-        <div class="sg-type-row">
-          <div class="sg-type-meta">
-            <div class="sg-weight-name">Black</div>
-            <div class="sg-weight-value">font-weight: 900</div>
-          </div>
-          <div class="sg-type-sample" style="font-weight:900;">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</div>
-        </div>
-      </div>
+    <h3 style="margin-bottom:16px;">Hero Split-Layout</h3>
+    <p style="margin-bottom:24px; color:#5a6a7a;">Text links (H1 + Bullets + CTA), quadratisches Bild rechts mit Overlay-Cards die aus dem Bild herausragen. Overlay-Cards zeigen Key-Facts (Zertifizierung, Befahrbarkeit).</p>
 
-      <div class="sg-rule-box">
-        <strong>Regel</strong>
-        <p>Headlines und Sublines werden immer in Versalschrift (text-transform: uppercase) gesetzt. Schriftfarbe ist Navy. Besondere Hervorhebungen können in Cyan gesetzt werden.</p>
-      </div>
+    <h3 style="margin-bottom:16px;">Section-Rhythm</h3>
+    <table class="sg-token-table">
+      <thead><tr><th>Section</th><th>Background</th></tr></thead>
+      <tbody>
+        <tr><td>Hero</td><td><code>#ffffff</code></td></tr>
+        <tr><td>Social Proof</td><td><code>#ffffff</code></td></tr>
+        <tr><td>Problem</td><td><code>#ffffff</code></td></tr>
+        <tr><td>Loesung</td><td><code>#ffffff</code></td></tr>
+        <tr><td>Video/Steps</td><td><code>rgba(245,245,246,0.45)</code></td></tr>
+        <tr><td>Vergleich</td><td><code>#ffffff</code></td></tr>
+        <tr><td>Referenzen</td><td><code>rgba(245,245,246,0.45)</code></td></tr>
+        <tr><td>Zielgruppen</td><td><code>#ffffff</code></td></tr>
+        <tr><td>Technik</td><td><code>#002d59</code> (Dark)</td></tr>
+        <tr><td>FAQ</td><td><code>rgba(245,245,246,0.45)</code></td></tr>
+        <tr><td>Berater</td><td><code>#ffffff</code></td></tr>
+        <tr><td>CTA</td><td><code>#002d59</code> (Dark)</td></tr>
+        <tr><td>Footer</td><td><code>#001a35</code> (Darker)</td></tr>
+      </tbody>
+    </table>
 
-      <!-- Headline-Hierarchie -->
-      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin:40px 0 20px;">HEADLINE-HIERARCHIE</h3>
-      <div class="sg-type-hierarchy">
-        <div class="sg-type-h-row">
-          <div class="sg-type-h-meta">
-            <div class="sg-h-label">H1</div>
-            <div class="sg-h-specs">Gabarito Black (900)<br>text-transform: uppercase</div>
-          </div>
-          <div style="font-weight:900; font-size:clamp(2rem,4vw,3rem); text-transform:uppercase; line-height:1.1;">DIES IST EINE HEADLINE</div>
-        </div>
-        <div class="sg-type-h-row">
-          <div class="sg-type-h-meta">
-            <div class="sg-h-label">H2</div>
-            <div class="sg-h-specs">Gabarito Black (900)<br>text-transform: uppercase</div>
-          </div>
-          <div style="font-weight:900; font-size:clamp(1.5rem,3vw,2.2rem); text-transform:uppercase; line-height:1.15;">DIES IST EINE ÜBERSCHRIFT</div>
-        </div>
-        <div class="sg-type-h-row">
-          <div class="sg-type-h-meta">
-            <div class="sg-h-label">H3</div>
-            <div class="sg-h-specs">Gabarito Bold (700)<br>text-transform: uppercase</div>
-          </div>
-          <div style="font-weight:700; font-size:clamp(1.1rem,2vw,1.4rem); text-transform:uppercase; line-height:1.2;">DIES IST EINE KLEINE HEADLINE</div>
-        </div>
-        <div class="sg-type-h-row">
-          <div class="sg-type-h-meta">
-            <div class="sg-h-label">Subline</div>
-            <div class="sg-h-specs">Gabarito ExtraBold (800)<br>text-transform: uppercase<br>letter-spacing: .02em</div>
-          </div>
-          <div style="font-weight:800; font-size:1rem; text-transform:uppercase; letter-spacing:.02em; line-height:1.3;">DIES IST EINE SUBLINE</div>
-        </div>
-        <div class="sg-type-h-row">
-          <div class="sg-type-h-meta">
-            <div class="sg-h-label">Fließtext</div>
-            <div class="sg-h-specs">Gabarito Regular (400)<br>line-height: 1.6</div>
-          </div>
-          <div style="font-weight:400; font-size:1rem; line-height:1.6; max-width:640px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</div>
-        </div>
-      </div>
-
-      <!-- Fallback -->
-      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin:40px 0 20px;">VERGLEICH: HAUSSCHRIFT &amp; ERSATZSCHRIFT</h3>
-      <div class="sg-type-fallback">
-        <div class="sg-type-fallback-item">
-          <div class="sg-label">Gabarito (Hausschrift)</div>
-          <p style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:1.2rem; text-transform:uppercase;">KORODUR PREMIUM INDUSTRIAL</p>
-        </div>
-        <div class="sg-type-fallback-item">
-          <div class="sg-label">Arial (Ersatzschrift)</div>
-          <p style="font-family:Arial,sans-serif; font-weight:700; font-size:1.2rem; text-transform:uppercase;">KORODUR PREMIUM INDUSTRIAL</p>
-        </div>
-      </div>
-    </div>
+    <h3 style="margin:32px 0 16px;">Interaktionsmuster</h3>
+    <table class="sg-token-table">
+      <thead><tr><th>Pattern</th><th>Verwendung</th><th>Verhalten</th></tr></thead>
+      <tbody>
+        <tr><td>FAQ Accordion</td><td>Haeufige Fragen</td><td>Single-Open, Plus→Rotate 45° = X, Cyan-Hintergrund</td></tr>
+        <tr><td>Zielgruppen Tabs</td><td>Branchenspezifische Benefits</td><td>Button-Tabs, Navy Active, Content-Switch</td></tr>
+        <tr><td>Overlay Cards</td><td>Hero Key-Facts</td><td>Float-Animation (3.6s), Uhr-Animation (einmalig)</td></tr>
+        <tr><td>YouTube Facade</td><td>Video-Sektion</td><td>Thumbnail + Play-Pulse, oeffnet in neuem Tab</td></tr>
+        <tr><td>Comparison Table</td><td>Produktvergleich</td><td>Navy-Spalte fuer ARM, Icon-Bewertung (gut/schlecht)</td></tr>
+      </tbody>
+    </table>
   </section>
 
-  <!-- ===== 04 FARBVERTEILUNG ===== -->
-  <section class="sg-section bg-gray" id="farbverteilung">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">04</span>
-        <h2>FARBVERTEILUNG</h2>
-      </div>
-      <p class="sg-intro">Die Gewichtung der Farben bestimmt die Wiedererkennbarkeit. Weiss dominiert, Navy strukturiert, Grau trennt, Cyan akzentuiert.</p>
+  <!-- 10 ACCESSIBILITY -->
+  <section class="sg-section sg-pad" id="accessibility">
+    <div class="sg-section-header"><span class="sg-section-num">10</span><h2>Accessibility</h2></div>
+    <p class="sg-intro">Barrierefreiheit ist fester Bestandteil des Design-Systems.</p>
 
-      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">GEWICHTUNG</h3>
-      <div class="sg-color-weight">
-        <div style="flex:40; background:var(--white); color:var(--text); border-right:1px solid var(--light-gray);">Weiss 40%</div>
-        <div style="flex:25; background:var(--primary); color:var(--white);">Navy 25%</div>
-        <div style="flex:20; background:var(--light-gray); color:var(--text);">Grau 20%</div>
-        <div style="flex:10; background:var(--mid-gray); color:var(--text);">Mittelgrau 10%</div>
-        <div style="flex:5; background:var(--secondary); color:var(--white);">Cyan 5%</div>
-      </div>
-      <p class="micro-copy">Richtwerte für eine typische Seitengestaltung. Die genaue Verteilung variiert je nach Anwendung.</p>
-
-      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin:40px 0 20px;">VERWENDUNG</h3>
-      <div class="sg-color-usage">
-        <div class="sg-color-usage-item">
-          <div class="sg-color-usage-dot" style="background:var(--primary);"></div>
-          <div>
-            <strong>Navy</strong>
-            <p>Text, Headlines, Header, dunkle Sektionen, Logo-Hintergrund</p>
-          </div>
-        </div>
-        <div class="sg-color-usage-item">
-          <div class="sg-color-usage-dot" style="background:var(--secondary);"></div>
-          <div>
-            <strong>Cyan</strong>
-            <p>CTA-Buttons, Links, Hervorhebungen, Akzentlinien</p>
-          </div>
-        </div>
-        <div class="sg-color-usage-item">
-          <div class="sg-color-usage-dot" style="background:var(--light-gray);"></div>
-          <div>
-            <strong>Hellgrau</strong>
-            <p>Hintergrundflächen, Sektions-Trennung, Karten-Hintergründe</p>
-          </div>
-        </div>
-        <div class="sg-color-usage-item">
-          <div class="sg-color-usage-dot" style="background:var(--mid-gray);"></div>
-          <div>
-            <strong>Mittelgrau</strong>
-            <p>Trennlinien, Rahmen, deaktivierte Elemente</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <table class="sg-token-table">
+      <thead><tr><th>Feature</th><th>Umsetzung</th></tr></thead>
+      <tbody>
+        <tr><td>Skip-Link</td><td><code>&lt;a class="skip-link"&gt;</code> — springt zum Hauptinhalt, sichtbar bei Focus</td></tr>
+        <tr><td>Reduced Motion</td><td><code>@media (prefers-reduced-motion: reduce)</code> — alle Animationen deaktiviert</td></tr>
+        <tr><td>Focus Styles</td><td><code>outline: 2px solid #009ee3; outline-offset: 2px;</code></td></tr>
+        <tr><td>ARIA Labels</td><td><code>aria-expanded</code> auf FAQ-Buttons, <code>role="tab/tabpanel"</code> bei Zielgruppen</td></tr>
+        <tr><td>Alt-Texte</td><td>Beschreibend auf allen Bildern, inkl. Kontext (Ort, Situation)</td></tr>
+        <tr><td>Lazy Loading</td><td><code>loading="lazy"</code> auf alle Bilder unterhalb des Folds</td></tr>
+        <tr><td>Semantic HTML</td><td><code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code></td></tr>
+        <tr><td>Farbkontrast</td><td>Navy auf Weiss: 12.6:1 (AAA). Cyan auf Weiss: 3.1:1 (nur fuer grosse Texte/Icons)</td></tr>
+      </tbody>
+    </table>
   </section>
 
-  <!-- ===== 05 BUTTONS (COMING SOON) ===== -->
-  <section class="sg-section" id="buttons">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">05</span>
-        <h2>BUTTONS</h2>
-      </div>
-      <div class="sg-coming-soon">
-        <div class="sg-coming-soon-label">Coming Soon</div>
-        <p>Button-Stile werden nach der Variantenentscheidung definiert. Drei Ansätze existieren bereits in den Landing-Page-Varianten (kantig, gerundet, mit Gradient).</p>
-      </div>
-    </div>
+  <!-- 11 TON & SPRACHE -->
+  <section class="sg-section sg-pad" id="tonvoice">
+    <div class="sg-section-header"><span class="sg-section-num">11</span><h2>Ton &amp; Sprache</h2></div>
+    <p class="sg-intro">B2B, technisch-praezise, professionell. Nie uebertreiben, immer belegen.</p>
+
+    <table class="sg-token-table">
+      <thead><tr><th>Prinzip</th><th>Beispiel</th></tr></thead>
+      <tbody>
+        <tr><td>Direkt &amp; konkret</td><td>&bdquo;Befahrbar nach 2 Stunden&ldquo; statt &bdquo;Schnell einsatzbereit&ldquo;</td></tr>
+        <tr><td>Zahlen statt Adjektive</td><td>&bdquo;38 N/mm² Druckfestigkeit&ldquo; statt &bdquo;extrem belastbar&ldquo;</td></tr>
+        <tr><td>Problem → Loesung</td><td>Jede Sektion benennt zuerst das Problem, dann die ARM-Loesung</td></tr>
+        <tr><td>Kein Jargon</td><td>Fachbegriffe nur mit Kontext, nie als Selbstzweck</td></tr>
+        <tr><td>Cyan-Highlights</td><td>Max. 2–3 Worte pro H2 in <code>.highlight-cyan</code> — Schluesselaussage hervorheben</td></tr>
+      </tbody>
+    </table>
   </section>
 
-  <!-- ===== 06 SPACING & GRID (COMING SOON) ===== -->
-  <section class="sg-section bg-gray" id="spacing">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">06</span>
-        <h2>SPACING & GRID</h2>
-      </div>
-      <div class="sg-coming-soon">
-        <div class="sg-coming-soon-label">Coming Soon</div>
-        <p>Abstandssystem, Container-Breiten und Grid-Definition. Basis-Tokens existieren bereits in tokens.css (--section-pad-d, --max-w).</p>
-      </div>
-    </div>
-  </section>
+</div><!-- /.sg-main -->
 
-  <!-- ===== 07 ICONS (COMING SOON) ===== -->
-  <section class="sg-section" id="icons">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">07</span>
-        <h2>ICONS</h2>
-      </div>
-      <div class="sg-coming-soon">
-        <div class="sg-coming-soon-label">Coming Soon</div>
-        <p>Icon-Set, Stil und Anwendungsregeln.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 08 BILDSPRACHE (COMING SOON) ===== -->
-  <section class="sg-section bg-gray" id="bildsprache">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">08</span>
-        <h2>BILDSPRACHE</h2>
-      </div>
-      <div class="sg-coming-soon">
-        <div class="sg-coming-soon-label">Coming Soon</div>
-        <p>Bildstil, Tonalität, Farbgebung, Motivwahl. Das CD Manual definiert bereits: hochwertig, natürlich, clean, technisch, hell, tonig, warm. Details werden hier ausgearbeitet.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 09 KARTEN & CONTAINER (COMING SOON) ===== -->
-  <section class="sg-section" id="karten">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">09</span>
-        <h2>KARTEN & CONTAINER</h2>
-      </div>
-      <div class="sg-coming-soon">
-        <div class="sg-coming-soon-label">Coming Soon</div>
-        <p>Karten-Stile, Schatten, Rundungen, Innenabstände. Drei Ansätze existieren (minimal, Shadow+Border, Glasmorphismus).</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 10 FORMULARE (COMING SOON) ===== -->
-  <section class="sg-section bg-gray" id="formulare">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">10</span>
-        <h2>FORMULARE & INPUTS</h2>
-      </div>
-      <div class="sg-coming-soon">
-        <div class="sg-coming-soon-label">Coming Soon</div>
-        <p>Input-Felder, Labels, Validierung, Textarea, Select-Elemente.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 11 NAVIGATION (COMING SOON) ===== -->
-  <section class="sg-section" id="navigation">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">11</span>
-        <h2>NAVIGATION & HEADER</h2>
-      </div>
-      <div class="sg-coming-soon">
-        <div class="sg-coming-soon-label">Coming Soon</div>
-        <p>Header-Aufbau, Navigation, Scroll-Verhalten, Mobile Menu.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 12 FOOTER (COMING SOON) ===== -->
-  <section class="sg-section bg-gray" id="footer">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">12</span>
-        <h2>FOOTER</h2>
-      </div>
-      <div class="sg-coming-soon">
-        <div class="sg-coming-soon-label">Coming Soon</div>
-        <p>Footer-Aufbau, Spalten, Links, Kontaktdaten.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 13 RESPONSIVE (COMING SOON) ===== -->
-  <section class="sg-section" id="breakpoints">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">13</span>
-        <h2>RESPONSIVE BREAKPOINTS</h2>
-      </div>
-      <div class="sg-coming-soon">
-        <div class="sg-coming-soon-label">Coming Soon</div>
-        <p>Breakpoints, Verhalten auf Tablet und Mobile, Touch-Targets.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 14 TON & SPRACHE ===== -->
-  <section class="sg-section bg-gray" id="ton">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">14</span>
-        <h2>TON & SPRACHE</h2>
-      </div>
-      <p class="sg-intro">KORODUR kommuniziert B2B: technisch-präzise, professionell, sachlich. Die Sprache transportiert Kompetenz und Vertrauen.</p>
-
-      <h3 style="font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.05em; margin-bottom:20px;">GRUNDREGELN</h3>
-      <div class="sg-tone-rules">
-        <div class="sg-tone-rule do">
-          <div class="sg-label">Richtig</div>
-          <p>Technisch-präzise Sprache, die Kompetenz vermittelt. Klare, kurze Sätze. Fachbegriffe werden selbstverständlich verwendet.</p>
-        </div>
-        <div class="sg-tone-rule dont">
-          <div class="sg-label">Falsch</div>
-          <p>Marketingfloskeln, übertriebene Superlative, emotionale Ansprache. Umgangssprache oder zu lockerer Ton.</p>
-        </div>
-      </div>
-
-      <div class="sg-rule-box">
-        <strong>Typografie in Texten</strong>
-        <p>Headlines und Sublines immer in Versalschrift. Keine Gedankenstriche (em-dash / en-dash) verwenden.</p>
-      </div>
-
-      <div class="sg-coming-soon" style="margin-top:32px;">
-        <div class="sg-coming-soon-label">Weitere Regeln Coming Soon</div>
-        <p>Anrede (Du/Sie), Produktnamen-Schreibweisen, Claim, Boilerplate.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 15 ANWENDUNGSBEISPIELE ===== -->
-  <section class="sg-section" id="beispiele">
-    <div class="container">
-      <div class="sg-section-header">
-        <span class="sg-section-num">15</span>
-        <h2>ANWENDUNGSBEISPIELE</h2>
-      </div>
-      <p class="sg-intro">Drei gestalterisch unterschiedliche Landing-Page-Varianten mit identischem Inhalt als Referenz für die Designfindung.</p>
-
-      <div class="sg-examples">
-        <div class="sg-example-card">
-          <h3>Variante A</h3>
-          <p>Bold & Editorial. Magazin-Stil, Vollbild-Hero, dramatische Typografie.</p>
-          <a href="variante-a-editorial.html">Öffnen &rarr;</a>
-        </div>
-        <div class="sg-example-card">
-          <h3>Variante B</h3>
-          <p>Clean & Strukturiert. Maximale Klarheit, Split-Hero, kompakte Typografie.</p>
-          <a href="variante-b-strukturiert.html">Öffnen &rarr;</a>
-        </div>
-        <div class="sg-example-card">
-          <h3>Variante C</h3>
-          <p>Modern & Dynamisch. Premium-Tech, Glasmorphismus, Scroll-Animationen.</p>
-          <a href="variante-c-dynamisch.html">Öffnen &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- ===== Navigation Highlight ===== -->
 <script>
-(function() {
-  const nav = document.getElementById('sg-nav');
-  const links = nav.querySelectorAll('a[href^="#"]');
-  const sections = [];
-
-  links.forEach(function(link) {
-    var id = link.getAttribute('href').slice(1);
-    var el = document.getElementById(id);
-    if (el) sections.push({ id: id, el: el, link: link });
+// Sidebar active state
+document.querySelectorAll('.sg-nav a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.querySelectorAll('.sg-nav a').forEach(function(l) { l.classList.remove('active'); });
+    link.classList.add('active');
   });
-
-  function update() {
-    var scrollY = window.scrollY + 120;
-    var current = sections[0];
-    for (var i = 0; i < sections.length; i++) {
-      if (sections[i].el.offsetTop <= scrollY) current = sections[i];
-    }
-    links.forEach(function(l) { l.classList.remove('active'); });
-    if (current) current.link.classList.add('active');
-  }
-
-  window.addEventListener('scroll', update, { passive: true });
-  update();
-
-  // Close mobile nav on link click
-  links.forEach(function(link) {
-    link.addEventListener('click', function() {
-      nav.classList.remove('open');
-    });
-  });
-})();
+});
 </script>
 
 </body>

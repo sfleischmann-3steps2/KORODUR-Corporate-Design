@@ -1,6 +1,7 @@
 /* ============================================================
    KORODUR Corporate Design – Shared Tokens
-   Version: 1.0 | Stand: Maerz 2026
+   Version: 2.0 | Stand: April 2026
+   Aktualisiert auf Basis des externen Designer-Entwurfs
    ============================================================ */
 
 /* --- Google Fonts --- */
@@ -16,14 +17,29 @@
   --white:      #ffffff;
   --text:       #002d59;
   --cta:        #009ee3;
+  --icon-bg:    #f5f5f6;   /* Icon-Box Hintergrund */
+  --bullet-bg:  #e8edf5;   /* Bullet-Icon Hintergrund */
 
   /* Schrift */
   --font: "Gabarito", Arial, sans-serif;
 
-  /* Layout — overridden per variant */
-  --max-w:          1200px;
-  --section-pad-d:  80px;
-  --section-pad-m:  48px;
+  /* Layout */
+  --max-w:          1320px;
+  --section-pad-d:  88px;
+  --section-pad-m:  56px;
+
+  /* Border-Radius */
+  --card-radius:  14px;
+  --btn-radius:   6px;
+  --icon-radius:  12px;
+
+  /* Shadows */
+  --card-shadow:       0 8px 40px rgba(0, 45, 89, 0.10);
+  --card-shadow-hover: 0 12px 48px rgba(0, 45, 89, 0.16);
+  --nav-shadow:        0 4px 24px rgba(0, 45, 89, 0.08);
+
+  /* Borders */
+  --border: 1px solid rgba(0, 45, 89, 0.07);
 }
 
 /* --- CSS Reset --- */
@@ -32,16 +48,47 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.65;
   background: var(--white);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--secondary); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+/* --- Skip Link (Accessibility) --- */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--secondary);
+  color: var(--white);
+  padding: 8px 16px;
+  z-index: 9999;
+  font-weight: 700;
+  border-radius: var(--btn-radius);
+}
+.skip-link:focus { top: 8px; }
+
+/* --- Focus Styles (Accessibility) --- */
+:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+/* --- Reduced Motion (Accessibility) --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* --- Basis Utilities --- */
-.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; width: 100%; }
 section { padding: var(--section-pad-d) 0; }
 
 .bg-white { background: var(--white); }
@@ -50,23 +97,127 @@ section { padding: var(--section-pad-d) 0; }
 .bg-dark h2,
 .bg-dark .section-intro { color: var(--white); }
 
+/* --- Typography --- */
 h1, h2, h3, h4 { font-family: var(--font); color: var(--text); }
 p { margin-bottom: 16px; }
+
+.section-h2 {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1.12;
+  margin-bottom: 14px;
+}
+
+.section-sub {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text);
+  opacity: 0.68;
+}
+
+.highlight-cyan { color: var(--secondary); }
 
 .subline { font-weight: 800; text-transform: uppercase; letter-spacing: .02em; }
 .section-intro { font-size: 1.1rem; max-width: 960px; margin-bottom: 24px; }
 .micro-copy { font-size: .85rem; color: #5a6a7a; margin-top: 8px; }
 
-/* --- Buttons (base only, visual style per variant) --- */
+/* --- Buttons --- */
 .btn {
   display: inline-block;
   font-family: var(--font);
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 16px 32px;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1;
+  padding: 16px 30px;
   cursor: pointer;
-  border: 2px solid transparent;
-  transition: all .25s ease;
+  border: none;
+  border-radius: var(--btn-radius);
+  background: var(--secondary);
+  color: var(--white);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.18s ease, box-shadow 0.18s ease;
   text-align: center;
 }
-.btn:hover { text-decoration: none; }
+.btn:hover {
+  background: #0090d0;
+  box-shadow: 0 6px 24px rgba(0, 158, 227, 0.28);
+  text-decoration: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 14px 28px;
+}
+.btn-ghost:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* --- Cards --- */
+.card {
+  background: var(--white);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--card-radius);
+  padding: 36px 32px;
+  transition: box-shadow 0.2s ease;
+}
+.card:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-highlight {
+  background: var(--primary);
+  box-shadow: 0 8px 40px rgba(0, 45, 89, 0.20);
+}
+.card-highlight:hover {
+  box-shadow: 0 12px 48px rgba(0, 45, 89, 0.30);
+}
+.card-highlight h3,
+.card-highlight .card-h3 { color: var(--white); }
+.card-highlight p,
+.card-highlight .card-p { color: rgba(255, 255, 255, 0.72); opacity: 1; }
+
+/* --- Icon Boxes --- */
+.card-icon-box {
+  width: 52px;
+  height: 52px;
+  background: var(--icon-bg);
+  border-radius: var(--icon-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.card-icon-box svg { width: 26px; height: 26px; }
+
+.card-highlight .card-icon-box {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* --- Responsive Breakpoints ---
+   Desktop:     > 1100px
+   Tablet:      768px – 1100px
+   Mobile:      480px – 768px
+   Small Mobile: < 480px
+   -------------------------------- */
+
+@media (max-width: 1100px) {
+  .container { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  section { padding: var(--section-pad-m) 0; }
+  .btn { font-size: 15px; padding: 12px 20px; }
+  .section-h2 { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+  .section-h2 { font-size: 24px; }
+  .section-sub { font-size: 16px; }
+}
