@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KORODUR – Rapid Set ASPHALT REPAIR MIX (Full-Bleed Hero)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Gabarito', Arial, sans-serif;
+      color: #002d59;
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Globaler Container: 1320 px, kein eigenes Padding – Sections setzen es selbst */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ─── SKIP LINK (A11Y) ──────────────────────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #009ee3;
+      color: #ffffff;
+      padding: 8px 16px;
+      z-index: 9999;
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 8px; }
+
+    /* ─── REDUCED MOTION (A11Y) ──────────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ─── NAVIGATION (transparent over hero) ────────────────────────────────── */
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 108px;
+      display: flex;
+      align-items: center;
+      background: transparent;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .nav.scrolled {
+      position: fixed;
+      background: rgba(0, 45, 89, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 24px rgba(0, 45, 89, 0.3);
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px 0 10px;
+    }
+
+    .nav-logo img {
+      height: 90px;
+      display: block;
+      filter: brightness(0) invert(1);
+      transition: filter 0.35s;
+    }
+
+    .nav.scrolled .nav-logo img {
+      height: 60px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #009ee3;
+      color: #ffffff;
+      font-family: 'Gabarito', Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      padding: 16px 30px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .btn:hover {
+      background: #0090d0;
+      box-shadow: 0 6px 24px rgba(0, 158, 227, 0.28);
+    }
+
+    /* ─── HERO: FULL-BLEED ──────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: url('assets/Asphalt Repair Mix_30 Minuten.png') center/cover no-repeat;
+      padding: 0;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 45, 89, 0.92) 0%,
+        rgba(0, 45, 89, 0.75) 50%,
+        rgba(0, 45, 89, 0.45) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      padding: 160px 32px 120px;
+      display: block;
+      max-width: 1320px;
+    }
+
+    .hero-content {
+      max-width: 680px;
+    }
+
+    .hero-h1 {
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.06;
+      margin-bottom: 24px;
+    }
+
+    .hero-h1 .line1 { color: #ffffff; display: block; }
+    .hero-h1 .line2 { color: #009ee3; display: block; }
+
+    .hero-sub {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
+
+    .hero-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .hero-bullet {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .bullet-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: rgba(0, 158, 227, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bullet-icon svg { width: 15px; height: 15px; }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-ghost {
+      display: inline-block;
+      background: transparent;
+      color: #ffffff;
+      font-family: 'Gabarito', Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      padding: 16px 30px;
+      border-radius: 6px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.18s ease;
+    }
+
+    .btn-hero-ghost:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+    }
+
+    /* Key Figures row */
+    .hero-key-figures {
+      display: flex;
+      gap: 48px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .hero-key-figure .number {
+      font-size: 36px;
+      font-weight: 900;
+      color: #009ee3;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .hero-key-figure .label {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.55);
+      display: block;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── SOCIAL PROOF ───────────────────────────────────────────────────────── */
+    .social-proof {
+      background: #ffffff;
+      padding: 56px 0 64px;
+    }
+
+    .social-proof .container {
+      padding: 0 32px;
+    }
+
+    .sp-label {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #002d59;
+      opacity: 0.55;
+      margin-bottom: 10px;
+    }
+
+    .sp-heading {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 900;
+      color: #002d59;
+      line-height: 1.12;
+      margin-bottom: 44px;
+    }
+
+    .sp-logos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .sp-logo-item {
+      font-size: 20px;
+      font-weight: 900;
+      color: #d9dada;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── PROBLEM ────────────────────────────────────────────────────────────── */
+    .problem {
+      background: #ffffff;
+      padding: 88px 0 100px;
+    }
+
+    .problem .container {
+      padding: 0 32px;
+    }
+
+    /* ─── GLOBALE TITEL & TEXT-KLASSEN ───────────────────────────────────────── */
+    .section-h2 {
+      font-size: 36px;
+      font-weight: 900;
+      color: #002d59;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #002d59;
+      opacity: 0.68;
+    }
+
+    /* Cyan highlight in title */
+    .highlight-cyan {
+      color: #009ee3;
+    }
+
+    /* Section-spezifische Ausrichtungen */
+    .problem .section-h2  { text-align: left; }
+    .problem .section-sub { text-align: left; max-width: 700px; margin: 0 0 60px; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      box-shadow: 0 8px 40px rgba(0, 45, 89, 0.10);
+      border-radius: 14px;
+      padding: 36px 32px 84px;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 48px rgba(0, 45, 89, 0.16);
+    }
+
+    .card-icon-box {
+      width: 52px;
+      height: 52px;
+      background: #f5f5f6;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .card-icon-box svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .card-h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #002d59;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .card-p {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #002d59;
+      opacity: 0.70;
+    }
+
+    /* Highlight card (invertiert) */
+    .card.card-highlight {
+      background: #002d59;
+      box-shadow: 0 8px 40px rgba(0, 45, 89, 0.20);
+    }
+
+    .card.card-highlight:hover {
+      box-shadow: 0 12px 48px rgba(0, 45, 89, 0.30);
+    }
+
+    .card.card-highlight .card-icon-box {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .card.card-highlight .card-h3 { color: #ffffff; }
+
+    .card.card-highlight .card-p {
+      color: rgba(255, 255, 255, 0.72);
+      opacity: 1;
+    }
+
+    /* ─── SOLUTION ───────────────────────────────────────────────────────────── */
+    .solution {
+      background: #ffffff;
+      padding: 88px 0 100px;
+    }
+
+    .solution .container {
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .solution-image {
+      border-radius: 14px;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e8edf2 0%, #d0d8e4 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .solution-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .solution-right {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .solution-right .section-h2 {
+      text-align: left;
+      margin-bottom: 28px;
+    }
+
+    .solution-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .solution-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: #002d59;
+      opacity: 0.78;
+    }
+
+    .solution-bullet-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: #e8edf5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .solution-bullet-icon svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    /* ─── STEPS ──────────────────────────────────────────────────────────────── */
+    .steps {
+      background: rgba(245, 245, 246, 0.45);
+      padding: 88px 0 100px;
+    }
+
+    .steps .container {
+      padding: 0 32px;
+    }
+
+    .steps .section-h2 {
+      text-align: center;
+    }
+
+    .steps .section-sub {
+      text-align: center;
+      margin: 0 auto 56px;
+    }
+
+    .video-placeholder {
+      border-radius: 14px;
+      overflow: hidden;
+      background-image: url('https://img.youtube.com/vi/Z676CtyjVr8/maxresdefault.jpg');
+      background-size: cover;
+      background-position: center;
+      aspect-ratio: 16 / 9;
+      max-width: 900px;
+      margin: 0 auto 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* Dunkles Overlay über dem Thumbnail */
+    .video-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 20, 50, 0.50);
+      border-radius: 14px;
+      transition: background 0.25s ease;
+    }
+
+    .video-placeholder:hover::before {
+      background: rgba(0, 20, 50, 0.35);
+    }
+
+    /* Badge & Button müssen über dem Overlay liegen */
+    .video-placeholder > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Wenn Video aktiv: iframe füllt Container */
+    .video-placeholder.is-playing {
+      padding: 0;
+      background: #000;
+      cursor: default;
+    }
+
+    .video-placeholder.is-playing::before {
+      display: none;
+    }
+
+    .video-placeholder iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 14px;
+    }
+
+    .video-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #009ee3;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .play-btn {
+      width: 76px;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 2px solid rgba(255, 255, 255, 0.30);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.22s ease, transform 0.22s ease;
+    }
+
+    .video-placeholder:hover .play-btn {
+      background: rgba(0, 158, 227, 0.45);
+    }
+
+    @keyframes pulse-play {
+      0%, 100% { transform: scale(1);    }
+      50%       { transform: scale(1.10); }
+    }
+
+    .play-btn {
+      animation: pulse-play 2.4s ease-in-out infinite;
+    }
+
+    .play-btn svg {
+      width: 28px;
+      height: 28px;
+      margin-left: 4px; /* optical centering */
+    }
+
+    .video-meta {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 0.02em;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .step-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 36px 32px 64px;
+      box-shadow: 0 8px 40px rgba(0, 45, 89, 0.08);
+      transition: box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .step-card:hover {
+      box-shadow: 0 12px 48px rgba(0, 45, 89, 0.14);
+    }
+
+    .step-number {
+      font-size: 52px;
+      font-weight: 900;
+      color: #009ee3;
+      opacity: 0.15;
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .step-icon-box {
+      width: 52px;
+      height: 52px;
+      background: #f5f5f6;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .step-icon-box svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .step-h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #002d59;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .step-p {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #002d59;
+      opacity: 0.68;
+    }
+
+    /* ─── COMPARISON TABLE ───────────────────────────────────────────────────── */
+    .comparison {
+      background: #ffffff;
+      padding: 88px 0 100px;
+    }
+
+    .comparison .container {
+      padding: 0 32px;
+    }
+
+    .comparison .section-h2 {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    /* ── Header ── */
+    .comp-table thead tr th {
+      padding: 20px 28px;
+      font-size: 18px;
+      font-weight: 800;
+      text-align: left;
+      vertical-align: bottom;
+    }
+
+    .comp-table .th-criteria {
+      width: 24%;
+      background: transparent;
+    }
+
+    .comp-table .th-arm {
+      background: #002d59;
+      color: #ffffff;
+      border-radius: 14px 0 0 0;   /* nur oben-links abgerundet */
+      width: 25.3%;
+      position: relative;
+    }
+
+    .comp-table .th-other {
+      background: #f0f4f8;
+      color: #002d59;
+      width: 25.3%;
+    }
+
+    .comp-table .th-other:first-of-type { border-radius: 14px 0 0 0; }
+    .comp-table .th-other:last-child     { border-radius: 0 14px 0 0; }
+
+    .comp-recommended {
+      display: inline-block;
+      background: #009ee3;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    /* ── Rows ── */
+    .comp-table tbody tr td {
+      padding: 18px 28px;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.45;
+      border-bottom: 1px solid rgba(0, 45, 89, 0.07);
+      vertical-align: middle;
+    }
+
+    .comp-table tbody tr:last-child td { border-bottom: none; }
+
+    .comp-table .td-criteria {
+      color: #002d59;
+      opacity: 0.65;
+      font-weight: 400;
+    }
+
+    /* ARM column – dark blue through all rows */
+    .comp-table .td-arm {
+      background: #002d59;
+      color: #ffffff;
+      font-weight: 400;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+    }
+
+    .comp-table tbody tr:last-child .td-arm {
+      border-radius: 0 0 14px 14px;
+    }
+
+    .comp-table .td-other {
+      background: #ffffff;
+      color: #002d59;
+      opacity: 0.75;
+    }
+
+    /* alternating row tint on other columns */
+    .comp-table tbody tr:nth-child(even) .td-other {
+      background: #fafbfc;
+    }
+
+    /* ── Value icons ── */
+    .comp-val {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .comp-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comp-icon svg { width: 12px; height: 12px; }
+
+    .comp-icon-good    { background: rgba(0, 158, 227, 0.15); }
+    .comp-icon-neutral { background: rgba(0, 45, 89, 0.10); }
+    .comp-icon-bad     { background: rgba(220, 60, 60, 0.10); }
+
+    /* ─── REFERENZEN ────────────────────────────────────────────────────────── */
+    .referenzen {
+      background: rgba(245, 245, 246, 0.45);
+      padding: 88px 0 100px;
+    }
+
+    .referenzen .container { padding: 0 32px; }
+
+    .referenzen .section-h2 { text-align: center; margin-bottom: 10px; }
+    .referenzen .section-sub { text-align: center; margin: 0 auto 20px; }
+
+    .testimonial-block {
+      max-width: 700px;
+      margin: 0 auto 56px;
+      text-align: center;
+      font-size: 20px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #002d59;
+      opacity: 0.8;
+    }
+
+    .testimonial-block cite {
+      display: block;
+      margin-top: 12px;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 15px;
+      color: #009ee3;
+    }
+
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .ref-card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(0, 45, 89, 0.10);
+      overflow: hidden;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .ref-card:hover {
+      box-shadow: 0 12px 48px rgba(0, 45, 89, 0.16);
+      transform: translateY(-4px);
+    }
+
+    .ref-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .ref-card-body { padding: 24px 28px; }
+
+    .ref-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: #009ee3;
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-right: 6px;
+      margin-bottom: 10px;
+    }
+
+    .ref-badge-outline {
+      background: transparent;
+      color: #009ee3;
+      border: 1.5px solid #009ee3;
+    }
+
+    .ref-card-body h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #002d59;
+      margin-bottom: 4px;
+    }
+
+    .ref-card-meta {
+      font-size: 14px;
+      color: #002d59;
+      opacity: 0.55;
+      margin-bottom: 10px;
+    }
+
+    .ref-card-body p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #002d59;
+      opacity: 0.72;
+      margin-bottom: 0;
+    }
+
+    /* ─── ZIELGRUPPEN ────────────────────────────────────────────────────────── */
+    .zielgruppen {
+      background: #ffffff;
+      padding: 88px 0 100px;
+    }
+
+    .zielgruppen .container { padding: 0 32px; }
+    .zielgruppen .section-h2 { text-align: center; margin-bottom: 10px; }
+    .zielgruppen .section-sub { text-align: center; margin: 0 auto 48px; max-width: 640px; }
+
+    .zg-tabs {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .zg-tab {
+      font-family: 'Gabarito', Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 10px 24px;
+      border: 2px solid #d9dada;
+      border-radius: 6px;
+      background: transparent;
+      color: #002d59;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .zg-tab:hover { border-color: #009ee3; color: #009ee3; }
+    .zg-tab.active { background: #002d59; color: #ffffff; border-color: #002d59; }
+
+    .zg-panel { display: none; }
+    .zg-panel.active { display: block; }
+
+    .zg-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .zg-text h3 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #002d59;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .zg-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .zg-benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: #002d59;
+      opacity: 0.78;
+    }
+
+    .zg-benefit-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: #e8edf5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .zg-benefit-icon svg { width: 15px; height: 15px; }
+
+    .zg-image {
+      border-radius: 14px;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e8edf2 0%, #d0d8e4 100%);
+    }
+
+    .zg-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ─── TECHNIK ────────────────────────────────────────────────────────────── */
+    .technik {
+      background: #002d59;
+      color: #ffffff;
+      padding: 88px 0 100px;
+    }
+
+    .technik .container { padding: 0 32px; }
+    .technik .section-h2 { text-align: center; color: #ffffff; margin-bottom: 10px; }
+    .technik .section-sub { text-align: center; color: rgba(255,255,255,0.65); margin: 0 auto 56px; }
+
+    .technik-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .tech-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .tech-table th {
+      background: rgba(255,255,255,0.08);
+      color: #ffffff;
+      padding: 14px 24px;
+      font-size: 14px;
+      font-weight: 800;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .tech-table td {
+      padding: 14px 24px;
+      font-size: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .tech-table td:first-child {
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .tech-table td:last-child {
+      font-weight: 800;
+      color: #009ee3;
+    }
+
+    .tech-table tbody tr:last-child td { border-bottom: none; }
+
+    .tech-features {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .tech-feature {
+      background: rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tech-feature-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 158, 227, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .tech-feature-icon svg { width: 22px; height: 22px; }
+
+    .tech-feature span {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .tech-sustainability {
+      margin-top: 32px;
+      padding: 20px 28px;
+      background: rgba(0, 158, 227, 0.1);
+      border-radius: 14px;
+      border-left: 4px solid #009ee3;
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ─── FAQ ────────────────────────────────────────────────────────────────── */
+    .faq {
+      background: rgba(245, 245, 246, 0.45);
+      padding: 88px 0 100px;
+    }
+
+    .faq .container { padding: 0 32px; }
+    .faq .section-h2 { text-align: center; margin-bottom: 48px; }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0, 45, 89, 0.06);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 22px 28px;
+      font-family: 'Gabarito', Arial, sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #002d59;
+      gap: 16px;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: #009ee3; }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: #f5f5f6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, background 0.2s;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: #009ee3;
+    }
+
+    .faq-item.open .faq-icon svg path { stroke: #ffffff; }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 28px 22px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #002d59;
+      opacity: 0.72;
+    }
+
+    /* ─── BERATER ────────────────────────────────────────────────────────────── */
+    .berater {
+      background: #ffffff;
+      padding: 88px 0 100px;
+    }
+
+    .berater .container { padding: 0 32px; }
+    .berater .section-h2 { text-align: center; margin-bottom: 10px; }
+    .berater .section-sub { text-align: center; margin: 0 auto 56px; max-width: 680px; }
+
+    .berater-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+
+    .berater-card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(0, 45, 89, 0.08);
+      overflow: hidden;
+      text-align: center;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .berater-card:hover {
+      box-shadow: 0 12px 48px rgba(0, 45, 89, 0.14);
+      transform: translateY(-4px);
+    }
+
+    .berater-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .berater-card-body { padding: 20px 16px 24px; }
+
+    .berater-card-body h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #002d59;
+      margin-bottom: 4px;
+    }
+
+    .berater-card-role {
+      font-size: 13px;
+      font-weight: 400;
+      color: #002d59;
+      opacity: 0.55;
+      margin-bottom: 4px;
+    }
+
+    .berater-card-region {
+      font-size: 13px;
+      font-weight: 700;
+      color: #009ee3;
+      margin-bottom: 10px;
+    }
+
+    .berater-card-phone {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #002d59;
+      text-decoration: none;
+    }
+
+    .berater-card-phone:hover { color: #009ee3; text-decoration: none; }
+
+    /* ─── CTA ────────────────────────────────────────────────────────────────── */
+    .cta-section {
+      background: #002d59;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .cta-section .container { padding: 0 32px; }
+
+    .cta-section h2 {
+      font-size: 36px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.12;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+
+    .cta-section .btn {
+      font-size: 20px;
+      padding: 18px 40px;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────────────────── */
+    .footer {
+      background: #001a35;
+      color: rgba(255, 255, 255, 0.5);
+      padding: 48px 0 32px;
+    }
+
+    .footer .container { padding: 0 32px; }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-brand strong {
+      color: rgba(255,255,255,0.8);
+      font-weight: 800;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: #009ee3; text-decoration: none; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .hero-h1 { font-size: 44px; }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .solution .container { gap: 48px; }
+      .comp-table thead tr th,
+      .comp-table tbody tr td { font-size: 16px; padding: 14px 18px; }
+      .ref-grid { grid-template-columns: 1fr; }
+      .zg-content { gap: 40px; }
+      .technik-layout { grid-template-columns: 1fr; }
+      .berater-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      /* Einheitlicher Mobile-Gutter für alle Sections */
+      .hero .container,
+      .social-proof .container,
+      .problem .container,
+      .solution .container,
+      .steps .container,
+      .comparison .container { padding: 0 20px; }
+
+      /* Nav: Logo 13px weiter links */
+      .nav .container { padding: 0 20px 0 7px; }
+
+      .nav { height: 72px; }
+      .nav-logo img { height: 52px; }
+      .btn { font-size: 15px; padding: 12px 20px; }
+
+      .hero { min-height: 90vh; }
+      .hero .container { padding: 140px 20px 80px; }
+      .hero-h1 { font-size: 36px; }
+      .hero-sub { font-size: 17px; }
+      .hero-key-figures { gap: 24px; flex-wrap: wrap; }
+      .hero-key-figure .number { font-size: 28px; }
+      .btn-hero-ghost { font-size: 15px; padding: 12px 20px; }
+
+      .social-proof { padding: 44px 0 52px; }
+      .sp-heading { font-size: 28px; }
+      .sp-logos { justify-content: center; gap: 16px 28px; }
+
+      .problem { padding: 64px 0 72px; }
+      .problem .section-h2 { font-size: 28px; }
+      .cards-grid { grid-template-columns: 1fr; }
+
+      /* ── Section 4: Solution ── */
+      .solution { padding: 64px 0 72px; }
+      .solution .container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .solution-image { aspect-ratio: 4 / 3; } /* etwas flacher auf Mobile */
+      .solution-right .section-h2 { font-size: 28px; }
+
+      /* ── Section 5: Video ── */
+      .steps { padding: 56px 0 64px; }
+      .steps .section-h2 { font-size: 28px; }
+      .video-placeholder { margin-bottom: 0; }
+      .play-btn { width: 56px; height: 56px; }
+
+      /* ── Section 6: Comparison ── */
+      .comparison { padding: 56px 0 64px; }
+      .comparison .section-h2 { font-size: 24px; margin-bottom: 32px; }
+
+      /* Section scrollt horizontal – Container-Padding bleibt korrekt */
+      .comparison {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .comparison .container { overflow: visible; }
+      .comp-table {
+        min-width: 520px;
+        width: 100%;
+      }
+      .comp-table thead tr th,
+      .comp-table tbody tr td { font-size: 15px; padding: 12px 14px; }
+      .zg-content { grid-template-columns: 1fr; gap: 32px; }
+      .zg-text h3 { font-size: 24px; }
+      .berater-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-section h2 { font-size: 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-h1 { font-size: 28px; }
+      .hero-sub, .hero-bullet, .card-p, .problem .section-sub { font-size: 16px; }
+      .hero-key-figures { gap: 20px; }
+      .hero-key-figure .number { font-size: 24px; }
+      .sp-heading, .problem .section-h2 { font-size: 24px; }
+
+      .solution-right .section-h2 { font-size: 24px; }
+      .solution-bullet { font-size: 16px; }
+
+      .comp-table thead tr th,
+      .comp-table tbody tr td { font-size: 14px; padding: 10px 12px; }
+      .berater-grid { grid-template-columns: 1fr 1fr; }
+      .cta-section h2 { font-size: 24px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 1 · NAVIGATION
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="container">
+      <a class="nav-logo" href="#">
+        <img
+          src="assets/korodur-logo.png"
+          alt="Korodur Logo"
+        />
+      </a>
+      <a href="#anfragen" class="btn">Jetzt anfragen</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 1 · HERO
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <main id="main-content">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <h1 class="hero-h1">
+          <span class="line1">Einmal reparieren.</span>
+          <span class="line2">Dauerhaft halten.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Rapid Set ASPHALT REPAIR MIX – die schnelle, einfache und dauerhafte
+          Alternative zu Kaltmischgut. Kein Fräsen, keine Mindestmenge,
+          kein Warten auf Heißasphalt.
+        </p>
+
+        <div class="hero-bullets">
+          <div class="hero-bullet">
+            <div class="bullet-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span>Einbaubar ab –10 °C, auch bei Nässe</span>
+          </div>
+          <div class="hero-bullet">
+            <div class="bullet-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span>Befahrbar nach 2 Stunden</span>
+          </div>
+          <div class="hero-bullet">
+            <div class="bullet-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span>Keine Mindestmenge, ab 1 Sack</span>
+          </div>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="#anfragen" class="btn">Jetzt Fachberater anfragen</a>
+          <a href="#technik" class="btn-hero-ghost">Technische Daten</a>
+        </div>
+
+        <div class="hero-key-figures">
+          <div class="hero-key-figure">
+            <span class="number">80+</span>
+            <span class="label">Jahre Erfahrung</span>
+          </div>
+          <div class="hero-key-figure">
+            <span class="number">117</span>
+            <span class="label">Referenzprojekte</span>
+          </div>
+          <div class="hero-key-figure">
+            <span class="number">30 Min.</span>
+            <span class="label">Belastbar nach</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 2 · SOCIAL PROOF
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="social-proof">
+    <div class="container">
+      <p class="sp-label">Über 1.000+ Unternehmen weltweit</p>
+      <h2 class="sp-heading">Diese Kunden vertrauen uns</h2>
+      <div class="sp-logos">
+        <span class="sp-logo-item">Zalando</span>
+        <span class="sp-logo-item">Amazon</span>
+        <span class="sp-logo-item">OBI</span>
+        <span class="sp-logo-item">Daimler</span>
+        <span class="sp-logo-item">Airbus</span>
+        <span class="sp-logo-item">Logo 6</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 3 · PROBLEM
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="problem">
+    <div class="container">
+      <!-- H2 with cyan highlight on key phrase (every 2nd section) -->
+      <h2 class="section-h2">
+        Warum Kaltmischgut <span class="highlight-cyan">nicht reicht</span>
+      </h2>
+      <p class="section-sub">
+        Frostschäden, Schlaglöcher, absackende Schachtabdeckungen – das Schadensbild
+        kennt jeder, der Asphaltflächen betreut. Die übliche Lösung: Kaltmischgut rein
+        und hoffen, dass es hält.
+      </p>
+
+      <div class="cards-grid">
+
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="card-icon-box">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="13" cy="13" r="10" stroke="#009ee3" stroke-width="2"/>
+              <path d="M13 7.5V13.5L16.5 16" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="card-h3">Schnell drin – schnell wieder draußen</h3>
+          <p class="card-p">
+            Kaltasphalt ist die beliebteste Notlösung. Und genau das ist das Problem:
+            Nach wenigen Wochen reißt die Stelle wieder auf. Mehrfach im Jahr dieselbe Reparatur.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <div class="card-icon-box">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="8" width="15" height="10" rx="1.5" stroke="#009ee3" stroke-width="2"/>
+              <path d="M17 11H21L24 14V18H17V11Z" stroke="#009ee3" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="7" cy="19.5" r="2" stroke="#009ee3" stroke-width="2"/>
+              <circle cx="20" cy="19.5" r="2" stroke="#009ee3" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3 class="card-h3">Heißasphalt? Braucht Logistik.</h3>
+          <p class="card-p">
+            Fräse bestellen, Einbaubohle organisieren, Walze mieten,
+            Mindestmenge einhalten. Für einzelne Schlaglöcher oder kleine Flächen
+            völlig unwirtschaftlich.
+          </p>
+        </div>
+
+        <!-- Card 3 · Highlight -->
+        <div class="card card-highlight">
+          <div class="card-icon-box">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="13" cy="13" r="10" stroke="#009ee3" stroke-width="2"/>
+              <path d="M8.5 13.5L11.5 16.5L17.5 10" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="card-h3">Es gibt eine bessere Option.</h3>
+          <p class="card-p">
+            Rapid Set ARM trocknet in 2 Stunden, braucht kein Gerät und hält dauerhaft –
+            auch unter Frostbedingungen und bei Nässe einbaubar.
+          </p>
+        </div>
+
+      </div><!-- /.cards-grid -->
+    </div><!-- /.container -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 4 · LÖSUNG
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="solution">
+    <div class="container">
+
+      <!-- Linke Spalte: Bild -->
+      <div class="solution-image">
+        <img
+          src="assets/arm-frisch-fertig-glatt.jpg"
+          alt="Rapid Set ARM – Einbau auf der Baustelle"
+        />
+      </div>
+
+      <!-- Rechte Spalte: Text -->
+      <div class="solution-right">
+        <h2 class="section-h2">Sack auf. Wasser dazu. Fertig.<br>So einfach ist Asphaltreparatur.</h2>
+
+        <div class="solution-bullets">
+          <div class="solution-bullet">
+            <div class="solution-bullet-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Schadstelle ausfräsen oder aufrauen (mind. 5 cm tief)</span>
+          </div>
+          <div class="solution-bullet">
+            <div class="solution-bullet-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Sack öffnen, Inhalt einschütten, Wasser zugeben – fertig gemischt</span>
+          </div>
+          <div class="solution-bullet">
+            <div class="solution-bullet-icon">
+              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Verdichten, glätten – nach 2 Stunden befahrbar</span>
+          </div>
+        </div>
+
+        <a href="#anfragen" class="btn" style="align-self: flex-start;">
+          Jetzt Fachberater anfragen
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 5 · ANWENDUNGSSCHRITTE (VIDEO)
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="steps">
+    <div class="container">
+
+      <h2 class="section-h2" style="text-align:center;">So sieht das <span class="highlight-cyan">in der Praxis</span> aus</h2>
+      <p class="section-sub" style="text-align:center; margin:0 auto 56px; max-width:640px;">
+        Laufzeit ca. 2:30 Min. · Einbau-Demo auf der Baustelle
+      </p>
+
+      <!-- Video Placeholder -->
+      <div class="video-placeholder" id="video-container" onclick="startVideo()">
+        <span class="video-badge">Einbau-Demo</span>
+        <div class="play-btn">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5L23 14L8 23V5Z" fill="#ffffff"/>
+          </svg>
+        </div>
+      </div>
+    </div><!-- /.container -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 6 · VERGLEICHSTABELLE
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="comparison">
+    <div class="container">
+      <h2 class="section-h2">Rapid Set vs. Kaltmischgut vs. Heißasphalt</h2>
+
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th class="th-criteria"></th>
+            <th class="th-arm">
+              <div><span class="comp-recommended">Empfohlen</span></div>
+              Rapid Set ARM
+            </th>
+            <th class="th-other">Kaltmischgut</th>
+            <th class="th-other">Heißasphalt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-criteria">Befahrbarkeit</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                2 Stunden
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Sofort (temp.)
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                4–6 Stunden
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-criteria">Haltbarkeit</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Dauerhaft
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                3–6 Monate
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Dauerhaft
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-criteria">Geräteaufwand</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Keiner
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Keiner
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Fräse + Walze
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-criteria">Mindestmenge</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Ab 1 Sack
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Ab 1 Sack
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Mind. 1 Tonne
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-criteria">Einbau bei Nässe / Frost</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Ja
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Bedingt
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Nein
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-criteria">Kosten pro Reparatur</td>
+            <td class="td-arm">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-good">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Niedrig
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Mittel (kurzfr.)
+              </div>
+            </td>
+            <td class="td-other">
+              <div class="comp-val">
+                <span class="comp-icon comp-icon-bad">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="#dc3c3c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Hoch
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 7 · REFERENZEN
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="referenzen">
+    <div class="container">
+      <h2 class="section-h2">Bewährt <span class="highlight-cyan">in der Praxis</span></h2>
+      <p class="section-sub">Über 100 dokumentierte Einsätze in ganz Deutschland.</p>
+
+      <blockquote class="testimonial-block">
+        &bdquo;Ein Material, das hält, was es verspricht – und das die Arbeit vor Ort so einfach wie möglich macht.&ldquo;
+        <cite>— F &amp; G Bau GmbH, Versmold</cite>
+      </blockquote>
+
+      <div class="ref-grid">
+
+        <div class="ref-card">
+          <img src="assets/arm-ergebnis-weitwinkel.jpg" alt="Lagerfläche Dieckmann – reparierte Asphaltfläche unter Schwerlast" loading="lazy" />
+          <div class="ref-card-body">
+            <span class="ref-badge">Straßenbau</span>
+            <span class="ref-badge ref-badge-outline">2021</span>
+            <span class="ref-badge ref-badge-outline">Pionierprojekt</span>
+            <h3>Lagerfläche Dieckmann, Versmold</h3>
+            <p class="ref-card-meta">Versmold · Dieckmann + KORODUR-Anwendungstechniker</p>
+            <p>Erste Referenz: Lagerfläche unter höchster LKW- und Baggerbelastung. Hervorragende Beständigkeit unter Schwerlastverkehr.</p>
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <img src="assets/arm-ergebnis-2tage.jpg" alt="Linnenbecker Bad Oeynhausen – Testfläche Außenlager" loading="lazy" />
+          <div class="ref-card-body">
+            <span class="ref-badge">Baufachhandel</span>
+            <span class="ref-badge ref-badge-outline">2022</span>
+            <h3>Linnenbecker, Bad Oeynhausen</h3>
+            <p class="ref-card-meta">Bad Oeynhausen · Außenlager</p>
+            <p>Testfläche unter ständigem LKW- und Staplerverkehr. Hervorragende Beständigkeit auch unter höchster Beanspruchung.</p>
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <img src="assets/arm-nachkontrolle-18monate.jpg" alt="Wüseke Baustoffwerke – Nachkontrolle nach 18 Monaten" loading="lazy" />
+          <div class="ref-card-body">
+            <span class="ref-badge">Baustoffwerk</span>
+            <span class="ref-badge ref-badge-outline">2022</span>
+            <span class="ref-badge ref-badge-outline">Nachkontrolle: intakt</span>
+            <h3>Wüseke Baustoffwerke, Sassenberg</h3>
+            <p class="ref-card-meta">Sassenberg · Knappheide GmbH</p>
+            <p>LKW-Ausfahrt mit 2 Paletten saniert. Volle Tragfähigkeit unter täglichem Schwerlastverkehr.</p>
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <img src="assets/arm-verarbeitung-oberflaeche.jpg" alt="Lackiererei Schmidt – Betriebszufahrt repariert" loading="lazy" />
+          <div class="ref-card-body">
+            <span class="ref-badge">Gewerbe</span>
+            <span class="ref-badge ref-badge-outline">2022</span>
+            <h3>Lackiererei Schmidt, Versmold</h3>
+            <p class="ref-card-meta">Versmold · GaLa-Bau Grothues &amp; Solfrian</p>
+            <p>Betriebszufahrt unter LKW- und PKW-Verkehr. Überzeugende Tragfähigkeit und einfachste Verarbeitung.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 8 · ZIELGRUPPEN
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="zielgruppen" id="zielgruppen">
+    <div class="container">
+      <h2 class="section-h2">Für jede Fläche. <span class="highlight-cyan">Für jeden Einsatz.</span></h2>
+      <p class="section-sub">Ob Straße, Gehweg, Parkplatz oder Industriegelände – Asphalt Repair Mix repariert Asphaltflächen dauerhaft.</p>
+
+      <div class="zg-tabs" role="tablist">
+        <button class="zg-tab active" role="tab" aria-selected="true" data-tab="kommunen">Kommunen</button>
+        <button class="zg-tab" role="tab" aria-selected="false" data-tab="galabau">GaLa-Bau</button>
+        <button class="zg-tab" role="tab" aria-selected="false" data-tab="facility">Facility Mgmt.</button>
+        <button class="zg-tab" role="tab" aria-selected="false" data-tab="verarbeiter">Verarbeiter</button>
+      </div>
+
+      <div class="zg-panel active" data-panel="kommunen" role="tabpanel">
+        <div class="zg-content">
+          <div class="zg-text">
+            <h3>Weniger Beschwerden.<br>Weniger Doppelarbeit.</h3>
+            <div class="zg-benefits">
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Dauerhafte Reparatur von Schlaglöchern, Frostschäden und Absackungen</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Budget sinnvoll einsetzen – jede Stelle nur einmal reparieren</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Keine Fräse, keine Walze – ein Bautrupp reicht</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Verarbeitbar ab 5 °C – ideal für die Frostschäden-Saison</span>
+              </div>
+            </div>
+          </div>
+          <div class="zg-image">
+            <img src="assets/arm-schaden-grossflaeche.jpg" alt="Kommune – großflächige Asphaltreparatur" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <div class="zg-panel" data-panel="galabau" role="tabpanel">
+        <div class="zg-content">
+          <div class="zg-text">
+            <h3>Zufriedene Kunden.<br>Keine Reklamationen.</h3>
+            <div class="zg-benefits">
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Ergebnisse, auf die Sie Ihren Namen setzen können</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Schnelle Wiederfreigabe – Baustelle in Stunden räumen</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Einfachste Verarbeitung ohne Spezialgeräte oder Haftbrücke</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Wettbewerbsvorteil gegenüber Kaltmischgut</span>
+              </div>
+            </div>
+          </div>
+          <div class="zg-image">
+            <img src="assets/arm-verarbeitung-werkzeug.jpg" alt="GaLa-Bau – Verarbeitung mit Werkzeug" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <div class="zg-panel" data-panel="facility" role="tabpanel">
+        <div class="zg-content">
+          <div class="zg-text">
+            <h3>Sichere Flächen.<br>Minimale Betriebsunterbrechung.</h3>
+            <div class="zg-benefits">
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Schlaglöcher beseitigen – bevor sie zum Haftungsfall werden</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Sanierung bei laufendem Betrieb</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Professionelles Erscheinungsbild für Ihr Gelände</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Flexible Einbaustärke 30–600 mm</span>
+              </div>
+            </div>
+          </div>
+          <div class="zg-image">
+            <img src="assets/arm-frisch-fertig-glatt.jpg" alt="Facility Management – glatt reparierte Fläche" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <div class="zg-panel" data-panel="verarbeiter" role="tabpanel">
+        <div class="zg-content">
+          <div class="zg-text">
+            <h3>Einfach verarbeiten.<br>Sicher liefern.</h3>
+            <div class="zg-benefits">
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Sack auf, 3,8 l Wasser, mischen, einbauen – fertig</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Kein Primer, keine Haftbrücke, keine Fräse</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>30–600 mm Einbaustärke</span>
+              </div>
+              <div class="zg-benefit">
+                <div class="zg-benefit-icon"><svg viewBox="0 0 15 15" fill="none"><path d="M2.5 8L5.8 11.5L12.5 4" stroke="#009ee3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span>Pumpfähig für größere Flächen</span>
+              </div>
+            </div>
+          </div>
+          <div class="zg-image">
+            <img src="assets/arm-frisch-fertig-pylone.jpg" alt="Verarbeiter – frisch reparierte Fläche mit Pylonen" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 9 · TECHNISCHE DATEN
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="technik" id="technik">
+    <div class="container">
+      <h2 class="section-h2" style="color:#fff;">Die Fakten <span class="highlight-cyan">auf einen Blick</span></h2>
+      <p class="section-sub">Technische Leistungsdaten und Produkteigenschaften.</p>
+
+      <div class="technik-layout">
+
+        <table class="tech-table">
+          <thead>
+            <tr>
+              <th>Kennwert</th>
+              <th>Wert</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Druckfestigkeit</td><td>ca. 38 N/mm²</td></tr>
+            <tr><td>Biegezugfestigkeit</td><td>ca. 6,4 N/mm²</td></tr>
+            <tr><td>E-Modul</td><td>ca. 22.000 N/mm²</td></tr>
+            <tr><td>Körnung</td><td>0–8 mm</td></tr>
+            <tr><td>Farbe</td><td>Schwarz</td></tr>
+            <tr><td>Einbaustärke</td><td>30–600 mm</td></tr>
+            <tr><td>Lieferform</td><td>25-kg-Sack</td></tr>
+            <tr><td>Wasserzugabe</td><td>ca. 3,80 l / 25 kg</td></tr>
+            <tr><td>Materialverbrauch</td><td>ca. 20 kg/m²/cm</td></tr>
+            <tr><td>Verarbeitungstemperatur</td><td>5–30 °C</td></tr>
+            <tr><td>Belastbar nach</td><td>ca. 30 Min.</td></tr>
+            <tr><td>Voll belastbar</td><td>ca. 1 Std.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="tech-features">
+          <div class="tech-feature">
+            <div class="tech-feature-icon">
+              <svg viewBox="0 0 22 22" fill="none"><path d="M11 2L13.5 7.5H19L14.5 11L16.5 17L11 13.5L5.5 17L7.5 11L3 7.5H8.5L11 2Z" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Hochfest, spannungsarm</span>
+          </div>
+          <div class="tech-feature">
+            <div class="tech-feature-icon">
+              <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#009ee3" stroke-width="1.8"/><path d="M7 11L10 14L15 8" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Mineralisch, chloridfrei</span>
+          </div>
+          <div class="tech-feature">
+            <div class="tech-feature-icon">
+              <svg viewBox="0 0 22 22" fill="none"><path d="M11 3V19M6 7L11 3L16 7" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Frost- &amp; tausalzbeständig</span>
+          </div>
+          <div class="tech-feature">
+            <div class="tech-feature-icon">
+              <svg viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3" stroke="#009ee3" stroke-width="1.8"/><path d="M7 11H15" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <span>Exzellente Haftung</span>
+          </div>
+          <div class="tech-feature">
+            <div class="tech-feature-icon">
+              <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#009ee3" stroke-width="1.8"/><path d="M11 7V11L14 13" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>12 Monate lagerstabil</span>
+          </div>
+          <div class="tech-feature">
+            <div class="tech-feature-icon">
+              <svg viewBox="0 0 22 22" fill="none"><path d="M11 3C6.58 3 3 6.58 3 11s3.58 8 8 8 8-3.58 8-8" stroke="#009ee3" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <span>Pumpfähig</span>
+          </div>
+
+          <div class="tech-sustainability">
+            ca. 30 % weniger CO₂ als herkömmlicher Portlandzement. Recyceltes Zuschlagmaterial und reduzierter Einsatz von Primärrohstoffen.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 10 · FAQ
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2 class="section-h2">Häufige <span class="highlight-cyan">Fragen</span></h2>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Was ist Rapid Set ASPHALT REPAIR MIX?
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="#002d59" stroke-width="2" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Ein zementbasiertes, polymervergütetes Reparaturmaterial für alle Asphaltflächen. Es vereint die Geschwindigkeit von Kaltmischgut mit der Dauerhaftigkeit von Heißasphalt. Belastbar nach 30 Min., voll belastbar nach ca. 1 Std.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Warum besser als Kaltasphalt?
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="#002d59" stroke-width="2" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Kaltasphalt reißt nach Wochen wieder auf. ARM erreicht ca. 38 N/mm² Druckfestigkeit, ist frostbeständig und bietet dauerhafte Reparatur – ohne Nacharbeiten.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie schnell ist ARM belastbar?
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="#002d59" stroke-width="2" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Nach ca. 30 Minuten belastbar, nach ca. 1 Stunde voll belastbar – auch für Schwerlast. Schneller als Heißasphalt, zuverlässiger als Kaltmischgut.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wo ist ARM erhältlich?
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="#002d59" stroke-width="2" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Über den Baustoffhandel. Für technische Fragen oder Großprojekte stehen unsere Fachberater zur Verfügung.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Kann ich ARM selbst verarbeiten?
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="#002d59" stroke-width="2" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Ja. Sack öffnen, 3,8 l Wasser, mischen, einbauen. Keine Haftbrücke, keine Spezialwerkzeuge. Auch ohne Fachpersonal professionelle Ergebnisse.
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 11 · BERATER
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="berater" id="anfragen">
+    <div class="container">
+      <h2 class="section-h2">Ihr Fachberater <span class="highlight-cyan">in Ihrer Region</span></h2>
+      <p class="section-sub">Produktfragen, Mengenberechnung, Verarbeitungsempfehlungen – kostenlos und unverbindlich.</p>
+
+      <div class="berater-grid">
+
+        <div class="berater-card">
+          <img src="assets/berater/Jens-Sackmann-2048x2048.jpg" alt="Jens Sackmann – Fachberater PLZ 20–29" loading="lazy" />
+          <div class="berater-card-body">
+            <h3>Jens Sackmann</h3>
+            <p class="berater-card-role">Technische Vertriebsberatung</p>
+            <p class="berater-card-region">PLZ 20–29</p>
+            <a href="tel:+491703733983" class="berater-card-phone">+49 170 3733983</a>
+          </div>
+        </div>
+
+        <div class="berater-card">
+          <img src="assets/berater/Andre-Grahn-2048x2048.jpg" alt="André Grahn – Fachberater PLZ 30–59" loading="lazy" />
+          <div class="berater-card-body">
+            <h3>André Grahn</h3>
+            <p class="berater-card-role">Technische Vertriebsberatung</p>
+            <p class="berater-card-region">PLZ 30–33, 37, 40–59</p>
+            <a href="tel:+491703733979" class="berater-card-phone">+49 170 3733979</a>
+          </div>
+        </div>
+
+        <div class="berater-card">
+          <img src="assets/berater/Jens-Lang-2048x2048.webp" alt="Jens Lang – Fachberater PLZ 34–79" loading="lazy" />
+          <div class="berater-card-body">
+            <h3>Jens Lang</h3>
+            <p class="berater-card-role">Technische Vertriebsberatung</p>
+            <p class="berater-card-region">PLZ 34–36, 54–79, 86–89</p>
+            <a href="tel:+491703733985" class="berater-card-phone">+49 170 3733985</a>
+          </div>
+        </div>
+
+        <div class="berater-card">
+          <img src="assets/berater/Daniel-May-2048x2048.jpg" alt="Daniel May – Fachberater PLZ 80–94" loading="lazy" />
+          <div class="berater-card-body">
+            <h3>Daniel May</h3>
+            <p class="berater-card-role">Technische Vertriebsberatung</p>
+            <p class="berater-card-region">PLZ 80–89, 94</p>
+            <a href="tel:+491721480125" class="berater-card-phone">+49 172 1480125</a>
+          </div>
+        </div>
+
+        <div class="berater-card">
+          <img src="assets/berater/Francesco-Palese-2048x2048.jpg" alt="Francesco Palese – Fachberater PLZ 90–97" loading="lazy" />
+          <div class="berater-card-body">
+            <h3>Francesco Palese</h3>
+            <p class="berater-card-role">Technische Vertriebsberatung</p>
+            <p class="berater-card-region">PLZ 90–97</p>
+            <a href="tel:+491721480128" class="berater-card-phone">+49 172 1480128</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 12 · CTA
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ähnliches Projekt?<br><span class="highlight-cyan">Sprechen Sie uns an.</span></h2>
+      <p>Kostenlose Beratung, Musterversand und Mengenberechnung durch unsere Fachberater.</p>
+      <a href="mailto:info@korodur.de" class="btn">Jetzt Fachberater anfragen</a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong>KORODUR International GmbH</strong><br>
+          Wernher-von-Braun-Str. 4 · 92224 Amberg<br>
+          +49 9621 4759-0 · info@korodur.de
+        </div>
+        <div class="footer-links">
+          <a href="https://www.korodur.de/impressum/">Impressum</a>
+          <a href="https://www.korodur.de/datenschutz/">Datenschutz</a>
+          <a href="https://www.korodur.de/wp-content/uploads/Asphalt-Repair-Mix_de.pdf">Datenblatt</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const nav   = document.querySelector('.nav');
+      const card1 = document.querySelector('.overlay-card-1');
+
+      function onScroll() {
+        const y = window.scrollY;
+
+        /* Nav-Schatten: ab 1 px Scroll einblenden */
+        if (y > 1) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+
+        /* Parallax entfernt */
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    /* ── YouTube Facade: öffnet Video in neuem Tab (Embedding gesperrt) ── */
+    function startVideo() {
+      window.open('https://www.youtube.com/watch?v=Z676CtyjVr8', '_blank', 'noopener');
+    }
+
+    /* ── Zielgruppen Tabs ── */
+    document.querySelectorAll('.zg-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.zg-tab').forEach(function (t) {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        document.querySelectorAll('.zg-panel').forEach(function (p) {
+          p.classList.remove('active');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        var panel = document.querySelector('[data-panel="' + tab.dataset.tab + '"]');
+        if (panel) panel.classList.add('active');
+      });
+    });
+
+    /* ── FAQ Accordion ── */
+    document.querySelectorAll('.faq-question').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = btn.closest('.faq-item');
+        var answer = item.querySelector('.faq-answer');
+        var isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(function (fi) {
+          fi.classList.remove('open');
+          fi.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          fi.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        // Open clicked (if was closed)
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
